@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" viewBox="0 0 300 200">
+  <rect width="300" height="200" fill="#f8f9fa"/>
+  
+  <!-- Fire extinguisher -->
+  <g transform="translate(150, 100)">
+    <rect x="-20" y="-80" width="40" height="120" rx="20" fill="#dc3545"/>
+    <rect x="-25" y="40" width="50" height="20" fill="#212529"/>
+    <circle cx="0" cy="-90" r="15" fill="#212529"/>
+    <rect x="-8" y="-85" width="16" height="20" fill="#ffffff"/>
+  </g>
+  
+  <!-- Abstract background elements -->
+  <circle cx="50" cy="50" r="20" fill="#e9ecef" />
+  <circle cx="250" cy="150" r="15" fill="#e9ecef" />
+  <rect x="200" y="30" width="60" height="10" rx="5" fill="#e9ecef" />
+</svg>

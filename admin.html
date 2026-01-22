@@ -1,0 +1,665 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Red Zone - Admin Dashboard</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="style.css">
+  <!-- FAVICON -->
+  <link rel="icon" href="images/logo1.png" type="image/png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+:root {
+  --black:#000000;
+  --dark:#111111;
+  --dark2:#1a1a1a;
+  --card:#1a1a1a;
+  --red:#e10600;
+  --white:#ffffff;
+  --gray:#b5b5b5;
+}
+
+/* RESET */
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body {
+  font-family:'Inter',sans-serif;
+  background:var(--black); /* Solid Black Background */
+  color:var(--dark2);
+  overflow-x: hidden;
+}
+
+.container {
+  width: 100%;
+  max-width:1200px;
+  padding:0 20px;
+  margin: auto;
+}
+
+/* =========================
+   NAVBAR (UPDATED)
+========================= */
+header {
+  background:var(--white);
+  color:var(--black);
+  position:sticky;
+  top:0;
+  z-index:1000;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  height: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.navbar {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  width: 100%;
+  min-height: 70px;
+}
+
+/* Brand */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.logo {
+  width: 46px;
+  height: auto;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.brand-line-1 {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.brand-line-2 {
+  font-size: 11px;
+  font-weight: 700;
+  color: #000;
+  text-transform: uppercase;
+}
+
+.Red { color: var(--red); }
+.Zone { color: black; }
+.dash { color: black; }
+
+/* Right Side */
+.nav-right{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+select {
+  background:var(--dark);
+  color:var(--white);
+  border:1px solid var(--red);
+  padding:6px 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* HAMBURGER */
+.hamburger {
+  display:none; /* Hidden on desktop */
+  flex-direction:column;
+  gap:5px;
+  cursor:pointer;
+  width: 30px;
+}
+.hamburger span {
+  width:100%;
+  height:3px;
+  background:var(--red);
+  border-radius: 2px;
+}
+
+
+
+/* MOBILE DRAWER */
+.mobile-drawer {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 280px;
+  height: 100vh;
+  background: #0b0b0b;
+  padding: 20px;
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  transition: right 0.35s ease-in-out;
+  box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+}
+
+.drawer-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 1500;
+  display: none;
+  backdrop-filter: blur(2px);
+  transition: opacity 0.3s ease;
+}
+
+.mobile-drawer.active {
+  right: 0;
+}
+
+.mobile-drawer a {
+  color: #fff;
+  text-decoration: none;
+  padding: 14px 0;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid #222;
+  transition: 0.2s;
+}
+
+.mobile-drawer a:hover {
+  color: var(--red);
+  padding-left: 5px;
+}
+
+.drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #333;
+}
+
+.close-btn {
+  font-size: 28px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.drawer-extra {
+  margin-top: auto;
+  border-top: 1px solid #222;
+  padding-top: 10px;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+@media (max-width: 768px) {
+  
+  /* 1. Hide Desktop Pill Nav on Mobile */
+  .pill-nav-wrapper {
+    display: none !important;
+  }
+
+  /* 2. Show Hamburger */
+  .hamburger {
+    display: flex;
+  }
+
+  /* 3. Adjust Header */
+  header {
+    height: auto;
+    padding: 10px 0;
+  }
+
+  .brand-line-1 {
+    font-size: 18px;
+  }
+
+  .logo {
+    width: 38px;
+  }
+
+  /* 4. Adjust Hero/Login */
+  .hero {
+    padding-top: 60px;
+  }
+  
+  .login-section {
+    padding: 30px 20px;
+  }
+
+  /* 5. Footer Grid */
+  .footer-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footer-contact {
+    align-items: center;
+  }
+  
+  .footer-bottom {
+    flex-direction: column;
+  }
+}
+/* ================= HERO / LOGIN ================= */
+.hero {
+  /* Changed to Red/Black gradient for modern look */
+  background: radial-gradient(
+    circle at left center,
+    #ff1a1a 0%,
+    #b30000 28%,
+    #4d0000 48%,
+    #120000 65%,
+    #000000 100%
+  );
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 32px;
+  margin-bottom: 12px;
+  color: #fff; /* White text on dark bg */
+}
+
+.hero p {
+  color: #ffcccc; /* Light red for subtitles */
+  max-width: 700px;
+  margin: 0 auto 24px;
+}
+
+/* LOGIN FORM - MODERNIZED */
+.login-section {
+  max-width: 400px;
+  margin: 0 auto; /* Center the form */
+  background: var(--dark2); /* Dark card bg */
+  padding: 40px;
+  border-radius: 16px;
+  border: 1px solid #333;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+.login-section h2 {
+  margin-bottom: 25px;
+  color: #fff; /* White text */
+  text-align: center;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.login-section input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid var(--red); /* Red border for emphasis */
+  border-radius: 8px;
+  background: #222; /* Dark input bg */
+  color: #fff;
+  font-size: 16px;
+  outline: none;
+}
+
+.login-section input:focus {
+  border-color: #ff4d4d; /* Brighter red on focus */
+}
+
+.login-section button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  background: var(--red);
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.3s;
+  font-size: 16px;
+}
+
+.login-section button:hover {
+  background: #ff3333; /* Lighter red */
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(225, 6, 0, 0.4);
+}
+
+/* ================= DASHBOARD CARDS (UPDATED SHADOW & HOVER) ================= */
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 60px;
+  padding-bottom: 60px;
+}
+
+.dash-card {
+  background: var(--dark2);
+  color: #fff; /* White text */
+  padding: 30px;
+  border-radius: 16px;
+  /* Strong shadow with slight red tint */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6); 
+  text-align: center;
+  /* Smooth transitions */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border 0.3s;
+  border: 1px solid #333;
+}
+
+/* Hover Effect: Lift + Red Glow */
+.dash-card:hover {
+  transform: translateY(-8px);
+  border: 2px solid var(--red);
+  box-shadow: 0 20px 50px rgba(225, 6, 0, 0.6); /* Red glow shadow */
+}
+
+.dash-card h3 {
+  margin-bottom: 15px;
+  color: #e10600; /* Red Heading */
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.dash-card p {
+  color: var(--gray); /* Gray text */
+  line-height: 1.6;
+  margin-bottom: 25px;
+  font-size: 14px;
+}
+
+.dash-card button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background: var(--red);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  width: 100%;
+}
+
+.dash-card button:hover {
+  background: #ff3333;
+  transform: translateY(-2px);
+}
+
+/* ================= FOOTER ================= */
+footer {
+  background: var(--black);
+  color: #fff;
+  border-top: 2px solid var(--red); /* Red top border */
+  text-align: center;
+  padding: 40px 20px;
+  font-size: 14px;
+}
+
+footer a {
+  color: var(--red);
+  text-decoration: none;
+  margin: 0 10px;
+  transition: 0.3s;
+}
+
+footer a:hover {
+  color: #fff;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto 50px;
+}
+
+.footer-col h3 {
+  color: var(--red); /* Red headings */
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+.footer-col p {
+  color: var(--gray);
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.footer-contact {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+/* FOOTER COPYRIGHT */
+footer:last-of-type { /* Using this selector for the copyright line */
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #222;
+  font-weight: 600;
+  color: var(--white); /* White text */
+}
+
+
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="container navbar">
+    <!-- Brand -->
+    <div class="brand">
+      <img class="logo" src="logo.png" alt="Logo">
+      <div class="brand-text">
+        <div class="brand-line-1">
+          <span class="Red">Red</span>
+          <span class="Zone">Zone</span>
+          <span class="dash">-</span>
+        </div>
+        <div class="brand-line-2">Risk & Security Solutions</div>
+      </div>
+    </div>
+
+    <!-- Right Side -->
+    <div class="nav-right">
+      <select>
+        <option>English</option>
+        <option>हिन्दी</option>
+        <option>ਪੰਜਾਬੀ</option>
+      </select>
+      <div class="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Centered Pill Nav (Desktop) -->
+  <div class="pill-nav-wrapper">
+    <nav class="pill-nav">
+      <a href="index1.html">Home</a>
+      <a href="product.html">Products</a>
+      <a href="service.html">Services</a>
+      <a href="contact.html">Contact</a>
+      <a href="worker.html">Our Team</a>
+      <a href="admin.html" class="active">Admin</a> <!-- Highlighted Active -->
+    </nav>
+  </div>
+
+  <!-- Overlay for Mobile Menu -->
+  <div class="drawer-overlay" id="drawerOverlay" onclick="toggleMenu()"></div>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobileMenu">
+    <div class="drawer-header">
+      <h3 style="color:white; font-weight:700;">Menu</h3>
+      <span class="close-btn" onclick="toggleMenu()">&times;</span>
+    </div>
+
+    <a href="index1.html"><i class="fas fa-home"></i> Home</a>
+    <a href="product.html"><i class="fas fa-box"></i> Products</a>
+    <a href="co_product.html"><i class="fas fa-list-alt"></i> Product Details</a>
+    <a href="contact.html"><i class="fas fa-phone"></i> Contact</a>
+    <a href="worker.html"><i class="fas fa-users"></i> Our Team</a>
+    <a href="admin.html" style="color: var(--red);"><i class="fas fa-user-shield"></i> Admin Login</a>
+
+    <div class="drawer-extra">
+      <a href="#"><i class="fas fa-shopping-cart"></i> Cart</a>
+      <a href="#"><i class="fas fa-heart"></i> Wishlist</a>
+      <a href="#"><i class="fas fa-question-circle"></i> Help</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO / Login -->
+<section class="hero">
+  <div class="login-section">
+    <h2>Admin Login</h2>
+    <form action="index1.html" method="POST">
+      <input type="text" placeholder="Username" required>
+      <input type="password" placeholder="Password" required>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+</section>
+
+<!-- DASHBOARD -->
+<section class="container">
+  <h2 style="text-align:center; color:var(--white); margin-bottom:20px;">Red Zone – Risk & Security Solutions Control Panel</h2>
+  <div class="dashboard">
+    <div class="dash-card">
+      <h3>🔐 Manage Security Systems</h3>
+      <p>Add, remove, or update CCTV cameras, fire alarms, access control, and surveillance equipment.</p>
+      <button onclick="location.href='service.html'">Manage</button>
+    </div>
+
+    <div class="dash-card">
+      <h3>🚨 Security Alerts</h3>
+      <p>Create and manage system alerts, maintenance reminders, fire safety warnings, and emergency notifications.</p>
+      <button onclick="location.href='#'">Manage</button>
+    </div>
+
+    <div class="dash-card">
+      <h3>👥 Clients</h3>
+      <p>View customer details, service requests, installation history, and support tickets.</p>
+      <button onclick="location.href='commuters.html'">View</button>
+    </div>
+
+    <div class="dash-card">
+      <h3>🛠️ Service Requests</h3>
+      <p>Monitor installation requests, maintenance calls, AMC renewals, and emergency support tickets.</p>
+      <button onclick="location.href='booking.html'">Manage</button>
+    </div>
+
+    <div class="dash-card">
+      <h3>📊 Analytics</h3>
+      <p>View traffic analysis, product performance, sales data, and user activity statistics.</p>
+      <button onclick="location.href='#'">View Stats</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-logo">
+          <h2 style="color: #fff; font-size: 24px;"><span style="color: red;">Red </span>Zone</h2>
+          <p style="margin-top: 10px; font-size: 14px; line-height: 1.6;">Your trusted partner for fire safety and security solutions since 2010.</p>
+        </div>
+        <div class="footer-contact">
+          <p><i class="fas fa-map-marker-alt"></i> SECURE YOUR ZONE BY REDZONE 📍 NEAR CLOCK TOWER JABALPUR</p>
+          <p><i class="fas fa-phone"></i> +91 9425183400</p>
+          <p><i class="fas fa-envelope"></i> redzonejbp@gmail.com</p>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index1.html">Home</a></li>
+          <li><a href="product.html">Products</a></li>
+          <li><a href="co_product.html">Product Detail</a></li>
+          <li><a href="service.html">Services</a></li>
+          <li><a href="worker.html">Our Team</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Categories</h3>
+        <ul>
+          <li><a href="#">Fire Extinguishers</a></li>
+          <li><a href="#">Fire Balls</a></li>
+          <li><a href="#">Security Cameras</a></li>
+          <li><a href="#">Access Control</a></li>
+          <li><a href="#">Alarm Systems</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Customer Service</h3>
+        <ul>
+          <li><a href="faq.html">FAQs</a></li>
+          <li><a href="#">Shipping Policy</a></li>
+          <li><a href="#">Returns & Exchanges</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms & Conditions</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; <span id="year"></span> Red Zone Security Solutions | All Right Reserved.</p>
+      <div style="margin-top: 20px;">
+        <i class="fab fa-cc-visa" style="font-size: 20px; margin: 0 10px; color: #fff;"></i>
+        <i class="fab fa-cc-mastercard" style="font-size: 20px; margin: 0 10px; color: #fff;"></i>
+        <i class="fab fa-cc-amex" style="font-size: 20px; margin: 0 10px; color: #fff;"></i>
+        <i class="fab fa-cc-paypal" style="font-size: 20px; margin: 0 10px; color: #fff;"></i>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  function toggleMenu() {
+    const menu = document.getElementById("mobileMenu");
+    const overlay = document.getElementById("drawerOverlay");
+
+    if (menu.style.right === "0px") {
+      menu.style.right = "-100%";
+      overlay.classList.remove("active");
+    } else {
+      menu.style.right = "0px";
+      overlay.classList.add("active");
+    }
+  }
+</script>
+</body>
+</html>

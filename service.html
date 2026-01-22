@@ -1,0 +1,905 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Red Zone</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="style.css">
+  <!-- FAVICON -->
+  <link rel="icon" href="images/logo1.png" type="image/png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+:root {
+  --red: #e10600;
+  --red-dark: #9b0000;
+  --black: #0a0a0a;
+  --black-soft: #121212;
+  --gray: #9ca3af;
+  --white: #ffffff;
+  --dark:#141414;
+  --dark2:#1e1e1e;
+
+}
+
+/* =========================
+   GLOBAL RESET
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--black);
+  color: var(--white);
+  line-height: 1.6;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* =========================
+   CONTAINER
+========================= */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 16px;
+  margin: auto;
+}
+
+/* =========================
+   HEADER
+========================= */
+header{
+  background:#fff;
+  position:sticky;
+  top:0;
+  z-index: 999;
+  box-shadow:0 6px 18px rgba(0,0,0,.15);
+  position: sticky;
+}
+
+/* FIX LOGO SIZE */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.brand img {
+  width: 48px;        
+  height: 48px;
+  object-fit: contain;
+}
+
+.brand h2 {
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.1;
+  color: #000;
+  text-transform: uppercase;
+}
+
+.brand h2 span { color: var(--red); }
+
+.brand p {
+  font-size: 12px;
+  color: #000000;
+  margin-top: 2px;
+  font-weight: bolder;
+}
+
+/* TOP BAR */
+.navbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:14px 0 14px; /* space for pill */
+}
+
+/* PILL NAV POSITION (Desktop) */
+.pill-nav-wrapper{
+  position: absolute;
+  left: 50%;
+  bottom: -48px;       
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  pointer-events: none;
+}
+
+/* PILL NAV STYLE */
+.pill-nav{
+  background: rgba(255, 255, 255, 0.15); 
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding:12px 32px;
+  border-radius:50px;
+  display:flex;
+  gap:28px;
+  box-shadow:
+    0 5px 25px rgba(0,0,0,.45),
+    0 0 5px rgba(11, 10, 10, 0.6);
+  pointer-events: auto;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.pill-nav a{
+  color:#fff;
+  text-decoration:none;
+  font-weight:600;
+  font-size:15px;
+  opacity:.95;
+  position: relative;
+}
+
+.pill-nav a:hover{
+  opacity:1;
+  text-shadow:0 0 10px rgba(255,255,255,.6);
+}
+
+.pill-nav a.active {
+  color: rgb(4, 253, 29);
+  transform: translateY(-2px);
+}
+
+.pill-nav a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  background: var(--white);
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgb(4, 253, 29);
+}
+
+/* RIGHT SIDE */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.nav-right select{
+  background:#111;
+  color:#fff;
+  border:1px solid #e10600;
+  border-radius:6px;
+  padding:6px 10px;
+  cursor: pointer;
+}
+
+/* HAMBURGER */
+.hamburger{
+  display:none;
+  flex-direction:column;
+  gap:5px;
+  cursor:pointer;
+  padding: 5px;
+}
+.hamburger span{
+  width:26px;
+  height:3px;
+  background:var(--red);
+  border-radius: 2px;
+}
+
+/* MOBILE MENU DRAWER */
+.mobile-drawer {
+  position: fixed;
+  top: 0;
+  right: -100%; /* Hidden by default */
+  width: 280px;
+  height: 100vh;
+  background: #0b0b0b;
+  padding: 24px;
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+  box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+  overflow-y: auto;
+}
+
+.mobile-drawer.open {
+  right: 0;
+}
+
+.drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  border-bottom: 1px solid #333;
+  padding-bottom: 15px;
+}
+
+.drawer-header h3 {
+  color: var(--white);
+  font-size: 20px;
+  margin: 0;
+}
+
+.close-btn {
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--red);
+  background: transparent;
+  border: none;
+  transition: transform 0.2s;
+}
+
+.close-btn:hover {
+  transform: scale(1.1);
+}
+
+.mobile-drawer a {
+  color: #ddd;
+  text-decoration: none;
+  padding: 14px 0;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid #222;
+  transition: all 0.3s;
+}
+
+.mobile-drawer a:hover {
+  color: var(--red);
+  padding-left: 10px; /* Slight slide effect on hover */
+  background: linear-gradient(90deg, transparent, rgba(225, 6, 0, 0.1));
+}
+
+.drawer-extra {
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid #333;
+}
+
+/* OVERLAY (Backdrop) */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  z-index: 1500;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* =========================================
+   MOBILE NAV SPECIFIC CHANGES (Media Query)
+========================================= */
+@media (max-width: 768px) {
+
+  /* 1. SPECIFIC CHANGE: Hide the Pill Nav on mobile completely */
+  .pill-nav-wrapper {
+    display: none;
+  }
+  .mobile-drawer {
+  width: 75%;        /* mobile me kam khulega */
+  max-width: 260px;  /* zyada bada na ho */
+}
+
+  /* 2. SPECIFIC CHANGE: Show Hamburger */
+  .hamburger {
+    display: flex;
+  }
+
+  /* 3. Adjust header spacing since pill is gone */
+  header {
+    position: relative; /* Changed from sticky to relative to avoid overlap issues, or keep sticky if desired */
+  }
+  
+  /* Ensure header is sticky but manages height correctly */
+  header {
+    position: sticky;
+  }
+
+  .navbar {
+    padding: 10px 0;
+  }
+
+  /* Brand scaling */
+  .brand img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .brand h2 {
+    font-size: 18px;
+  }
+
+  .brand p {
+    font-size: 11px;
+  }
+}
+
+/* ===============================
+   PAGE BANNER
+================================ */
+.page-banner {
+  background: linear-gradient(90deg, #e10600, #2a0000);
+  padding: 80px 0 80px;   /* ⬅ moves heading down */
+}
+
+.page-banner h1,
+.page-banner p{
+  color:var(--white);
+}
+
+/* ===============================
+   SECTION TITLES
+================================ */
+.section-title h2{
+  color:var(--red);
+}
+.section-title p{
+  color:var(--gray);
+}
+
+/* ===============================
+   SERVICES GRID
+================================ */
+.services-page{
+  background:var(--black);
+}
+
+.service-card{
+  background:var(--dark);
+  border:1px solid #2a2a2a;
+  box-shadow:0 10px 30px rgba(0,0,0,0.7);
+  transition:0.3s;
+}
+
+.service-card:hover{
+  transform:translateY(-6px);
+  border-color:var(--red);
+  box-shadow:0 10px 30px rgba(220, 17, 17, 0.7);
+}
+
+.service-icon{
+  color:var(--red);
+}
+
+.service-card h3{
+  color:var(--white);
+}
+
+.service-card p,
+.service-card ul li{
+  color:var(--gray);
+}
+
+.service-card ul li::marker{
+  color:var(--red);
+}
+
+/* BUTTON */
+.btn-outline{
+  border:2px solid var(--red);
+  color:var(--white);
+  background:transparent;
+}
+
+.btn-outline:hover{
+  background:var(--red);
+  color:var(--white);
+}
+
+/* ===============================
+   SERVICE PROCESS
+================================ */
+.service-process{
+  background:var(--dark);
+}
+
+.process-step{
+  background:var(--dark2);
+  border:1px solid #2a2a2a;
+  transition:0.3s;
+}
+.process-step:hover{
+  transform:translateY(-6px);
+  background:var(--dark2);
+  border:1px solid #2a2a2a;
+  box-shadow:0 10px 30px rgba(254, 0, 0, 0.7);
+
+}
+
+.step-number{
+  background:var(--red);
+  color:var(--white);
+}
+
+.process-step h3{
+  color:var(--white);
+}
+
+.process-step p{
+  color:var(--gray);
+}
+
+/* ===============================
+   WHY CHOOSE US
+================================ */
+.why-choose-us{
+  background:var(--black);
+}
+
+.feature-box{
+  background:var(--dark);
+   transition:0.3s;
+  border:1px solid #2a2a2a;
+}
+
+.feature-box:hover{
+  transform:translateY(-6px);
+  background:var(--dark);
+   border:1px solid #ff0101;
+}
+
+.feature-icon i{
+  color:var(--red);
+}
+
+.feature-box h3{
+  color:var(--white);
+}
+
+.feature-box p{
+  color:var(--gray);
+}
+
+/* ===============================
+   CTA SECTION
+================================ */
+.cta-section{
+  background:linear-gradient(90deg,#2a0000,#e10600);
+  color:var(--white);
+}
+
+.btn-primary{
+  background:var(--red);
+  color:var(--white);
+}
+
+.btn-secondary{
+  background:#000;
+  color:var(--white);
+  border:2px solid var(--white);
+}
+
+/* ===============================
+   NEWSLETTER
+================================ */
+.newsletter{
+  background:var(--dark);
+}
+
+.newsletter input{
+  background:#000;
+  border:1px solid var(--red);
+  color:var(--white);
+}
+
+.newsletter button{
+  background:var(--red);
+  color:var(--white);
+}
+
+/* ===============================
+   FOOTER
+================================ */
+footer{
+  background:#000 !important;
+  border-top:3px solid var(--red);
+}
+
+footer h3{
+  color:var(--red);
+}
+
+footer p,
+footer a{
+  color:#ddd;
+}
+
+footer a:hover{
+  color:var(--red);
+}
+
+.footer-bottom{
+  border-top:1px solid #222;
+}
+
+.payment-methods i{
+  color:var(--white);
+}
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+<header>
+  <div class="container navbar">
+    <div class="brand">
+      <img src="logo.png" alt="Red Zone">
+      <div>
+        <h2 style="color: #000;"><span>Red</span> Zone -</h2>
+        <p>Risk & Security Solutions</p>
+      </div>
+    </div>
+
+    <div class="nav-right">
+      <select>
+        <option>English</option>
+        <option>हिन्दी</option>
+      </select>
+      <div class="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 🔴 CENTERED PILL NAV -->
+  <div class="pill-nav-wrapper">
+    <nav class="pill-nav">
+      <a href="#">Home</a>
+      <a href="#">Products</a>
+      <a href="#" class="active">Services</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+      <a href="#">Admin</a>
+    </nav>
+  </div>
+
+<div class="mobile-drawer" id="mobileMenu">
+  <div class="drawer-header">
+    <h3>Menu</h3>
+    <span class="close-btn" onclick="toggleMenu()">&times;</span>
+  </div>
+
+  <a href="#"><i class="fas fa-home"></i> Home</a>
+  <a href="#"><i class="fas fa-box"></i> Products</a>
+  <a href="#"><i class="fas fa-tools"></i> Services</a>
+  <a href="#"><i class="fas fa-info-circle"></i> About</a>
+  <a href="#"><i class="fas fa-phone"></i> Contact</a>
+  <a href="#"><i class="fas fa-user-shield"></i> Admin</a>
+
+  <div class="drawer-extra">
+    <a href="#"><i class="fas fa-shopping-cart"></i> Cart</a>
+    <a href="#"><i class="fas fa-heart"></i> Wishlist</a>
+    <a href="#"><i class="fas fa-question-circle"></i> Help</a>
+  </div>
+</div>
+
+</header>
+
+<!-- Breadcrumb -->
+    <section class="breadcrumb" style="background:linear-gradient(90deg,#e10600,#2a0000);">
+    
+    </section>
+
+    <!-- Services Banner -->
+    <section class="page-banner">
+        <div class="container">
+            <h1>Our Professional Services</h1>
+            <p>Comprehensive security solutions tailored to your specific needs</p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-page">
+        <div class="container">
+            <div class="section-title">
+                <h2>Security & Fire Safety Services</h2>
+                <p>We provide end-to-end solutions to protect your property and assets</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Security Risk Assessment</h3>
+                    <p>Comprehensive evaluation of your property to identify vulnerabilities and recommend optimal security solutions.</p>
+                    <ul>
+                        <li>Site inspection and analysis</li>
+                        <li>Vulnerability identification</li>
+                        <li>Customized security plan</li>
+                        <li>Detailed reporting</li>
+                    </ul>
+                    <a href="#" class="btn btn-outline">Learn More</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-drafting-compass"></i>
+                    </div>
+                    <h3>System Design & Engineering</h3>
+                    <p>Expert design of integrated security systems tailored to your specific requirements and budget.</p>
+                    <ul>
+                        <li>Custom security system design</li>
+                        <li>Equipment specification</li>
+                        <li>Integration planning</li>
+                        <li>Scalability considerations</li>
+                    </ul>
+                    <a href="#" class="btn btn-outline">Learn More</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Installation & Setup</h3>
+                    <p>Professional installation of all security equipment by certified technicians with minimal disruption.</p>
+                    <ul>
+                        <li>Equipment installation</li>
+                        <li>System configuration</li>
+                        <li>User training</li>
+                        <li>Quality assurance testing</li>
+                    </ul>
+                    <a href="#" class="btn btn-outline">Learn More</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3>Maintenance & Support</h3>
+                    <p>Ongoing maintenance plans to ensure your security systems operate at peak performance.</p>
+                    <ul>
+                        <li>Regular system inspections</li>
+                        <li>Preventive maintenance</li>
+                        <li>24/7 technical support</li>
+                        <li>Emergency repair services</li>
+                    </ul>
+                    <a href="#" class="btn btn-outline">Learn More</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Monitoring Services</h3>
+                    <p>Professional monitoring of your security systems with immediate response to alerts.</p>
+                    <ul>
+                        <li>24/7 surveillance monitoring</li>
+                        <li>Instant alert notifications</li>
+                        <li>Emergency response coordination</li>
+                        <li>Activity reporting</li>
+                    </ul>
+                    <a href="#" class="btn btn-outline">Learn More</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Training Programs</h3>
+                    <p>Comprehensive training for your staff on proper use and maintenance of security equipment.</p>
+                    <ul>
+                        <li>On-site training sessions</li>
+                        <li>User manual development</li>
+                        <li>Emergency procedure guidance</li>
+                        <li>Certification programs</li>
+                    </ul>
+                    <a href="#" class="btn btn-outline">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Process -->
+    <section class="service-process">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Service Process</h2>
+                <p>Simple, efficient steps to secure your property</p>
+            </div>
+            
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Consultation</h3>
+                    <p>We discuss your security needs and objectives to understand your requirements.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Assessment</h3>
+                    <p>Our experts conduct a thorough site survey to identify vulnerabilities.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Proposal</h3>
+                    <p>We present a customized solution with detailed specifications and pricing.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Implementation</h3>
+                    <p>Our certified technicians install and configure your security system.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <h3>Training</h3>
+                    <p>We train your team on system operation and best practices.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">6</div>
+                    <h3>Support</h3>
+                    <p>Ongoing maintenance and support to ensure optimal performance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-choose-us">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose SecureTech Solutions</h2>
+                <p>Experience and expertise you can trust</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-box">
+                    <div class="feature-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3>Certified Experts</h3>
+                    <p>All our technicians are certified and regularly trained on the latest security technologies.</p>
+                </div>
+                
+                <div class="feature-box">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Premium Products</h3>
+                    <p>We only use high-quality, certified security equipment from leading manufacturers.</p>
+                </div>
+                
+                <div class="feature-box">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>24/7 Support</h3>
+                    <p>Round-the-clock customer support for all your security needs and emergencies.</p>
+                </div>
+                
+                <div class="feature-box">
+                    <div class="feature-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <h3>Competitive Pricing</h3>
+                    <p>Exceptional value with transparent pricing and no hidden fees.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Secure Your Property?</h2>
+            <p>Contact us today for a free consultation and customized security solution.</p>
+            <div class="cta-buttons">
+                <a href="contact.html" class="btn btn-primary">Get Started</a>
+                <a href="contact.html" class="btn btn-secondary">Request Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Stay Updated with Security Tips</h2>
+                <p>Subscribe to our newsletter for the latest product updates, security tips, and exclusive offers.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email address" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                   <div class="footer-logo">
+                    <h2 style="color: black;"><span style="color: red;">Red </span>Zone</h2>
+                     <p>Your trusted partner for fire safety and security solutions since 2010.</p>
+                   </div>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt"></i> SECURE YOUR ZONE BY REDZONE @ NEAR CLOCK TOWER JABALPUR</p>
+                        <p><i class="fas fa-phone"></i> +91 9425183400</p>
+                        <p><i class="fas fa-envelope"></i> redzonejbp@gmail.com</p>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index1.html">Home</a></li>
+                        <li><a href="product.html">Products</a></li>
+                        <li><a href="co_product.html">Product Details</a></li>
+                        <li><a href="service.html">Services</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Categories</h3>
+                    <ul>
+                        <li><a href="#">Fire Extinguishers</a></li>
+                        <li><a href="#">Fire Balls</a></li>
+                        <li><a href="#">Security Cameras</a></li>
+                        <li><a href="#">Access Control</a></li>
+                        <li><a href="#">Alarm Systems</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="faq.html">FAQs</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 RedZone Security Solutions. All rights reserved.</p>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-amex"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+
+function toggleMenu() {
+      const menu = document.getElementById("mobileMenu");
+      menu.style.right = menu.style.right === "0px" ? "-100%" : "0px";
+    }
+
+</script>
+</body>
+</html>

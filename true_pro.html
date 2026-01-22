@@ -1,0 +1,795 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Red Zone Security Solutions</title>
+
+<!-- Swiper -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"/>
+
+<!-- Icons & Fonts -->
+<link rel="icon" href="images/logo1.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --black:#000000;
+  --dark:#111111;
+  --dark2:#1a1a1a;
+  --red:#e10600;
+  --white:#ffffff;
+  --gray:#b5b5b5;
+}
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--black);
+  color: var(--white);
+  line-height: 1.6;
+  overflow-x: hidden; /* Prevents horizontal scroll on mobile */
+}
+
+/* =========================
+   CONTAINER
+========================= */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 16px;
+  margin: auto;
+}
+
+/* =========================
+   HEADER
+========================= */
+header{
+  background:#fff;
+  position:sticky;
+  top:0;
+  z-index:999;
+  box-shadow:0 6px 18px rgba(0,0,0,.15);
+  height: 70px; /* Fixed height for stability */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* FIX LOGO SIZE */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.brand img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.brand h2 {
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.1;
+  color: #000;
+}
+
+.brand p {
+  font-size: 12px;
+  color: #000000;
+  margin-top: 2px;
+  font-weight: bolder;
+}
+
+
+/* TOP BAR */
+.navbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  width: 100%;
+}
+
+/* PILL NAV POSITION (Desktop Only) */
+.pill-nav-wrapper{
+  position: absolute;
+  left: 50%;
+  bottom: -25px; /* Adjusted to sit nicely on the white header border */
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  pointer-events: none; /* Allows clicking through the wrapper area */
+  z-index: 1000;
+}
+
+
+/* PILL NAV STYLE */
+.pill-nav{
+  background: rgba(0, 0, 0, 0.85); /* Darker for better contrast on white header */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding:10px 30px;
+  border-radius:50px;
+  display:flex;
+  gap:25px;
+  box-shadow: 0 4px 15px rgba(0,0,0,.2);
+  pointer-events: auto;
+}
+
+.pill-nav a{
+  color:#fff;
+  text-decoration:none;
+  font-weight:600;
+  font-size:14px;
+  transition: 0.3s;
+}
+
+.pill-nav a:hover{
+  color:var(--red);
+}
+
+/* RIGHT SIDE */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+select{
+  padding:6px 10px;
+  background:#111;
+  color:#fff;
+  border-radius:6px;
+  border:1px solid var(--red);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* HAMBURGER */
+.hamburger{
+  display:none; /* Hidden on desktop */
+  flex-direction:column;
+  gap:5px;
+  cursor:pointer;
+  width: 30px;
+}
+
+.hamburger span{
+  width:100%;
+  height:3px;
+  background:var(--red);
+  border-radius: 2px;
+}
+
+/* =========================
+   MOBILE DRAWER
+========================= */
+.mobile-drawer {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 280px;
+  height: 100vh;
+  background: #0b0b0b;
+  padding: 20px;
+  z-index: 2000; /* Above header */
+  display: flex;
+  flex-direction: column;
+  transition: right 0.35s ease;
+  box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+}
+
+/* Overlay to dim background when menu is open */
+.drawer-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 1500;
+  display: none;
+}
+
+.mobile-drawer.active {
+  right: 0;
+}
+
+.mobile-drawer a {
+  color: #fff;
+  text-decoration: none;
+  padding: 14px 0;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid #222;
+  transition: 0.2s;
+}
+
+.mobile-drawer a:hover {
+  color: var(--red);
+  padding-left: 5px;
+}
+
+.drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #333;
+}
+
+.close-btn {
+  font-size: 28px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.drawer-extra {
+  margin-top: auto;
+  border-top: 1px solid #222;
+  padding-top: 10px;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+.hero-new{
+  background:var(--black);
+  padding: 100px 20px 80px; /* Top padding accounts for fixed header */
+  min-height: 80vh;
+}
+
+.hero-container{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:50px;
+}
+
+.hero-left h1{
+  font-size:48px;
+  font-weight:800;
+  color: var(--white);
+  line-height:1.1;
+}
+
+.hero-left .red{color:var(--red)}
+.hero-left .black{color:var(--white)}
+
+.hero-left p{
+  margin:25px 0;
+  max-width:500px;
+  font-size:18px;
+  color:var(--gray);
+}
+
+.hero-btn{
+  background:var(--red);
+  color:var(--white);
+  padding:14px 30px;
+  text-decoration:none;
+  border-radius:10px;
+  font-weight:700;
+  display:inline-block;
+  transition:0.3s;
+}
+.hero-btn:hover{
+  background:#ff2a2a;
+  transform:translateY(-2px);
+  box-shadow:0 10px 20px rgba(225, 6, 0, 0.4);
+}
+
+/* SLIDER */
+.hero-right{text-align:center; width: 100%;}
+
+.heroSwiper{
+  width:100%;
+  max-width: 550px; /* Limits width on desktop */
+  margin: 0 auto;
+}
+
+.hero-image-box{
+  background:var(--dark2);
+  padding:30px;
+  border-radius:20px;
+  position:relative;
+  box-shadow:0 10px 25px rgba(0,0,0,0.7);
+  border: 1px solid #333;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-image-box img{
+  width:100%;
+  height:300px;
+  object-fit:contain;
+}
+
+.image-heading{
+  position:absolute;
+  top:15px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:16px;
+  font-weight:700;
+  color:var(--white);
+  background: rgba(0,0,0,0.5);
+  padding: 2px 10px;
+  border-radius: 4px;
+}
+
+/* ================= SECTIONS ================= */
+section{
+  padding:80px 20px;
+}
+
+section h2{
+  text-align:center;
+  font-size:28px;
+  margin-bottom:40px;
+  color:var(--white);
+}
+
+/* ================= STEPS ================= */
+.steps{
+  display:flex;
+  flex-wrap:wrap;
+  gap:25px;
+  justify-content:center;
+}
+
+.step{
+  background:var(--dark);
+  padding:25px;
+  border-radius:20px;
+  border:1px solid #2a2a2a;
+  text-align:center;
+  transition:0.3s;
+  flex: 1 1 300px; /* Grows to fill, shrinks to 300px */
+  max-width: 350px;
+}
+
+.step:hover{
+  transform:translateY(-6px);
+  border-color:var(--red);
+  box-shadow:0 10px 30px rgba(225, 6, 0, 0.2);
+}
+
+.step h3{
+  color:var(--red);
+  margin-bottom:10px;
+  font-size: 18px;
+}
+.step p{
+  color:var(--gray);
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.step img{
+  max-width:180px;
+  border-radius:12px;
+  margin-bottom:20px;
+  height: 140px;
+  object-fit: contain;
+}
+
+.step button{
+  margin-top:12px;
+  padding:10px 20px;
+  background:var(--red);
+  border:none;
+  border-radius:8px;
+  color:var(--white);
+  font-weight: 600;
+  cursor:pointer;
+  transition: 0.3s;
+}
+.step button:hover{
+  background:#ff2a2a;
+}
+
+/* ================= ALERTS ================= */
+.alerts{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:25px;
+}
+
+.alert-card{
+  background:var(--dark);
+  border:1px solid #2a2a2a;
+  padding:25px;
+  border-radius:20px;
+  transition:0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.alert-card:hover{
+  transform:translateY(-6px);
+  border-color:var(--red);
+  box-shadow:0 10px 30px rgba(225, 6, 0, 0.2);
+}
+
+.alert-card h3{
+  color:var(--red);
+  margin-bottom:10px;
+  font-size: 18px;
+}
+.alert-card p{
+  color:var(--gray);
+  font-size: 14px;
+  flex-grow: 1;
+}
+
+.alert-card img{
+  width:100%;
+  height:180px;
+  object-fit:contain;
+  margin-bottom:20px;
+}
+
+.alert-card button{
+  background:var(--red);
+  color:var(--white);
+  padding:10px 20px;
+  border:none;
+  border-radius:8px;
+  font-weight: 600;
+  cursor:pointer;
+  margin-top: auto;
+}
+.alert-card button:hover{
+  background:#ff2a2a;
+}
+
+/* ================= FOOTER ================= */
+footer{
+  background:var(--black);
+  border-top:2px solid var(--red);
+  padding:30px 20px;
+  text-align:center;
+  font-size:14px;
+  color:var(--gray);
+}
+
+/* =========================
+   RESPONSIVE (MOBILE)
+========================= */
+@media (max-width: 768px) {
+
+  /* Hide Pill Nav */
+  .pill-nav-wrapper {
+    display: none !important;
+  }
+
+  /* Show Hamburger */
+  .hamburger {
+    display: flex;
+  }
+
+  /* Header Adjustments */
+  body {
+    padding-top: 0; /* Reset body padding */
+  }
+  
+  header {
+    height: auto;
+    padding: 10px 0;
+  }
+
+  .navbar {
+    padding: 0;
+  }
+
+  .brand h2 {
+    font-size: 18px;
+  }
+
+  .brand img {
+    width: 40px;
+    height: 40px;
+  }
+
+  /* Mobile Drawer */
+  .drawer-overlay.active {
+    display: block;
+  }
+
+  /* Hero Stack */
+  .hero-new {
+    padding: 40px 16px;
+  }
+
+  .hero-container {
+    /* CHANGED: Standard column stack (Text 1st, Slider 2nd) */
+    flex-direction: column; 
+    text-align: center;
+    gap: 40px;
+  }
+
+  .hero-left h1 {
+    font-size: 32px;
+  }
+
+  .hero-left p {
+    font-size: 16px;
+    margin: 15px auto;
+  }
+
+  .heroSwiper {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero-image-box {
+    padding: 20px 10px;
+  }
+
+  .hero-image-box img {
+    height: 200px;
+  }
+
+  /* Section Padding */
+  section {
+    padding: 50px 16px;
+  }
+
+  /* Steps Grid */
+  .steps {
+    flex-direction: column;
+  }
+
+  .step {
+    max-width: 100%;
+  }
+
+  /* Alerts Grid */
+  .alerts {
+    grid-template-columns: 1fr; /* Stack alerts on mobile */
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<header>
+  <div class="container navbar">
+    <div class="brand">
+      <img src="logo.png" alt="Red Zone">
+      <div>
+        <h2><span>Red</span> Zone -</h2>
+        <p>Risk & Security Solutions</p>
+      </div>
+    </div>
+
+    <div class="nav-right">
+      <select>
+        <option>English</option>
+        <option>हिन्दी</option>
+      </select>
+      <div class="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 🔴 CENTERED PILL NAV (Desktop Only) -->
+  <div class="pill-nav-wrapper">
+    <nav class="pill-nav">
+      <a href="#">Home</a>
+      <a href="#">Products</a>
+      <a href="#">Services</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+      <a href="#">Admin</a>
+    </nav>
+  </div>
+
+<!-- Overlay for Mobile Menu -->
+<div class="drawer-overlay" id="drawerOverlay" onclick="toggleMenu()"></div>
+
+<!-- Mobile Drawer -->
+<div class="mobile-drawer" id="mobileMenu">
+  <div class="drawer-header">
+    <h3>Menu</h3>
+    <span class="close-btn" onclick="toggleMenu()">&times;</span>
+  </div>
+
+  <a href="#"><i class="fas fa-home"></i> Home</a>
+  <a href="#"><i class="fas fa-box"></i> Products</a>
+  <a href="#"><i class="fas fa-tools"></i> Services</a>
+  <a href="#"><i class="fas fa-info-circle"></i> About</a>
+  <a href="#"><i class="fas fa-phone"></i> Contact</a>
+  <a href="#"><i class="fas fa-user-shield"></i> Admin</a>
+
+  <div class="drawer-extra">
+    <a href="#"><i class="fas fa-shopping-cart"></i> Cart</a>
+    <a href="#"><i class="fas fa-heart"></i> Wishlist</a>
+    <a href="#"><i class="fas fa-question-circle"></i> Help</a>
+  </div>
+</div>
+
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero-new">
+  <div class="hero-container">
+
+    <div class="hero-left">
+      <h1><span class="red">RED<span class="black">ZONE</span> </span>
+       <span class="hero-title-line">SECURITY SOLUTIONS</span>
+     </h1>
+      <p> 
+        Integrated surveillance and advanced fire safety systems
+        providing reliable protection for homes and businesses.
+      </p> 
+   
+      <a href="about.html" class="hero-btn">About Us</a>
+    </div>
+
+    <div class="hero-right">
+      <div class="swiper heroSwiper">
+        <div class="swiper-wrapper">
+
+          <div class="swiper-slide hero-image-box">
+            <span class="image-heading">Front View</span>
+            <img src="images/red1.png" alt="Front View">
+          </div>
+
+          <div class="swiper-slide hero-image-box">
+            <span class="image-heading">Inner View</span>
+            <img src="images/red2.png" alt="Inner View">
+          </div>
+
+          <div class="swiper-slide hero-image-box">
+            <span class="image-heading">Product View</span>
+            <img src="shop0.png" alt="Product View">
+          </div>
+
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+  <!-- HOW IT WORKS -->
+  <section style="background: radial-gradient(
+  circle at left center,
+  #ff1a1a 0%,
+  #b30000 28%,
+  #4d0000 48%,
+  #120000 65%,
+  #000000 100%
+);">
+  <h2 style="color: #fbfbfb;">Best 4K Camera</h2>
+  <div class="container steps">
+
+    <div class="step">
+      <img src="images/camera.png" alt="4K Security Camera">
+      <h3>4K Surveillance Camera</h3>
+      <p>Ultra-HD video with wide-angle coverage.</p>
+      <button onclick="location.href='camera.html'">View Details</button>
+    </div>
+
+    <div class="step">
+      <img src="camera.png" alt="4K Security Camera">
+      <h3>Night Vision Camera</h3>
+      <p>Crystal-clear footage even in complete darkness.</p>
+      <button onclick="location.href='camera.html'">View Details</button>
+    </div>
+
+    <div class="step">
+      <img src="images/camera1.png" alt="4K Security Camera">
+      <h3>Smart Motion Detection</h3>
+      <p>Instant alerts for unusual activity.</p>
+      <button onclick="location.href='camera.html'">View Details</button>
+    </div>
+
+  </div>
+</section>
+
+
+  <!-- ALERTS SECTION -->
+  <section style="background: radial-gradient(
+  circle at left center,
+  #ff1a1a 0%,
+  #b30000 28%,
+  #4d0000 48%,
+  #120000 65%,
+  #000000 100%
+);">
+    <h2 style="color: rgb(255, 254, 254);">🚨 Fire Extinguishers</h2>
+    <div class="container alerts">
+      <div class="alert-card">
+        <img src="fire-extinguisher.png" alt="Fire Extinguisher">
+        <h3>⚡ Quick Discharge</h3>
+        <p>Delivers rapid fire-fighting action to control flames within seconds, reducing damage and risk.</p>
+        <button onclick="location.href='co_product.html'">View Details</button>
+      </div>
+      <div class="alert-card">
+        <img src="ext.png" alt="Fire Extinguisher">
+        <h3>🎯 High Efficiency</h3>
+        <p>Designed for maximum fire-suppression performance with minimal agent wastage.</p>
+        <button onclick="location.href='co_product.html'">View Details</button>
+      </div>
+      <div class="alert-card">
+        <img src="images/extinguisher.png" alt="Fire Extinguisher">
+        <h3>🔥 Multi-Class Fire Protection</h3>
+        <p>Effective against Class A, B and C fires including solids, liquids and electrical hazards.</p>
+        <button onclick="location.href='co_product.html'">View Details</button>
+      </div>
+      <div class="alert-card">
+        <img src="fire-extingisher2.png" alt="Fire Extinguisher">
+        <h3>🧯 Easy & Safe Operation</h3>
+        <p>Lightweight design with simple pin-and-squeeze operation for quick emergency response.</p>
+        <button onclick="location.href='co_product.html'">View Details</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>© <span id="year"></span> ALL Copy Right Reserved | Security Solution by Hasib Faruqui</footer>
+
+
+
+<!-- ================= JS ================= -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+
+<script>
+ function toggleMenu() {
+  const menu = document.getElementById("mobileMenu");
+  const overlay = document.getElementById("drawerOverlay");
+
+  if (menu.style.right === "0px") {
+    menu.style.right = "-100%";
+    overlay.classList.remove("active");
+  } else {
+    menu.style.right = "0px";
+    overlay.classList.add("active");
+  }
+}
+
+new Swiper(".heroSwiper",{
+  loop:true,
+  autoplay:{
+    delay:2500,
+    disableOnInteraction:false
+  },
+  pagination:{
+    el:".swiper-pagination",
+    clickable:true
+  }
+});
+
+document.getElementById("year").innerText = new Date().getFullYear();
+</script>
+</body>
+</html>

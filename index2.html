@@ -1,0 +1,1211 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Red Zone</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="style.css">
+  <!-- FAVICON -->
+  <link rel="icon" href="images/logo1.png" type="image/png">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+/* =========================
+   ROOT VARIABLES
+========================= */
+:root {
+  --red: #e10600;
+  --red-dark: #9b0000;
+  --black: #0a0a0a;
+  --black-soft: #121212;
+  --gray: #9ca3af;
+  --white: #ffffff;
+  --dark:#141414;
+  --dark2:#1e1e1e;
+
+}
+
+/* =========================
+   GLOBAL RESET
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--black);
+  color: var(--white);
+  line-height: 1.6;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 16px;
+  margin: auto;
+}
+
+/* =========================
+   HEADER
+========================= */
+/* HEADER */
+header{
+  background:#fff;
+  position:sticky;
+  top:0;
+  z-index:999;
+  box-shadow:0 6px 18px rgba(0,0,0,.15);
+   position: sticky;
+}
+
+/* FIX LOGO SIZE */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand img {
+  width: 48px;        /* ✅ perfect size */
+  height: 48px;
+  object-fit: contain;
+}
+
+.brand h2 {
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.brand p {
+  font-size: 12px;
+  color: #000000;
+  margin-top: 2px;
+  font-weight: bolder;
+}
+
+
+/* TOP BAR */
+.navbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+ padding:14px 0 14px; /* space for pill */
+ top: 20px;          
+}
+
+/* PILL NAV POSITION */
+.pill-nav-wrapper{
+  position: absolute;
+  left: 50%;
+  bottom: -48px;       /* 👈 controls overlap */
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  pointer-events: none;
+}
+
+
+/* PILL NAV STYLE */
+.pill-nav{
+background: rgba(255, 255, 255, 0.15); /* plain transparent glass */
+backdrop-filter: blur(10px);
+-webkit-backdrop-filter: blur(10px);
+
+
+  padding:12px 32px;
+  border-radius:50px;
+  display:flex;
+  gap:28px;
+  box-shadow:
+    0 5px 25px rgba(0,0,0,.45),
+    0 0 5px rgba(11, 10, 10, 0.6);
+    pointer-events: auto;
+    backdrop-filter: blur(6px);
+}
+
+.pill-nav a{
+  color:#fff;
+  text-decoration:none;
+  font-weight:600;
+  font-size:15px;
+  opacity:.95;
+}
+
+.pill-nav a:hover{
+  opacity:1;
+  text-shadow:0 0 10px rgba(255,255,255,.6);
+}
+
+/* RIGHT SIDE */
+.nav-right select{
+  background:#111;
+  color:#fff;
+  border:1px solid #e10600;
+  border-radius:6px;
+  padding:6px 10px;
+}
+
+select{
+  padding:6px 10px;
+  background:#111;
+  color:#fff;
+  border-radius:6px;
+  border:1px solid var(--red);
+}
+
+/* HAMBURGER */
+.hamburger{
+  display:none;
+  flex-direction:column;
+  gap:4px;
+  cursor:pointer;
+}
+.hamburger span{
+  width:26px;
+  height:3px;
+  background:var(--red);
+}
+
+/* MOBILE MENU */
+/* MOBILE DRAWER */
+.mobile-drawer {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 260px;
+  height: 100vh;
+  background: #0b0b0b;
+  padding: 20px;
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  transition: right 0.35s ease;
+}
+
+.mobile-drawer a {
+  color: #fff;
+  text-decoration: none;
+  padding: 12px 0;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid #222;
+}
+
+.mobile-drawer a:hover {
+  color: var(--red);
+}
+
+.drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.close-btn {
+  font-size: 28px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.drawer-extra {
+  margin-top: auto;
+  border-top: 1px solid #222;
+  padding-top: 10px;
+}
+
+
+/* =========================
+   HERO SECTION
+========================= */
+.hero,
+.categories,
+.features,
+.featured-products,
+.newsletter {
+ background:var(--dark);
+}
+
+.hero {
+   background:linear-gradient(90deg,#2a0000,#e10600);
+  padding: 90px 0;
+  text-align: center;
+  padding-top:120px;
+}
+
+.hero-title {
+  font-size: 44px;
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.25;
+  white-space: nowrap;
+  user-select: none;
+  text-shadow:
+    0 4px 15px rgba(0,0,0,0.4),
+    0 0 20px rgba(225,6,0,0.35);
+}
+
+.static-text {
+  display: inline-block;
+  color: #ffffff;
+}
+
+.dynamic-wrapper {
+  display: inline-block;
+  width: 230px;
+  text-align: left;
+}
+
+.dynamic-text {
+  color: #ffffff;                      /* 🔥 visible white */
+  font-weight: 900;
+  padding-right: 6px;
+  border-right: 3px solid #ff2b2b;     /* red cursor */
+  animation:
+    blink 0.8s infinite,
+    glowPulse 2.5s ease-in-out infinite;
+}
+
+/* Strong glow so it pops on red background */
+@keyframes glowPulse {
+  0%, 100% {
+    text-shadow:
+      0 0 6px rgba(255,255,255,0.6),
+      0 0 14px rgba(255,43,43,0.5);
+  }
+  50% {
+    text-shadow:
+      0 0 10px rgba(255,255,255,0.9),
+      0 0 22px rgba(255,43,43,0.8);
+  }
+}
+
+
+
+.hero p {
+  max-width: 780px;
+  margin: 16px auto 26px;
+  color: #d1d5db;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+/* COMMON BUTTON */
+.btn {
+  padding: 14px 28px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 10px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* 🔴 PRIMARY BUTTON — SHOP NOW */
+.btn-primary {
+  background: #000000;                /* black */
+  color: #ffffff;
+  border: 2px solid #ff1a1a;
+  box-shadow: 0 0 18px rgba(255,26,26,0.45);
+}
+
+.btn-primary:hover {
+  background: #ff1a1a;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 0 28px rgba(255,26,26,0.8);
+}
+
+/* ⚪ SECONDARY BUTTON — OUR SERVICES */
+/* OUR SERVICES BUTTON – UPDATED */
+.btn-secondary {
+  background: #ffffff;          /* white background */
+  color: #b30000;               /* dark red text */
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 12px rgba(255,255,255,0.4);
+}
+
+.btn-secondary:hover {
+  background: transparent;      /* hover pe transparent */
+  color: #ffffff;               /* white text */
+  border-color: #ff1a1a;        /* red border */
+  box-shadow: 0 0 22px rgba(255,26,26,0.7);
+  transform: translateY(-2px);
+}
+
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .btn {
+    width: 90%;
+  }
+}
+
+/* categories */
+.categories, .category-content h3{
+  color: var(--white);
+}
+
+
+
+/* =========================
+   FEATURES
+========================= */
+.features .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 20px;
+}
+
+/* FEATURE BOX BASE */
+/* FEATURE BOX BASE */
+.feature-box {
+  background: linear-gradient(180deg, #0e0e0e, #151515);
+  border-radius: 18px;
+  padding: 38px 28px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* SHINE SWEEP */
+.feature-box::before {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    120deg,
+    transparent 40%,
+    rgba(225, 6, 0, 0.45),
+    transparent 60%
+  );
+  transform: rotate(0deg);
+  transition: all 0.6s ease;
+  opacity: 0;
+}
+
+/* ICON */
+.feature-box i,
+.feature-box svg {
+  font-size: 36px;
+  color: #e10600;
+  margin-bottom: 18px;
+  transition: all 0.4s ease;
+}
+
+/* TITLE */
+.feature-box h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  transition: color 0.35s ease;
+  color: var(--gray);
+}
+
+/* TEXT */
+.feature-box p {
+  color: #878d97;
+  transition: color 0.35s ease;
+}
+
+/* 🚀 HOVER EFFECT */
+.feature-box:hover {
+  transform: translateY(-14px) scale(1.03) rotate(0deg);
+  border-color: #ff2a2a;
+  box-shadow:
+    0 25px 50px rgba(0, 0, 0, 0.8),
+    0 0 40px rgba(225, 6, 0, 0.85);
+}
+
+.feature-box:hover::before {
+  top: 0;
+  left: 0;
+  opacity: 1;
+}
+
+/* ICON ANIMATION */
+.feature-box:hover i,
+.feature-box:hover svg {
+  transform: scale(1.25) rotate(-6deg);
+  color: #ff2a2a;
+  filter: drop-shadow(0 0 15px rgba(255, 42, 42, 1));
+}
+
+/* TEXT COLOR BOOST */
+.feature-box:hover h3 {
+  color: #ffffff;
+}
+
+.feature-box:hover p {
+  color: #e5e7eb;
+}
+
+
+/* =========================
+   PRODUCT CARDS
+========================= */
+.testimonials {
+   background:linear-gradient(90deg,#2a0000,#e10600);
+  color:var(--white);
+}
+.product-card,
+.category-card,
+.testimonial-card {
+  background:var(--dark);
+  border-radius: 14px;
+  border: 1px solid rgba(225,6,0,0.15);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  overflow: hidden;
+}
+
+.category-card {
+  background: linear-gradient(180deg, #111, #0b0b0b);
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.45s ease;
+  border: 3px solid rgba(255, 0, 0, 0.15);
+}
+
+.category-image img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.6s ease;
+}
+
+.category-card:hover .category-image img {
+  transform: scale(1.08);
+}
+
+.category-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at top,
+    rgba(225, 6, 0, 0.35),
+    transparent 65%
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.category-card:hover::before {
+  opacity: 1;
+}
+
+.category-btn {
+  display: inline-block;
+  padding: 12px 22px;
+  border-radius: 10px;
+  border: 2px solid red;
+   box-shadow: 0 15px 30px rgba(255, 3, 3, 0.1);
+  color: white;
+  font-weight: 600;
+  transition: all 0.35s ease;
+   box-shadow:
+    0 0 6px #ff1a1a,
+    0 0 12px rgba(255, 26, 26, 0.8),
+    0 0 24px rgba(255, 26, 26, 0.6);
+}
+
+.category-card:hover .category-btn {
+  background: rgb(139, 23, 23);
+  color: #fff;
+   border: 2px solid #ff1a1a;
+ 
+}
+
+
+
+/* Lift + glow */
+.category-card:hover {
+  transform: translateY(-14px) scale(1.02);
+  box-shadow:
+    0 25px 60px rgba(225, 6, 0, 0.35),
+    0 0 40px rgba(225, 6, 0, 0.25);
+  border-color: rgba(225, 6, 0, 0.6);
+}
+.category-card .btn-outline {
+  display: inline-block;
+  padding: 12px 22px;
+  border-radius: 10px;
+  border: 2px solid #0d6efd;
+  color: #0d6efd;
+  font-weight: 600;
+  transition: all 0.35s ease;
+  background: transparent;
+}
+
+.category-card:hover .btn-outline {
+  background: #0d6efd;
+  color: #ffffff;
+  box-shadow: 0 0 18px rgba(13, 110, 253, 0.6);
+  transform: translateY(-2px);
+}
+
+
+.product-card,.product-content h3{
+  color: var(--white);
+}
+
+.testimonial-card .author-info h4{
+    color:var(--white);
+}
+
+.product-img {
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #050505;
+}
+
+.product-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* =========================
+   TESTIMONIALS
+========================= */
+
+.testimonial-rating {
+  color: var(--white);
+  margin-bottom: 8px;
+}
+
+/* =========================
+   NEWSLETTER
+========================= */
+.newsletter{
+  background:var(--dark);
+}
+
+.newsletter input{
+  background:#000;
+  border:1px solid var(--red);
+  color:var(--white);
+}
+
+.newsletter button{
+  background:var(--red);
+  color:var(--white);
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer{
+  background:#000 !important;
+  border-top:3px solid var(--red);
+}
+
+footer h3{
+  color:var(--red);
+}
+
+footer p,
+footer a{
+  color:#ddd;
+}
+
+footer a:hover{
+  color:var(--red);
+}
+
+.footer-bottom{
+  border-top:1px solid #222;
+}
+
+.payment-methods i{
+  color:var(--white);
+}
+
+/* =========================
+   MOBILE FIXES
+========================= */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 26px;
+    white-space: normal;
+  }
+
+  .static-text {
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .dynamic-wrapper {
+    width: 160px;
+  }
+}
+
+/* =========================
+   MOBILE NAV CONTROL
+========================= */
+
+/* DESKTOP DEFAULT */
+.pill-nav-wrapper {
+  display: flex;
+}
+
+.hamburger {
+  display: none;
+}
+
+/* MOBILE VIEW */
+@media (max-width: 768px) {
+
+  /* ❌ REMOVE PILL NAV ON MOBILE */
+  .pill-nav-wrapper {
+    display: none !important;
+  }
+
+  /* ✅ SHOW HAMBURGER */
+  .hamburger {
+    display: flex;
+  }
+
+  /* ALIGN HEADER PROPERLY */
+  .navbar {
+    padding: 14px 0;
+  }
+
+  /* REMOVE EXTRA GAP CAUSED BY PILL */
+  header {
+    padding-bottom: 0;
+  }
+}
+
+/* =========================
+   MOBILE HEADER ALIGN FIX
+========================= */
+@media (max-width: 768px) {
+
+  .nav-right {
+    display: flex;
+    align-items: center;   /* 🔥 vertical alignment fix */
+    gap: 10px;
+  }
+
+  .nav-right select {
+    height: 34px;
+    padding: 4px 10px;
+    font-size: 14px;
+    line-height: 1;
+    margin: 0;
+  }
+
+  .hamburger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 34px;          /* 🔥 same height as language */
+    margin: 0;
+  }
+
+  .hamburger span {
+    margin: 0;
+  }
+}
+
+
+
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+<header>
+  <div class="container navbar">
+    <div class="brand">
+      <img src="logo.png" alt="Red Zone">
+      <div>
+        <h2 style="color: #000;"><span>Red</span> Zone -</h2>
+        <p>Risk & Security Solutions</p>
+      </div>
+    </div>
+
+    <div class="nav-right">
+      <select>
+        <option>English</option>
+        <option>हिन्दी</option>
+      </select>
+      <div class="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 🔴 CENTERED PILL NAV -->
+  <div class="pill-nav-wrapper">
+    <nav class="pill-nav">
+      <a href="#">Home</a>
+      <a href="#">Products</a>
+      <a href="#">Services</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+      <a href="#">Admin</a>
+    </nav>
+  </div>
+
+<div class="mobile-drawer" id="mobileMenu">
+  <div class="drawer-header">
+    <h3>Menu</h3>
+    <span class="close-btn" onclick="toggleMenu()">&times;</span>
+  </div>
+
+  <a href="#"><i class="fas fa-home"></i> Home</a>
+  <a href="#"><i class="fas fa-box"></i> Products</a>
+  <a href="#"><i class="fas fa-tools"></i> Services</a>
+  <a href="#"><i class="fas fa-info-circle"></i> About</a>
+  <a href="#"><i class="fas fa-phone"></i> Contact</a>
+  <a href="#"><i class="fas fa-user-shield"></i> Admin</a>
+
+  <div class="drawer-extra">
+    <a href="#"><i class="fas fa-shopping-cart"></i> Cart</a>
+    <a href="#"><i class="fas fa-heart"></i> Wishlist</a>
+    <a href="#"><i class="fas fa-question-circle"></i> Help</a>
+  </div>
+</div>
+
+</header>
+
+
+    <section class="hero">
+        <div class="container">
+        <h1 class="hero-title">
+        <span class="static-text">Protect What Matters -</span>
+        <span class="dynamic-wrapper">
+            <span class="dynamic-text"></span>
+        </span>
+        </h1>
+
+
+                <p>Premium fire safety and security solutions for homes and businesses. Trusted by thousands of satisfied customers.</p>
+                <div class="hero-buttons">
+                    <a href="co_product.html" class="btn btn-primary">Shop Now</a>
+                    <a href="service.html" class="btn btn-secondary">Our Services</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="feature-box">
+                <div class="feature-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Premium Quality</h3>
+                <p>All our products meet international safety standards and are tested for reliability.</p>
+            </div>
+            
+            <div class="feature-box">
+                <div class="feature-icon">
+                    <i class="fas fa-truck"></i>
+                </div>
+                <h3>Fast Delivery</h3>
+                <p>Free shipping on orders over $100. Same-day delivery available in select areas.</p>
+            </div>
+            
+            <div class="feature-box">
+                <div class="feature-icon">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <h3>24/7 Support</h3>
+                <p>Our experts are always ready to assist you with product selection and installation.</p>
+            </div>
+            
+            <div class="feature-box">
+                <div class="feature-icon">
+                    <i class="fas fa-certificate"></i>
+                </div>
+                <h3>Certified Products</h3>
+                <p>All products are certified by UL, CE, and other international safety organizations.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Product Categories</h2>
+                <p>Explore our wide range of security and fire safety solutions</p>
+            </div>
+            
+            <div class="category-grid">
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="images/fire-extinguisher.svg" alt="Fire Extinguishers">
+                    </div>
+                    <div class="category-content">
+                        <h3>Fire Extinguishers</h3>
+                        <p>ABC, CO2, Foam and Water extinguishers for all environments</p>
+                        <a href="fire-extinguishers.html" class="category-btn">View Products</a>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="images/fire-ball.svg" alt="Fire Balls">
+                    </div>
+                    <div class="category-content">
+                        <h3>Fire Balls</h3>
+                        <p>Automatic fire suppression spheres for instant protection</p>
+                        <a href="fire-balls.html" class="category-btn">View Products</a>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="images/camera.svg" alt="Security Cameras">
+                    </div>
+                    <div class="category-content">
+                        <h3>Security Cameras</h3>
+                        <p>IP, Analog, Wireless and PTZ cameras for all surveillance needs</p>
+                        <a href="cameras.html" class="category-btn">View Products</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products Section -->
+    <section class="featured-products">
+        <div class="container">
+            <div class="section-title">
+                <h2 style="color: #fffcfc;">Featured Products</h2>
+                <p style="color: #f5f4f4;">Our most popular and trusted security solutions</p>
+            </div>
+            
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-badge">Best Seller</div>
+                    <div class="product-img">
+                        <img src="images/extinguisher.png" alt="ABC Fire Extinguisher">
+                    </div>
+                    <div class="product-content">
+                        <h3>ABC Fire Extinguisher 5lb</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(128)</span>
+                        </div>
+                        <p>Multi-purpose fire extinguisher suitable for Class A, B, and C fires</p>
+                        <div class="product-price">
+                            <span class="price-request">Contact for Price</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary">Add to Cart</button>
+                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-badge">New</div>
+                    <div class="product-img">
+                        <img src="images/fire_ball.png" alt="Smart Fire Ball">
+                    </div>
+                    <div class="product-content">
+                        <h3>Smart Fire Ball Automatic</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(96)</span>
+                        </div>
+                        <p>Automatically activates when exposed to heat, suppresses fire in 3 seconds</p>
+                        <div class="product-price">
+                            <span class="price-request">Contact for Price</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary">Add to Cart</button>
+                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="images/cam.png" alt="Wireless Camera">
+                    </div>
+                    <div class="product-content">
+                        <h3>Wireless Security Camera 1080P</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>(74)</span>
+                        </div>
+                        <p>1080P HD resolution with night vision and smartphone app control</p>
+                        <div class="product-price">
+                            <span class="price-request">Contact for Price</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary">Add to Cart</button>
+                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Customer Testimonials</h2>
+                <p>What our satisfied customers say about our products and services</p>
+            </div>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"The fire extinguishers we purchased saved our restaurant kitchen during a grease fire. Quick response and easy to use!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="images/team-placeholder.svg" alt="Michael Johnson">
+                        </div>
+                        <div class="author-info">
+                            <h4>Michael Johnson</h4>
+                            <p>Restaurant Owner</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p>"Installed the security camera system throughout our office. Excellent image quality and easy setup. Highly recommend!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="images/team-placeholder.svg" alt="Sarah Roberts">
+                        </div>
+                        <div class="author-info">
+                            <h4>Sarah Roberts</h4>
+                            <p>Office Manager</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"The fire balls are incredible! Installed them in our warehouse and they give us peace of mind knowing we're protected."</p>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="images/team-placeholder.svg" alt="David Wilson">
+                        </div>
+                        <div class="author-info">
+                            <h4>David Wilson</h4>
+                            <p>Warehouse Supervisor</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Stay Updated with Security Tips</h2>
+                <p>Subscribe to our newsletter for the latest product updates, security tips, and exclusive offers.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email address" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <h2 style="color: rgb(0, 0, 0);"><span style="color: red;">Red </span>Zone</h2>
+                        <p>Your trusted partner for fire safety and security solutions since 2010.</p>
+                    </div>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt"></i>SECURE YOUR ZONE BY REDZONE 📍 Near Clock Tower jabalpur</p>
+                        <p><i class="fas fa-phone"></i> +91 9425183400</p>
+                        <p><i class="fas fa-envelope"></i> redzonejbp@gmail.com</p>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index1.html">Home</a></li>
+                        <li><a href="product.html">Products</a></li>
+                        <li><a href="co_product.html">Products Details</a></li>
+                        <li><a href="service.html">Services</a></li>
+                        <li><a href="worker.html">Our Team</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Categories</h3>
+                    <ul>
+                        <li><a href="#">Fire Extinguishers</a></li>
+                        <li><a href="#">Fire Balls</a></li>
+                        <li><a href="#">Security Cameras</a></li>
+                        <li><a href="#">Access Control</a></li>
+                        <li><a href="#">Alarm Systems</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="faq.html">FAQs</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span id="year"></span> Red Zone Security Solutions. All rights reserved.</p>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-amex"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+<script>
+function toggleMenu() {
+  const menu = document.getElementById("mobileMenu");
+  menu.style.right = menu.style.right === "0px" ? "-100%" : "0px";
+}
+</script>
+<script>
+const dynamicText = document.querySelector(".dynamic-text");
+
+const words = [
+  "Your Home",
+  "Your Family",
+  "Your Future",
+   "Your Life",
+  "Your Safety",
+];
+
+let wordIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+
+function typeEffect() {
+  const currentWord = words[wordIndex];
+
+  if (!isDeleting) {
+    dynamicText.textContent = currentWord.substring(0, charIndex + 1);
+    charIndex++;
+
+    if (charIndex === currentWord.length) {
+      setTimeout(() => isDeleting = true, 1000);
+    }
+  } else {
+    dynamicText.textContent = currentWord.substring(0, charIndex - 1);
+    charIndex--;
+
+    if (charIndex === 0) {
+      isDeleting = false;
+      wordIndex = (wordIndex + 1) % words.length;
+    }
+  }
+}
+
+setInterval(typeEffect, 120);
+</script>
+
+<script>
+/* 🔦 Mouse spotlight */
+document.querySelectorAll(".feature-box").forEach(box => {
+  box.addEventListener("mousemove", e => {
+    const rect = box.getBoundingClientRect();
+    box.style.setProperty("--x", `${e.clientX - rect.left}px`);
+    box.style.setProperty("--y", `${e.clientY - rect.top}px`);
+  });
+});
+
+/* 🎥 Scroll reveal */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("active");
+    }
+  });
+}, { threshold: 0.2 });
+
+document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+</script>
+
+
+
+</html>

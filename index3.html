@@ -1,0 +1,561 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Red Zone</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="style.css">
+  <!-- FAVICON -->
+  <link rel="icon" href="images/logo1.png" type="image/png">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary:#0b76ef;
+      --secondary:#1db954;
+      --text:#0f172a;
+      --muted:#6b7280;
+      --bg:#f8fafc;
+      --white:#ffffff;
+      --red:red;
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Inter',sans-serif;color:var(--text); background-color: #d3d1b4;line-height:1.6}
+
+    /* HEADER */
+/* HEADER */
+header {
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 80px;
+}
+
+/* BRAND */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  width: 46px;
+  height: auto;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+}
+
+.brand-line-1 {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.brand-line-2 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #000;
+}
+
+.Red { color: red; }
+.Zone { color: black; }
+.dash { color: black; }
+
+/* RIGHT */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* DROPDOWN */
+.language-select {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: #fff;
+  cursor: pointer;
+}
+
+/* HAMBURGER */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 22px;
+  height: 3px;
+  background: red;
+  border-radius: 2px;
+}
+
+/* MOBILE MENU */
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  color: #4928dc;
+  background: #ffffff;
+  padding: 15px;
+  border-top: 1px solid #eee;
+}
+.product-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;   /* 🔴 VERY IMPORTANT */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* IMAGE CONTAINER */
+.product-img {
+  width: 100%;
+  height: 220px;          /* fixed height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f3f4f6;
+}
+
+/* IMAGE ITSELF */
+.product-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;    /* 🔥 keeps image inside card */
+}
+
+.hero,
+.categories,
+.features,
+.featured-products,
+.testimonials,
+.newsletter {
+  background: radial-gradient(
+  circle at left center,
+  #ff1a1a 0%,
+  #b30000 28%,
+  #4d0000 48%,
+  #120000 65%,
+  #000000 100%
+);
+}
+
+  /* FOOTER */
+    footer{background:var(--white);border-top:1px solid #e5e7eb;text-align:center;padding:20px;font-size:14px;color:var(--muted)}
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+<header>
+  <div class="container">
+    <nav class="nav-bar">
+
+      <!-- LEFT BRAND -->
+      <div class="brand">
+        <img class="logo" src="logo.png" alt="Logo">
+
+        <div class="brand-text">
+          <div class="brand-line-1">
+            <span class="Red">Red</span>
+            <span class="Zone">Zone</span>
+            <span class="dash">-</span>
+          </div>
+          <div class="brand-line-2">Risk & Security Solutions</div>
+        </div>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="nav-right">
+        <select class="language-select">
+          <option>English</option>
+          <option>हिन्दी</option>
+          <option>ਪੰਜਾਬੀ</option>
+        </select>
+
+        <div class="hamburger" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index1.html">Home</a>
+      <a href="product.html">Products</a>
+      <a href="co_product.html">Products Details</a>
+      <a href="contact.html">Contact</a>
+      <a href="worker.html">Our Team</a>
+      <a href="testimonial.html">Our Team</a>
+      <a href="admin.html">Admin Login</a>
+    </div>
+  </div>
+</header>
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Protect What Matters Most</h1>
+                <p>Premium fire safety and security solutions for homes and businesses. Trusted by thousands of satisfied customers.</p>
+                <div class="hero-buttons">
+                    <a href="co_product.html" class="btn btn-primary">Shop Now</a>
+                    <a href="service.html" class="btn btn-secondary">Our Services</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="feature-box">
+                <div class="feature-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Premium Quality</h3>
+                <p>All our products meet international safety standards and are tested for reliability.</p>
+            </div>
+            
+            <div class="feature-box">
+                <div class="feature-icon">
+                    <i class="fas fa-truck"></i>
+                </div>
+                <h3>Fast Delivery</h3>
+                <p>Free shipping on orders over $100. Same-day delivery available in select areas.</p>
+            </div>
+            
+            <div class="feature-box">
+                <div class="feature-icon">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <h3>24/7 Support</h3>
+                <p>Our experts are always ready to assist you with product selection and installation.</p>
+            </div>
+            
+            <div class="feature-box">
+                <div class="feature-icon">
+                    <i class="fas fa-certificate"></i>
+                </div>
+                <h3>Certified Products</h3>
+                <p>All products are certified by UL, CE, and other international safety organizations.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Product Categories</h2>
+                <p>Explore our wide range of security and fire safety solutions</p>
+            </div>
+            
+            <div class="category-grid">
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="images/fire-extinguisher.svg" alt="Fire Extinguishers">
+                    </div>
+                    <div class="category-content">
+                        <h3>Fire Extinguishers</h3>
+                        <p>ABC, CO2, Foam and Water extinguishers for all environments</p>
+                        <a href="fire-extinguishers.html" class="btn btn-outline">View Products</a>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="images/fire-ball.svg" alt="Fire Balls">
+                    </div>
+                    <div class="category-content">
+                        <h3>Fire Balls</h3>
+                        <p>Automatic fire suppression spheres for instant protection</p>
+                        <a href="fire-balls.html" class="btn btn-outline">View Products</a>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="images/camera.svg" alt="Security Cameras">
+                    </div>
+                    <div class="category-content">
+                        <h3>Security Cameras</h3>
+                        <p>IP, Analog, Wireless and PTZ cameras for all surveillance needs</p>
+                        <a href="cameras.html" class="btn btn-outline">View Products</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products Section -->
+    <section class="featured-products">
+        <div class="container">
+            <div class="section-title">
+                <h2 style="color: #fffcfc;">Featured Products</h2>
+                <p style="color: #f5f4f4;">Our most popular and trusted security solutions</p>
+            </div>
+            
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-badge">Best Seller</div>
+                    <div class="product-img">
+                        <img src="images/extinguisher.png" alt="ABC Fire Extinguisher">
+                    </div>
+                    <div class="product-content">
+                        <h3>ABC Fire Extinguisher 5lb</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(128)</span>
+                        </div>
+                        <p>Multi-purpose fire extinguisher suitable for Class A, B, and C fires</p>
+                        <div class="product-price">
+                            <span class="price-request">Contact for Price</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary">Add to Cart</button>
+                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-badge">New</div>
+                    <div class="product-img">
+                        <img src="images/fire_ball.png" alt="Smart Fire Ball">
+                    </div>
+                    <div class="product-content">
+                        <h3>Smart Fire Ball Automatic</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(96)</span>
+                        </div>
+                        <p>Automatically activates when exposed to heat, suppresses fire in 3 seconds</p>
+                        <div class="product-price">
+                            <span class="price-request">Contact for Price</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary">Add to Cart</button>
+                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="images/cam.png" alt="Wireless Camera">
+                    </div>
+                    <div class="product-content">
+                        <h3>Wireless Security Camera 1080P</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>(74)</span>
+                        </div>
+                        <p>1080P HD resolution with night vision and smartphone app control</p>
+                        <div class="product-price">
+                            <span class="price-request">Contact for Price</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary">Add to Cart</button>
+                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Customer Testimonials</h2>
+                <p>What our satisfied customers say about our products and services</p>
+            </div>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"The fire extinguishers we purchased saved our restaurant kitchen during a grease fire. Quick response and easy to use!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="images/team-placeholder.svg" alt="Michael Johnson">
+                        </div>
+                        <div class="author-info">
+                            <h4>Michael Johnson</h4>
+                            <p>Restaurant Owner</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p>"Installed the security camera system throughout our office. Excellent image quality and easy setup. Highly recommend!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="images/team-placeholder.svg" alt="Sarah Roberts">
+                        </div>
+                        <div class="author-info">
+                            <h4>Sarah Roberts</h4>
+                            <p>Office Manager</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"The fire balls are incredible! Installed them in our warehouse and they give us peace of mind knowing we're protected."</p>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="images/team-placeholder.svg" alt="David Wilson">
+                        </div>
+                        <div class="author-info">
+                            <h4>David Wilson</h4>
+                            <p>Warehouse Supervisor</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Stay Updated with Security Tips</h2>
+                <p>Subscribe to our newsletter for the latest product updates, security tips, and exclusive offers.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email address" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <h2 style="color: rgb(0, 0, 0);"><span style="color: red;">Red </span>Zone</h2>
+                        <p>Your trusted partner for fire safety and security solutions since 2010.</p>
+                    </div>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt"></i>SECURE YOUR ZONE BY REDZONE 📍 Near Clock Tower jabalpur</p>
+                        <p><i class="fas fa-phone"></i> +91 9425183400</p>
+                        <p><i class="fas fa-envelope"></i> redzonejbp@gmail.com</p>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index1.html">Home</a></li>
+                        <li><a href="product.html">Products</a></li>
+                        <li><a href="co_product.html">Products Details</a></li>
+                        <li><a href="service.html">Services</a></li>
+                        <li><a href="worker.html">Our Team</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Categories</h3>
+                    <ul>
+                        <li><a href="#">Fire Extinguishers</a></li>
+                        <li><a href="#">Fire Balls</a></li>
+                        <li><a href="#">Security Cameras</a></li>
+                        <li><a href="#">Access Control</a></li>
+                        <li><a href="#">Alarm Systems</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="faq.html">FAQs</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Red Zone Seurity Solutions. All rights reserved.</p>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-amex"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+<script>
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  function toggleMenu() {
+    const menu = document.getElementById("mobileMenu");
+    menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
+  }
+</script>
+
+</html>
