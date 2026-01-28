@@ -535,7 +535,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Hours related queries
             if (message.includes('hours') || message.includes('open') || message.includes('close') || message.includes('time')) {
-                return "Our store is open Monday to Saturday from 9:00 AM to 8:00 PM. We're closed on Sundays. For emergency services, please contact us directly.";
+                return "Our store is open Monday to Saturday from 11:00 AM to 9:00 PM. We're closed on Sundays. For emergency services, please contact us directly.";
             }
             
             // Warranty related queries

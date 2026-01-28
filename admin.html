@@ -470,69 +470,70 @@ footer:last-of-type { /* Using this selector for the copyright line */
 
 <!-- HEADER -->
 <header>
-  <div class="container navbar">
-    <!-- Brand -->
-    <div class="brand">
-      <img class="logo" src="logo.png" alt="Logo">
-      <div class="brand-text">
-        <div class="brand-line-1">
-          <span class="Red">Red</span>
-          <span class="Zone">Zone</span>
-          <span class="dash">-</span>
+    <div class="container navbar">
+      <!-- Brand -->
+      <div class="brand">
+        <img class="logo" src="logo.png" alt="Logo">
+        <div class="brand-text">
+          <div class="brand-line-1">
+            <span class="Red">Red</span>
+            <span class="Zone">Zone</span>
+            <span class="dash">-</span>
+          </div>
+          <div class="brand-line-2">Risk & Security Solutions</div>
         </div>
-        <div class="brand-line-2">Risk & Security Solutions</div>
+      </div>
+
+      <!-- Right Side -->
+      <div class="nav-right">
+        <select>
+          <option>English</option>
+          <option>हिन्दी</option>
+          <option>ਪੰਜਾਬੀ</option>
+        </select>
+        <div class="hamburger" onclick="toggleMenu()">
+          <span></span><span></span><span></span>
+        </div>
       </div>
     </div>
 
-    <!-- Right Side -->
-    <div class="nav-right">
-      <select>
-        <option>English</option>
-        <option>हिन्दी</option>
-        <option>ਪੰਜਾਬੀ</option>
-      </select>
-      <div class="hamburger" onclick="toggleMenu()">
-        <span></span><span></span><span></span>
+    <!-- Centered Pill Nav (Desktop) -->
+    <div class="pill-nav-wrapper">
+      <nav class="pill-nav">
+        <a href="index1.html">Home</a>
+        <a href="co_product.html">Products</a>
+        <a href="shop.html">Shop</a>
+        <a href="service.html">Services</a>
+        <a href="contact.html">Contact</a>
+        <a href="worker.html">Our Team</a>
+        <a href="admin.html" class="active">Admin</a>
+      </nav>
+    </div>
+
+    <!-- Overlay for Mobile Menu -->
+    <div class="drawer-overlay" id="drawerOverlay" onclick="toggleMenu()"></div>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobileMenu">
+      <div class="drawer-header">
+        <h3 style="color:white; font-weight:700;">Menu</h3>
+        <span class="close-btn" onclick="toggleMenu()">&times;</span>
+      </div>
+
+      <a href="index1.html"><i class="fas fa-home"></i> Home</a>
+      <a href="product.html"><i class="fas fa-box"></i> Products</a>
+      <a href="shop.html"><i class="fas fa-store-alt"></i>  Shop</a>
+      <a href="contact.html"><i class="fas fa-phone"></i> Contact</a>
+      <a href="worker.html"><i class="fas fa-users"></i> Our Team</a>
+      <a href="admin.html" style="color: var(--red);"><i class="fas fa-user-shield"></i> Admin Login</a>
+
+      <div class="drawer-extra">
+        <a href="#"><i class="fas fa-shopping-cart"></i> Cart</a>
+        <a href="#"><i class="fas fa-heart"></i> Wishlist</a>
+        <a href="#"><i class="fas fa-question-circle"></i> Help</a>
       </div>
     </div>
-  </div>
-
-  <!-- Centered Pill Nav (Desktop) -->
-  <div class="pill-nav-wrapper">
-    <nav class="pill-nav">
-      <a href="index1.html">Home</a>
-      <a href="product.html">Products</a>
-      <a href="service.html">Services</a>
-      <a href="contact.html">Contact</a>
-      <a href="worker.html">Our Team</a>
-      <a href="admin.html" class="active">Admin</a> <!-- Highlighted Active -->
-    </nav>
-  </div>
-
-  <!-- Overlay for Mobile Menu -->
-  <div class="drawer-overlay" id="drawerOverlay" onclick="toggleMenu()"></div>
-
-  <!-- Mobile Drawer -->
-  <div class="mobile-drawer" id="mobileMenu">
-    <div class="drawer-header">
-      <h3 style="color:white; font-weight:700;">Menu</h3>
-      <span class="close-btn" onclick="toggleMenu()">&times;</span>
-    </div>
-
-    <a href="index1.html"><i class="fas fa-home"></i> Home</a>
-    <a href="product.html"><i class="fas fa-box"></i> Products</a>
-    <a href="co_product.html"><i class="fas fa-list-alt"></i> Product Details</a>
-    <a href="contact.html"><i class="fas fa-phone"></i> Contact</a>
-    <a href="worker.html"><i class="fas fa-users"></i> Our Team</a>
-    <a href="admin.html" style="color: var(--red);"><i class="fas fa-user-shield"></i> Admin Login</a>
-
-    <div class="drawer-extra">
-      <a href="#"><i class="fas fa-shopping-cart"></i> Cart</a>
-      <a href="#"><i class="fas fa-heart"></i> Wishlist</a>
-      <a href="#"><i class="fas fa-question-circle"></i> Help</a>
-    </div>
-  </div>
-</header>
+  </header>
 
 <!-- HERO / Login -->
 <section class="hero">
@@ -602,7 +603,7 @@ footer:last-of-type { /* Using this selector for the copyright line */
         <h3>Quick Links</h3>
         <ul>
           <li><a href="index1.html">Home</a></li>
-          <li><a href="product.html">Products</a></li>
+          <li><a href="shop.html">Shop</a></li>
           <li><a href="co_product.html">Product Detail</a></li>
           <li><a href="service.html">Services</a></li>
           <li><a href="worker.html">Our Team</a></li>
@@ -613,9 +614,9 @@ footer:last-of-type { /* Using this selector for the copyright line */
       <div class="footer-col">
         <h3>Categories</h3>
         <ul>
-          <li><a href="#">Fire Extinguishers</a></li>
-          <li><a href="#">Fire Balls</a></li>
-          <li><a href="#">Security Cameras</a></li>
+          <li><a href="1.html">Fire Extinguishers</a></li>
+          <li><a href="3.html">Fire Balls</a></li>
+          <li><a href="2.html">Security Cameras</a></li>
           <li><a href="#">Access Control</a></li>
           <li><a href="#">Alarm Systems</a></li>
         </ul>
@@ -625,6 +626,7 @@ footer:last-of-type { /* Using this selector for the copyright line */
         <h3>Customer Service</h3>
         <ul>
           <li><a href="faq.html">FAQs</a></li>
+          <li><a href="testimonial.html">Testimonials</a></li>
           <li><a href="#">Shipping Policy</a></li>
           <li><a href="#">Returns & Exchanges</a></li>
           <li><a href="#">Privacy Policy</a></li>

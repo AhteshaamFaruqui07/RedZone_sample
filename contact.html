@@ -135,62 +135,105 @@
     }
 
 
-    /* =========================
-       MOBILE DRAWER
-    ========================= */
-    .mobile-drawer {
-      position: fixed;
-      top: 0;
-      right: -100%;
-      width: 280px;
-      height: 100vh;
-      background: #0f0f0f;
-      padding: 25px;
-      z-index: 2000;
-      display: flex;
-      flex-direction: column;
-      transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1);
-      border-left: 1px solid #333;
-    }
+    /* MOBILE DRAWER */
+.mobile-drawer {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 280px;
+  height: 100vh;
+  background: #0b0b0b;
+  padding: 20px;
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  transition: right 0.35s ease-in-out; /* Smooth Drawer */
+  box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+}
 
-    .mobile-drawer.open {
-      right: 0;
-    }
+.drawer-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 1500;
+  display: none;
+  backdrop-filter: blur(2px);
+  transition: opacity 0.3s ease;
+}
 
-    .mobile-drawer a {
-      color: #fff;
-      text-decoration: none;
-      padding: 14px 0;
-      font-size: 16px;
-      border-bottom: 1px solid #222;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      transition: 0.2s;
-    }
+.mobile-drawer.active {
+  right: 0;
+}
 
-    .mobile-drawer a:hover {
-      color: var(--red);
-      padding-left: 10px;
-    }
-    
-    .mobile-drawer a i { width: 20px; text-align: center; color: #666; }
-    .mobile-drawer a:hover i { color: var(--red); }
+.mobile-drawer a {
+  color: #fff;
+  text-decoration: none;
+  padding: 14px 0;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid #222;
+  transition: 0.2s;
+}
 
-    .drawer-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 25px;
-    }
+.mobile-drawer a:hover {
+  color: var(--red);
+  padding-left: 5px;
+}
 
-    .close-btn {
-      font-size: 32px;
-      cursor: pointer;
-      color: #fff;
-      transition: transform 0.3s;
-    }
-    .close-btn:hover { transform: rotate(90deg); color: var(--red); }
+.drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #333;
+}
+
+.close-btn {
+  /* Flexbox for centering text inside */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  /* Dimensions - Makes it a square/circle */
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  min-height: 36px;
+  
+  /* Appearance */
+  background: #222; /* Dark grey background */
+  color: #fff;     /* White cross */
+  border-radius: 50%; /* Circular shape */
+  
+  /* Typography */
+  font-size: 24px;
+  line-height: 1; /* Remove default line height */
+  
+  /* Border and Reset */
+  border: none;
+  cursor: pointer;
+  outline: none;
+  
+  /* Transition */
+  transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+  background: var(--red); /* Turns red on hover */
+  transform: rotate(90deg); /* Spins slightly */
+}
+
+.drawer-extra {
+  margin-top: auto;
+  border-top: 1px solid #222;
+  padding-top: 10px;
+}
 
     /* =========================
    MOBILE HEADER ALIGN FIX
@@ -437,27 +480,34 @@ footer a:hover {
     <div class="pill-nav-wrapper">
       <nav class="pill-nav">
         <a href="index1.html">Home</a>
-        <a href="product.html">Products</a>
+        <a href="co_product.html">Products</a>
+        <a href="shop.html">Shop</a>
         <a href="service.html">Services</a>
-        <a href="worker.html">Team</a>
         <a href="contact.html" class="active">Contact</a>
+        <a href="worker.html">Our Team</a>
         <a href="admin.html">Admin</a>
       </nav>
     </div>
 
     <!-- MOBILE DRAWER -->
-    <div class="mobile-drawer" id="mobileMenu">
+     <div class="mobile-drawer" id="mobileMenu">
       <div class="drawer-header">
-        <h3 style="color:white; font-size:20px;">Menu</h3>
+        <h3 style="color:white; font-weight:700;">Menu</h3>
         <span class="close-btn" onclick="toggleMenu()">&times;</span>
       </div>
+
       <a href="index1.html"><i class="fas fa-home"></i> Home</a>
       <a href="product.html"><i class="fas fa-box"></i> Products</a>
-      <a href="co_product.html"><i class="fas fa-tags"></i> Product Details</a>
-      <a href="service.html"><i class="fas fa-tools"></i> Services</a>
+      <a href="shop.html"><i class="fas fa-store-alt"></i>  Shop</a>
+      <a href="contact.html" style="color: var(--red);"><i class="fas fa-phone"></i> Contact</a>
       <a href="worker.html"><i class="fas fa-users"></i> Our Team</a>
-      <a href="contact.html"><i class="fas fa-phone"></i> Contact</a>
       <a href="admin.html"><i class="fas fa-user-shield"></i> Admin Login</a>
+
+      <div class="drawer-extra">
+        <a href="#"><i class="fas fa-shopping-cart"></i> Cart</a>
+        <a href="#"><i class="fas fa-heart"></i> Wishlist</a>
+        <a href="#"><i class="fas fa-question-circle"></i> Help</a>
+      </div>
     </div>
   </header>
     <!-- Breadcrumb -->
@@ -712,8 +762,8 @@ footer a:hover {
                     <h3>Quick Links</h3>
                     <ul>
                         <li><a href="index1.html">Home</a></li>
-                        <li><a href="product.html">Products</a></li>
-                        <li><a href="co_product.html">Products Details</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="co_product.html">Products</a></li>
                         <li><a href="service.html">Services</a></li>
                         <li><a href="worker.html">Our Team</a></li>
                         <li><a href="contact.html">Contact</a></li>
@@ -723,9 +773,9 @@ footer a:hover {
                 <div class="footer-col">
                     <h3>Categories</h3>
                     <ul>
-                        <li><a href="#">Fire Extinguishers</a></li>
-                        <li><a href="#">Fire Balls</a></li>
-                        <li><a href="#">Security Cameras</a></li>
+                        <li><a href="1.html">Fire Extinguishers</a></li>
+                        <li><a href="3.html">Fire Balls</a></li>
+                        <li><a href="2.html">Security Cameras</a></li>
                         <li><a href="#">Access Control</a></li>
                         <li><a href="#">Alarm Systems</a></li>
                     </ul>
@@ -735,6 +785,7 @@ footer a:hover {
                     <h3>Customer Service</h3>
                     <ul>
                         <li><a href="faq.html">FAQs</a></li>
+                        <li><a href="testimonial.html">Testimonials</a></li>
                         <li><a href="#">Shipping Policy</a></li>
                         <li><a href="#">Returns & Exchanges</a></li>
                         <li><a href="#">Privacy Policy</a></li>

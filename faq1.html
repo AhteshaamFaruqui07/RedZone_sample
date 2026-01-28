@@ -1,0 +1,1001 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Red Zone</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+  <!-- FAVICON -->
+  <link rel="icon" href="images/logo1.png" type="image/png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      /* THEME COLORS: RED & BLACK */
+      --primary-red: #e10600;
+      --red: #e10600;       /* Vibrant Action Red */
+      --dark-red: #8a0000;         /* Background Red */
+      --midnight-black: #050505;    /* Deepest Black */
+      --black: #050505;
+      --surface-black: #121212;     /* Card Surface */
+      --text-white: #ffffff;
+      --text-muted: #a0a0a0;
+      --glow-red: rgba(225, 6, 0, 0.4);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    /* SELECTION COLOR */
+    ::selection {
+      background: var(--primary-red);
+      color: #fff;
+    }
+
+    html, body {
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text-white);
+      /* SMOOTH RED TO BLACK GRADIENT */
+      background: linear-gradient(180deg, #540707 0%, #000000 100%);
+      min-height: 100vh;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 24px;
+    }
+
+    /* =========================
+       HEADER (UPDATED TRANSPARENT THEME)
+    ========================= */
+    header {
+  position: fixed;          /* 🔥 FIXED, not sticky */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+      position: relative;
+    }
+
+    /* BRAND */
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand img {
+      width: 45px;
+      height: 45px;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .brand-line-1 {
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--black);
+      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      gap: 2px;
+    }
+
+    .Red { color: var(--red); }
+    .Zone { color: var(--black); }
+
+    .brand-line-2 {
+      font-size: 11px;
+      color: var(--red);
+      margin-top: 2px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* CONTROLS */
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-right select {
+      background: var(--black);
+      color: #fffefe;
+      border: 1px solid #3c3939;
+      border-radius: 6px;
+      padding: 6px 10px;
+      font-size: 13px;
+      cursor: pointer;
+      outline: none;
+    }
+    
+    .nav-right select:focus { border-color: var(--red); }
+
+    /* HAMBURGER */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      width: 30px;
+    }
+
+    .hamburger span {
+      width: 100%;
+      height: 3px;
+      background: var(--red);
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+
+    /* PILL NAV WRAPPER */
+    .pill-nav-wrapper {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -46px;
+      display: flex;
+      justify-content: center;
+      pointer-events: none;
+    } 
+
+    /* UPDATED PILL NAV - TRANSPARENT */
+    .pill-nav {
+     background: rgba(255, 255, 255, 0.15); 
+      backdrop-filter: blur(8px); /* FIX: Lighter blur */
+      -webkit-backdrop-filter: blur(8px);
+      padding: 10px 32px;
+      border-radius: 50px;
+      display: flex;
+      gap: 28px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+      pointer-events: auto;
+      border: 1px solid rgba(255, 255, 255, 0.05); /* Very subtle border */
+    }
+
+    .pill-nav a {
+      color: #fff; /* FIX: White text for better visibility on transparent bg */
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .pill-nav a:hover, .pill-nav a.active {
+      color: rgb(4, 253, 29);
+      transform: translateY(-2px);
+    }
+    
+    .pill-nav a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -18px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 5px;
+      height: 5px;
+      background: var(--primary-red);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--primary-red);
+    }
+
+    /* =========================
+       MOBILE DRAWER
+    ========================= */
+    .mobile-drawer {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 280px;
+      height: 100vh;
+      background: var(--midnight-black);
+      padding: 25px;
+      z-index: 2000;
+      display: flex;
+      flex-direction: column;
+      transition: right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      border-left: 1px solid var(--primary-red);
+      box-shadow: -10px 0 40px rgba(0,0,0,0.8);
+    }
+
+    .mobile-drawer.open {
+      right: 0;
+    }
+
+    .mobile-drawer a {
+      color: #fff;
+      text-decoration: none;
+      padding: 16px 0;
+      font-size: 16px;
+      border-bottom: 1px solid #222;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: 0.2s;
+    }
+
+    .mobile-drawer a:hover {
+      color: var(--primary-red);
+      padding-left: 10px;
+      background: rgba(255,255,255,0.02);
+    }
+    
+    .mobile-drawer a i { width: 20px; text-align: center; color: #fff; }
+    .mobile-drawer a:hover i { color: var(--primary-red); }
+
+    .drawer-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
+    }
+
+    .close-btn {
+      font-size: 28px;
+      cursor: pointer;
+      color: #fff;
+      transition: 0.3s;
+    }
+    .close-btn:hover { transform: rotate(90deg); color: var(--primary-red); }
+
+    /* =========================
+       FAQ SECTION
+    ========================= */
+    .faq-section {
+      padding: 130px 0;
+      position: relative;
+      overflow: hidden; 
+    }
+
+    #networkCanvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1; 
+      pointer-events: all; 
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+      position: relative;
+      z-index: 2; 
+    }
+    
+    .section-title h2 {
+      color: #fff;
+      margin-bottom: 12px;
+      font-size: 40px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+
+    .section-title p {
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-size: 13px;
+      letter-spacing: 2px;
+    }
+
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2; 
+    }
+
+    .faq-item {
+      background: rgba(18, 18, 18, 0.85); 
+      margin-bottom: 12px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+
+    .faq-item:hover {
+      border-color: rgba(225, 6, 0, 0.5);
+      background: rgba(30, 0, 0, 0.85);
+      box-shadow: 0 8px 25px rgba(86, 226, 43, 0.9);
+      transform: translateX(5px);
+    }
+
+    .faq-question {
+      padding: 22px 24px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #fff;
+    }
+    
+    .faq-question h3 {
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+
+    .faq-question i {
+      color: var(--primary-red);
+      transition: 0.3s;
+    }
+
+    .faq-answer {
+      padding: 0 24px 24px 24px;
+      background-color: rgb(20, 5, 5);   /* #140505 */
+      color: rgb(230, 230, 230); 
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      font-size: 15px;
+      line-height: 1.6;
+      border-top: 1px solid transparent;
+      transition: max-height 0.4s ease, opacity 0.4s ease;
+    }
+    
+    .faq-item.active .faq-answer {
+      opacity: 1;
+      border-top: 1px solid rgba(225, 6, 0, 0.2);
+    }
+    
+    .faq-item.active .fa-chevron-down {
+      transform: rotate(180deg);
+    }
+
+    /* =========================
+       SUPPORT SECTION
+    ========================= */
+    .support-section {
+      background: linear-gradient(135deg, #b30000, #000000);
+      padding: 100px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .support-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 80% 20%, rgba(0,0,0,0.3), transparent 50%);
+      pointer-events: none;
+    }
+
+    .support-content {
+      position: relative;
+      z-index: 2;
+      background: var(--midnight-black);
+      padding: 50px 40px;
+      border-radius: 20px;
+      border: 1px solid var(--primary-red);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .support-content h2 {
+      color: #fff;
+      font-size: 34px;
+      margin-bottom: 15px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .support-content > p {
+      color: #aaa;
+      margin-bottom: 35px;
+      font-size: 16px;
+    }
+
+    .emergency-contact {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      background: linear-gradient(90deg, var(--dark-red), var(--primary-red));
+      color: #fff;
+      padding: 16px 40px;
+      border-radius: 60px;
+      box-shadow: 0 0 30px var(--glow-red);
+      border: 1px solid rgba(255,255,255,0.2);
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      text-decoration: none;
+    }
+
+    .emergency-contact:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 0 50px var(--glow-red);
+      background: linear-gradient(90deg, var(--primary-red), #ff3333);
+    }
+
+    .emergency-contact i {
+      font-size: 28px;
+      animation: pulse-phone 2s infinite;
+    }
+
+    .contact-details {
+      text-align: left;
+      line-height: 1.4;
+    }
+
+    .contact-details .phone {
+      display: block;
+      font-weight: 800;
+      font-size: 20px;
+      color: #fff;
+      letter-spacing: 1px;
+    }
+
+    .contact-details .hours {
+      font-size: 12px;
+      color: rgba(255,255,255,0.8);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    @keyframes pulse-phone {
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.2); opacity: 0.8; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    /* =========================
+       NEWSLETTER SECTION
+    ========================= */
+    .newsletter {
+      padding: 100px 20px;
+      background: var(--midnight-black);
+      border-top: 1px solid #222;
+    }
+
+    .newsletter-content {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .newsletter-content h2 {
+      color: #fff;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 12px;
+      margin-top: 30px;
+      background: #111;
+      padding: 8px;
+      border-radius: 60px;
+      border: 1px solid #333;
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      padding: 12px 20px;
+      color: #fff;
+      outline: none;
+      font-size: 16px;
+    }
+
+    .newsletter-form button {
+      background: var(--primary-red);
+      color: #fff;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 50px;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 14px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    
+    .newsletter-form button:hover {
+      background: #ff3333;
+      box-shadow: 0 0 15px rgba(225, 6, 0, 0.4);
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+    footer {
+      background: #000;
+      border-top: 3px solid #ddd;;
+      padding: 80px 0 30px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+
+    .footer-col h3 {
+      color: #fff;
+      margin-bottom: 25px;
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-left: 3px solid var(--primary-red);
+      padding-left: 12px;
+    }
+
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 12px; }
+
+    .footer-col a {
+      color: #fff;
+      text-decoration: none;
+      transition: 0.3s;
+      font-size: 14px;
+    }
+
+    .footer-col a:hover {
+      color: var(--primary-red);
+      padding-left: 5px;
+    }
+    
+    .footer-logo h2 {
+      font-size: 24px;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .footer-contact p {
+      color: #555;
+      margin-bottom: 15px;
+      font-size: 14px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    
+    .footer-contact i {
+      color: var(--primary-red);
+      margin-top: 4px;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #111;
+      padding-top: 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      font-size: 13px;
+      color: #333;
+    }
+
+    .payment-methods i {
+      color: #444;
+      font-size: 24px;
+      margin-left: 15px;
+      transition: 0.3s;
+    }
+
+    .payment-methods i:hover {
+      color: var(--primary-red);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .pill-nav-wrapper { display: none !important; }
+      .hamburger { display: flex; }
+      .newsletter-form { flex-direction: column; padding: 15px; border-radius: 20px; }
+      .newsletter-form button { width: 100%; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .support-content { padding: 30px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+<header>
+    <div class="container navbar">
+      <!-- LEFT BRAND -->
+      <div class="brand">
+        <img src="logo.png" alt="Red Zone Logo" onerror="this.style.display='none'">
+        <div class="brand-text">
+          <div class="brand-line-1">
+            <span class="Red">RED</span>
+            <span class="Zone">ZONE</span>
+            <span style="margin: 0 4px;">-</span>
+          </div>
+          <div class="brand-line-2">Risk & Security Solutions</div>
+        </div>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="nav-right">
+        <select>
+          <option>English</option>
+          <option>हिन्दी</option>
+          <option>ਪੰਜਾਬੀ</option>
+        </select>
+
+        <div class="hamburger" onclick="toggleMenu()">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CENTERED PILL NAV -->
+    <div class="pill-nav-wrapper">
+      <nav class="pill-nav">
+        <a href="index1.html">Home</a>
+        <a href="product.html">Products</a>
+        <a href="shop.html">shop</a>
+        <a href="service.html">Services</a>
+        <a href="contact.html">Contact</a>
+        <a href="worker.html">Our Team</a>
+        <a href="admin.html">Admin</a>
+      </nav>
+    </div>
+
+    <!-- MOBILE DRAWER -->
+    <div class="mobile-drawer" id="mobileMenu">
+      <div class="drawer-header">
+        <h3 style="color:white; font-size:18px; font-weight:700;">Menu</h3>
+        <span class="close-btn" onclick="toggleMenu()">&times;</span>
+      </div>
+      <a href="index1.html"><i class="fas fa-home"></i> Home</a>
+      <a href="product.html"><i class="fas fa-box"></i> Products</a>
+      <a href="co_product.html"><i class="fas fa-tags"></i> Product Details</a>
+      <a href="service.html"><i class="fas fa-tools"></i> Services</a>
+      <a href="worker.html"><i class="fas fa-users"></i> Our Team</a>
+      <a href="contact.html"><i class="fas fa-phone"></i> Contact</a>
+      <a href="admin.html"><i class="fas fa-user-shield"></i> Admin Login</a>
+    </div>
+  </header>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <!-- INTERACTIVE NETWORK CANVAS -->
+        <canvas id="networkCanvas"></canvas>
+
+        <div class="container">
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+                <p>Find answers to common questions about our services</p>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How quickly can you respond to service requests?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>For emergency situations, we guarantee a response within 2 hours. For non-emergency service requests, we typically respond within 24 hours and schedule appointments based on your convenience.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Do you offer installation services for products purchased elsewhere?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we provide professional installation services for security systems regardless of where they were purchased. However, products purchased from us come with complimentary installation.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What areas do you serve?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We primarily serve the Tech City metropolitan area and surrounding counties. For locations beyond our standard service area, please contact us to discuss availability and potential travel fees.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Do you provide maintenance contracts?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we offer comprehensive maintenance contracts that include regular system inspections, preventive maintenance, priority support, and discounted rates on parts and labor. Contracts are available for all security systems.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Section -->
+    <section class="support-section">
+        <div class="container">
+            <div class="support-content">
+                <h2>Need Immediate Assistance?</h2>
+                <p>Our 24/7 support line is available for emergency situations</p>
+                <div class="emergency-contact">
+                    <i class="fas fa-phone-alt"></i>
+                    <div class="contact-details">
+                        <span class="phone">Emergency Hotline: +1 (555) 123-4569</span>
+                        <span class="hours">Available 24/7 for urgent security concerns</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Stay Updated with Security Tips</h2>
+                <p>Subscribe to our newsletter for latest product updates, security tips, and exclusive offers.</p>
+                <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed Successfully!');">
+                    <input type="email" placeholder="Enter your email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="footer-logo">
+                    <h2><span style="color: var(--primary-red);">Red </span>Zone</h2>
+                </div>
+                <div class="footer-contact">
+                    <p style="color: #fff;"><i class="fas fa-map-marker-alt"></i>SECURE YOUR ZONE BY REDZONE 📍 Near Clock Tower jabalpur</p>
+                    <p style="color: #fff;"><i class="fas fa-phone"></i> +91 9425183400</p>
+                    <p style="color: #fff;"><i class="fas fa-envelope"></i> redzonejbp@gmail.com</p>
+                </div>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index1.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="co_product.html">Products</a></li>
+                    <li><a href="service.html">Services</a></li>
+                    <li><a href="worker.html">Our Team</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Categories</h3>
+                <ul>
+                    <li><a href="1.html">Fire Extinguishers</a></li>
+                    <li><a href="3.html">Fire Balls</a></li>
+                    <li><a href="2.html">Security Cameras</a></li>
+                    <li><a href="#">Access Control</a></li>
+                    <li><a href="#">Alarm Systems</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Customer Service</h3>
+                <ul>
+                    <li><a href="faq.html">FAQs</a></li>
+                    <li><a href="testimonial.html">Testimonials</a></li>
+                    <li><a href="#">Shipping Policy</a></li>
+                    <li><a href="#">Returns & Exchanges</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 Red Zone Security Solutions. All rights reserved.</p>
+            <div class="payment-methods">
+                <i class="fab fa-cc-visa"></i>
+                <i class="fab fa-cc-mastercard"></i>
+                <i class="fab fa-cc-amex"></i>
+                <i class="fab fa-cc-paypal"></i>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <script>
+        /* =========================
+           FAQ ACCORDION (FIXED)
+        ========================= */
+        document.addEventListener("DOMContentLoaded", function() {
+            const questions = document.querySelectorAll('.faq-question');
+            
+            questions.forEach(question => {
+                question.addEventListener('click', function() {
+                    const faqItem = this.parentElement;
+                    const answer = faqItem.querySelector('.faq-answer');
+                    
+                    if (!answer) return; // Safety check
+
+                    // Close all other items
+                    document.querySelectorAll('.faq-item').forEach(item => {
+                        if (item !== faqItem) {
+                            item.classList.remove('active');
+                            item.querySelector('.faq-answer').style.maxHeight = null;
+                        }
+                    });
+
+                    // Toggle current item
+                    const isActive = faqItem.classList.toggle('active');
+
+                    if (isActive) {
+                        answer.style.maxHeight = answer.scrollHeight + "px";
+                    } else {
+                        answer.style.maxHeight = null;
+                    }
+                });
+            });
+
+            /* =========================
+               INTERACTIVE NETWORK VISUAL
+            ========================= */
+            const canvas = document.getElementById('networkCanvas');
+            const ctx = canvas.getContext('2d');
+            
+            let width, height;
+            let particles = [];
+            const particleCount = 60; // Number of nodes
+            const connectionDistance = 120; // Distance to draw lines
+            const mouseDistance = 150; // Mouse interaction radius
+
+            // Mouse tracking
+            let mouse = { x: null, y: null };
+
+            window.addEventListener('mousemove', (e) => {
+                const rect = canvas.getBoundingClientRect();
+                mouse.x = e.clientX - rect.left;
+                mouse.y = e.clientY - rect.top;
+            });
+
+            window.addEventListener('mouseleave', () => {
+                mouse.x = null;
+                mouse.y = null;
+            });
+
+            function resize() {
+                width = canvas.width = document.querySelector('.faq-section').offsetWidth;
+                height = canvas.height = document.querySelector('.faq-section').offsetHeight;
+                initParticles();
+            }
+
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * width;
+                    this.y = Math.random() * height;
+                    this.vx = (Math.random() - 0.5) * 1; // Velocity X
+                    this.vy = (Math.random() - 0.5) * 1; // Velocity Y
+                    this.size = Math.random() * 2 + 1;
+                    this.color = 'rgb(4, 253, 29)'; // Reddish nodes
+                }
+
+                update() {
+                    this.x += this.vx;
+                    this.y += this.vy;
+
+                    // Bounce off edges
+                    if (this.x < 0 || this.x > width) this.vx *= -1;
+                    if (this.y < 0 || this.y > height) this.vy *= -1;
+
+                    // Mouse Interaction (Repel)
+                    if (mouse.x != null) {
+                        let dx = mouse.x - this.x;
+                        let dy = mouse.y - this.y;
+                        let distance = Math.sqrt(dx * dx + dy * dy);
+                        if (distance < mouseDistance) {
+                            const forceDirectionX = dx / distance;
+                            const forceDirectionY = dy / distance;
+                            const force = (mouseDistance - distance) / mouseDistance;
+                            const directionX = forceDirectionX * force * 2;
+                            const directionY = forceDirectionY * force * 2;
+                            this.x -= directionX;
+                            this.y -= directionY;
+                        }
+                    }
+                }
+
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fillStyle = this.color;
+                    ctx.fill();
+                }
+            }
+
+            function initParticles() {
+                particles = [];
+                for (let i = 0; i < particleCount; i++) {
+                    particles.push(new Particle());
+                }
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, width, height);
+                
+                for (let i = 0; i < particles.length; i++) {
+                    particles[i].update();
+                    particles[i].draw();
+
+                    // Draw connections
+                    for (let j = i; j < particles.length; j++) {
+                        let dx = particles[i].x - particles[j].x;
+                        let dy = particles[i].y - particles[j].y;
+                        let distance = Math.sqrt(dx * dx + dy * dy);
+
+                        if (distance < connectionDistance) {
+                            ctx.beginPath();
+                            // Opacity based on distance
+                            let opacity = 1 - (distance / connectionDistance);
+                            ctx.strokeStyle = 'rgb(225, 225,225' + (opacity * 0.2) + ')'; 
+                            ctx.lineWidth = 1;
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+                requestAnimationFrame(animate);
+            }
+
+            window.addEventListener('resize', resize);
+            resize();
+            animate();
+        });
+
+        // Mobile Menu Toggle
+        function toggleMenu() {
+          const menu = document.getElementById("mobileMenu");
+          menu.classList.toggle("open");
+        }
+    </script>
+
+</body>
+</html>
