@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Red Zone - Midnight Theme (Fixed)</title>
+  <title>Red Zone</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
   <!-- FAVICON -->
   <link rel="icon" href="images/logo1.png" type="image/png">
@@ -13,9 +13,11 @@
   <style>
     :root {
       /* THEME COLORS: RED & BLACK */
-      --primary-red: #e10600;       /* Vibrant Action Red */
+      --primary-red: #e10600;
+      --red: #e10600;       /* Vibrant Action Red */
       --dark-red: #8a0000;         /* Background Red */
       --midnight-black: #050505;    /* Deepest Black */
+      --black: #050505;
       --surface-black: #121212;     /* Card Surface */
       --text-white: #ffffff;
       --text-muted: #a0a0a0;
@@ -39,7 +41,7 @@
       font-family: 'Inter', sans-serif;
       color: var(--text-white);
       /* SMOOTH RED TO BLACK GRADIENT */
-      background: linear-gradient(180deg, #2a0000 0%, #000000 100%);
+      background: linear-gradient(180deg, #540707 0%, #000000 100%);
       min-height: 100vh;
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
@@ -125,7 +127,7 @@
 
     .nav-right select {
       background: var(--black);
-      color: #000000;
+      color: #fffefe;
       border: 1px solid #3c3939;
       border-radius: 6px;
       padding: 6px 10px;
@@ -165,21 +167,22 @@
       pointer-events: none;
     } 
 
+    /* UPDATED PILL NAV - TRANSPARENT */
     .pill-nav {
-      background: rgba(10, 10, 10, 0.9); /* Darker pill nav */
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
+     background: rgba(255, 255, 255, 0.15); 
+      backdrop-filter: blur(8px); /* FIX: Lighter blur */
+      -webkit-backdrop-filter: blur(8px);
       padding: 10px 32px;
       border-radius: 50px;
       display: flex;
       gap: 28px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.6);
       pointer-events: auto;
-      border: 1px solid rgba(225, 6, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.05); /* Very subtle border */
     }
 
     .pill-nav a {
-      color: #aaa;
+      color: #fff; /* FIX: White text for better visibility on transparent bg */
       text-decoration: none;
       font-weight: 600;
       font-size: 13px;
@@ -190,8 +193,8 @@
     }
 
     .pill-nav a:hover, .pill-nav a.active {
-      color: #fff;
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+      color: rgb(4, 253, 29);
+      transform: translateY(-2px);
     }
     
     .pill-nav a.active::after {
@@ -231,7 +234,7 @@
     }
 
     .mobile-drawer a {
-      color: #ccc;
+      color: #fff;
       text-decoration: none;
       padding: 16px 0;
       font-size: 16px;
@@ -248,7 +251,7 @@
       background: rgba(255,255,255,0.02);
     }
     
-    .mobile-drawer a i { width: 20px; text-align: center; color: #555; }
+    .mobile-drawer a i { width: 20px; text-align: center; color: #fff; }
     .mobile-drawer a:hover i { color: var(--primary-red); }
 
     .drawer-header {
@@ -267,30 +270,29 @@
     .close-btn:hover { transform: rotate(90deg); color: var(--primary-red); }
 
     /* =========================
-       FAQ SECTION (FIXED)
+       FAQ SECTION
     ========================= */
     .faq-section {
-      padding: 100px 0;
+      padding: 130px 0;
       position: relative;
-      overflow: hidden; /* Contains the canvas */
+      overflow: hidden; 
     }
 
-    /* Interactive Canvas Background */
     #networkCanvas {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      z-index: 1; /* Behind content */
-      pointer-events: all; /* Allows mouse interaction */
+      z-index: 1; 
+      pointer-events: all; 
     }
 
     .section-title {
       text-align: center;
       margin-bottom: 60px;
       position: relative;
-      z-index: 2; /* Above canvas */
+      z-index: 2; 
     }
     
     .section-title h2 {
@@ -313,12 +315,11 @@
       max-width: 800px;
       margin: 0 auto;
       position: relative;
-      z-index: 2; /* Above canvas */
+      z-index: 2; 
     }
 
     .faq-item {
-      /* GLASS CARD LOOK */
-      background: rgba(18, 18, 18, 0.85); /* Increased opacity for readability over canvas */
+      background: rgba(18, 18, 18, 0.85); 
       margin-bottom: 12px;
       border-radius: 12px;
       overflow: hidden;
@@ -330,6 +331,7 @@
     .faq-item:hover {
       border-color: rgba(225, 6, 0, 0.5);
       background: rgba(30, 0, 0, 0.85);
+      box-shadow: 0 8px 25px rgba(86, 226, 43, 0.9);
       transform: translateX(5px);
     }
 
@@ -355,14 +357,14 @@
 
     .faq-answer {
       padding: 0 24px 24px 24px;
-      color: #ccc;
+      background-color: rgb(20, 5, 5);   /* #140505 */
+      color: rgb(230, 230, 230); 
       max-height: 0;
       overflow: hidden;
       opacity: 0;
       font-size: 15px;
       line-height: 1.6;
       border-top: 1px solid transparent;
-      /* SIMPLIFIED TRANSITION */
       transition: max-height 0.4s ease, opacity 0.4s ease;
     }
     
@@ -376,10 +378,9 @@
     }
 
     /* =========================
-       SUPPORT SECTION (Intense Red)
+       SUPPORT SECTION
     ========================= */
     .support-section {
-      /* DEEP RED GRADIENT */
       background: linear-gradient(135deg, #b30000, #000000);
       padding: 100px 20px;
       position: relative;
@@ -400,13 +401,10 @@
     .support-content {
       position: relative;
       z-index: 2;
-      
-      /* MATTE BLACK CARD */
       background: var(--midnight-black);
       padding: 50px 40px;
       border-radius: 20px;
       border: 1px solid var(--primary-red);
-      
       box-shadow: 0 20px 50px rgba(0,0,0,0.8);
       text-align: center;
       max-width: 700px;
@@ -432,16 +430,12 @@
       align-items: center;
       justify-content: center;
       gap: 20px;
-      
       background: linear-gradient(90deg, var(--dark-red), var(--primary-red));
       color: #fff;
       padding: 16px 40px;
       border-radius: 60px;
-      
-      /* GLOWING EFFECT */
       box-shadow: 0 0 30px var(--glow-red);
       border: 1px solid rgba(255,255,255,0.2);
-      
       cursor: pointer;
       transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       text-decoration: none;
@@ -548,7 +542,7 @@
     ========================= */
     footer {
       background: #000;
-      border-top: 3px solid var(--dark-red);
+      border-top: 3px solid #ddd;;
       padding: 80px 0 30px;
     }
 
@@ -573,7 +567,7 @@
     .footer-col ul li { margin-bottom: 12px; }
 
     .footer-col a {
-      color: #666;
+      color: #fff;
       text-decoration: none;
       transition: 0.3s;
       font-size: 14px;
@@ -674,7 +668,7 @@
     <div class="pill-nav-wrapper">
       <nav class="pill-nav">
         <a href="index1.html">Home</a>
-        <a href="product.html" class="active">Products</a>
+        <a href="product.html">Products</a>
         <a href="shop.html">shop</a>
         <a href="service.html">Services</a>
         <a href="contact.html">Contact</a>
@@ -794,9 +788,9 @@
                     <h2><span style="color: var(--primary-red);">Red </span>Zone</h2>
                 </div>
                 <div class="footer-contact">
-                    <p><i class="fas fa-map-marker-alt"></i>SECURE YOUR ZONE BY REDZONE 📍 Near Clock Tower jabalpur</p>
-                    <p><i class="fas fa-phone"></i> +91 9425183400</p>
-                    <p><i class="fas fa-envelope"></i> redzonejbp@gmail.com</p>
+                    <p style="color: #fff;"><i class="fas fa-map-marker-alt"></i>SECURE YOUR ZONE BY REDZONE 📍 Near Clock Tower jabalpur</p>
+                    <p style="color: #fff;"><i class="fas fa-phone"></i> +91 9425183400</p>
+                    <p style="color: #fff;"><i class="fas fa-envelope"></i> redzonejbp@gmail.com</p>
                 </div>
             </div>
             
@@ -889,9 +883,9 @@
             
             let width, height;
             let particles = [];
-            const particleCount = 60; // Number of nodes
-            const connectionDistance = 120; // Distance to draw lines
-            const mouseDistance = 150; // Mouse interaction radius
+            const particleCount = 70; // Number of nodes
+            const connectionDistance = 140; // Distance to draw lines
+            const mouseDistance = 180; // Mouse interaction radius
 
             // Mouse tracking
             let mouse = { x: null, y: null };
@@ -917,10 +911,10 @@
                 constructor() {
                     this.x = Math.random() * width;
                     this.y = Math.random() * height;
-                    this.vx = (Math.random() - 0.5) * 1; // Velocity X
-                    this.vy = (Math.random() - 0.5) * 1; // Velocity Y
+this.vx = (Math.random() - 0.5) * 2.5;
+this.vy = (Math.random() - 0.5) * 2.5;
                     this.size = Math.random() * 2 + 1;
-                    this.color = 'rgba(225, 6, 0, 0.6)'; // Reddish nodes
+                    this.color = 'rgb(4, 253, 29)'; // Reddish nodes
                 }
 
                 update() {
@@ -980,7 +974,7 @@
                             ctx.beginPath();
                             // Opacity based on distance
                             let opacity = 1 - (distance / connectionDistance);
-                            ctx.strokeStyle = 'rgba(225, 6, 0,' + (opacity * 0.2) + ')'; 
+                            ctx.strokeStyle = 'rgb(225, 225,225' + (opacity * 0.2) + ')'; 
                             ctx.lineWidth = 1;
                             ctx.moveTo(particles[i].x, particles[i].y);
                             ctx.lineTo(particles[j].x, particles[j].y);
@@ -1002,5 +996,6 @@
           menu.classList.toggle("open");
         }
     </script>
+
 </body>
 </html>
