@@ -1,28 +1,72 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-IN">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Red Zone</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+  
+  <!-- SEO META TAGS -->
+  <title>Buy CCTV Cameras Online | Hikvision, Dahua, Bosch & Samsung | REDZONE India</title>
+<meta name="description" content="Shop premium CCTV cameras and surveillance systems from Hikvision, Dahua, Bosch, and Samsung. Professional installation, remote monitoring & security solutions available across India."> 
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://redzoneindia.solutions/2.html">
+
+  <!-- OPEN GRAPH -->
+<meta property="og:title" content="Premium CCTV Cameras & Security Systems | REDZONE India">
+<meta name="description" content="Buy CCTV cameras online from Hikvision, Dahua, Bosch and Samsung. Professional installation, remote monitoring & advanced security systems available across India.">
+<meta property="og:site_name" content="REDZONE India">
+  <meta property="og:image" content="https://redzoneindia.solutions/camera/camera1.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://redzoneindia.solutions/2.html">
+
+  <!-- REMOVED: Swiper CSS (Not used on this page) -->
+  
   <link rel="stylesheet" href="style.css">
+  
   <!-- FAVICON -->
   <link rel="icon" href="images/logo1.png" type="image/png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- STRUCTURED DATA (SCHEMA) FOR CAMERAS -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "ProfessionalService",
+ "itemListElement": [{
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Home",
+   "item": "https://redzoneindia.solutions/"
+ },{
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Security Cameras",
+   "item": "https://redzoneindia.solutions/2.html"
+ }]
+}
+</script>
 
   <style>
 :root{
   --black:#000000;
   --dark:#111111;
   --dark2:#1a1a1a;
-  --card:#1a1a1a; /* Added missing variable */
+  --card:#1a1a1a;
   --red:#e10600;
   --white:#ffffff;
   --gray:#b5b5b5;
 }
 
 /* RESET */
+html {
+  width: 100%;
+  overflow-x: hidden;
+}
+
 *{
   margin:0;
   padding:0;
@@ -34,6 +78,7 @@ body{
   background:var(--black);
   color:var(--dark2);
   overflow-x: hidden;
+  width: 100%;
 }
 
 .container{
@@ -44,7 +89,7 @@ body{
 }
 
 /* =========================
-   NAVBAR (UPDATED)
+   NAVBAR
 ========================= */
 header{
   background:var(--white);
@@ -76,7 +121,7 @@ header{
 }
 
 .logo {
-  width: 46px;
+  width: 59px;
   height: auto;
 }
 
@@ -124,7 +169,7 @@ select{
 
 /* HAMBURGER */
 .hamburger{
-  display:none; /* Hidden on desktop */
+  display:none;
   flex-direction:column;
   gap:5px;
   cursor:pointer;
@@ -195,6 +240,7 @@ select{
       border-radius: 50%;
       box-shadow: 0 0 10px rgb(4, 253, 29);
     }
+
 /* MOBILE DRAWER */
 .mobile-drawer {
   position: fixed;
@@ -255,38 +301,27 @@ select{
 }
 
 .close-btn {
-  /* Flexbox for centering text inside */
   display: flex;
   justify-content: center;
   align-items: center;
-  
-  /* Dimensions - Makes it a square/circle */
   width: 36px;
   height: 36px;
   min-width: 36px;
   min-height: 36px;
-  
-  /* Appearance */
-  background: #222; /* Dark grey background */
-  color: #fff;     /* White cross */
-  border-radius: 50%; /* Circular shape */
-  
-  /* Typography */
+  background: #222;
+  color: #fff;
+  border-radius: 50%;
   font-size: 24px;
-  line-height: 1; /* Remove default line height */
-  
-  /* Border and Reset */
+  line-height: 1;
   border: none;
   cursor: pointer;
   outline: none;
-  
-  /* Transition */
   transition: all 0.3s ease;
 }
 
 .close-btn:hover {
-  background: var(--red); /* Turns red on hover */
-  transform: rotate(90deg); /* Spins slightly */
+  background: var(--red);
+  transform: rotate(90deg);
 }
 
 .drawer-extra {
@@ -332,7 +367,7 @@ select{
 .filter-options select {
   background: var(--dark2);
   color: #fff;
-  border: none; /* BORDER REMOVED */
+  border: none;
   padding: 8px 12px;
   border-radius: 6px;
   outline: none;
@@ -357,7 +392,7 @@ select{
   border-radius:14px;
   box-shadow:0 10px 30px rgba(0,0,0,0.6);
   overflow:hidden;
-  transition: all 0.3s ease-in-out; /* SMOOTH EASE TRANSITION */
+  transition: all 0.3s ease-in-out;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -385,16 +420,15 @@ select{
       text-transform: uppercase;
       border-radius: 4px;
       z-index: 5;
-      /* Animation */
       animation: pulse-red 2s infinite;
     }
 
 @keyframes pulse-red {
   0%, 100% {
-    transform: scale(1); /* Normal size */
+    transform: scale(1);
   }
   50% {
-    transform: scale(1.10); /* Slight zoom in (8%) */
+    transform: scale(1.10);
   }
 }
 
@@ -415,11 +449,11 @@ select{
   max-width:100%;
   max-height:100%;
   object-fit:contain;
-  transition: transform 0.3s ease-in-out; /* SMOOTH IMAGE ZOOM */
+  transition: transform 0.3s ease-in-out;
 }
 
 .product-card:hover .product-img img {
-    transform: scale(1.2); /* MORE ZOOM */
+    transform: scale(1.2);
 }
 
 /* Content */
@@ -479,15 +513,15 @@ select{
   background:var(--red);
   color:#fff;
   border:none;
-  padding:6px 14px; /* Smaller padding */
+  padding:6px 14px;
   border-radius:6px;
   cursor:pointer;
   font-weight:600;
-  font-size: 12px; /* Smaller font */
+  font-size: 12px;
   flex-grow: 1;
   box-shadow: 0 4px 15px rgba(225, 6, 0, 0.3);
   transition: 0.2s;
-  height: 36px; /* Fixed height */
+  height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -496,6 +530,41 @@ select{
 .btn-primary:hover{
   background:#ff2a2a;
   transform: translateY(-1px);
+}
+
+.price-request a {
+    display: inline-block;
+    background: #e00000;
+    color: #fff;
+    padding: 8px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.4s ease;
+    animation: smoothPulse 3s ease-in-out infinite;
+}
+
+/* Smooth Premium Pulse */
+@keyframes smoothPulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(224, 0, 0, 0);
+    }
+    50% {
+        transform: scale(1.04);
+        box-shadow: 0 0 20px rgba(224, 0, 0, 0.25);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(224, 0, 0, 0);
+    }
+}
+
+/* Smooth hover */
+.price-request a:hover {
+    background: #c00000;
+    transform: scale(1.06);
+    box-shadow: 0 8px 25px rgba(224, 0, 0, 0.35);
 }
 
 .wishlist-btn{
@@ -573,7 +642,7 @@ select{
 }
 
 .newsletter-form input {
-    background: #000000; /* Black Background */
+    background: #000000;
     color: #fff;
     border: 1px solid #ff6666;
     padding: 12px 15px;
@@ -659,6 +728,26 @@ footer {
     color: var(--red);
     margin-top: 3px;
 }
+    .footer-contact a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.footer-contact a:hover {
+    color: red;
+    text-decoration: underline;
+}
+
+.footer-location a {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.3s ease;
+}
+
+.footer-location a:hover {
+    color: red;
+}
+
 
 .footer-bottom {
     text-align: center;
@@ -694,7 +783,8 @@ footer {
   }
 
   .logo {
-    width: 38px;
+    width: 70px;
+    margin-top: 10px;
   }
 
   .drawer-overlay.active {
@@ -732,6 +822,23 @@ footer {
     max-width: 100%;
   }
 }
+
+/* ================= DESKTOP FIXED HEADER ================= */
+@media (min-width: 769px) {
+  header {
+    /* Force fixed position on Desktop */
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+
+  /* Adjust padding for products section to compensate for fixed header */
+  .products-page {
+    padding-top: 160px !important;
+  }
+}
   </style>
 </head>
 <body>
@@ -741,7 +848,9 @@ footer {
     <div class="container navbar">
       <!-- Brand -->
       <div class="brand">
-        <img class="logo" src="logo.png" alt="Logo">
+        <a href="index.html" aria-label="REDZONE Home">
+          <img class="logo" src="images/logo12.png" alt="REDZONE Logo" width="59" height="auto" loading="lazy">
+        </a>
         <div class="brand-text">
           <div class="brand-line-1">
             <span class="Red">RED</span>
@@ -754,12 +863,12 @@ footer {
 
       <!-- Right Side -->
       <div class="nav-right">
-        <select>
+        <select aria-label="Select Language">
           <option>English</option>
           <option>हिन्दी</option>
           <option>ਪੰਜਾਬੀ</option>
         </select>
-        <div class="hamburger" onclick="toggleMenu()">
+        <div class="hamburger" onclick="toggleMenu()" aria-label="Menu" role="button" tabindex="0">
           <span></span><span></span><span></span>
         </div>
       </div>
@@ -767,8 +876,8 @@ footer {
 
     <!-- Centered Pill Nav (Desktop) -->
     <div class="pill-nav-wrapper">
-      <nav class="pill-nav">
-        <a href="index1.html">Home</a>
+      <nav class="pill-nav" aria-label="Main Navigation">
+        <a href="index.html">Home</a>
         <a href="co_product.html" class="active">Products</a>
         <a href="shop.html">Shop</a>
         <a href="service.html">Services</a>
@@ -782,14 +891,14 @@ footer {
     <div class="drawer-overlay" id="drawerOverlay" onclick="toggleMenu()"></div>
 
     <!-- Mobile Drawer -->
-    <div class="mobile-drawer" id="mobileMenu">
+    <div class="mobile-drawer" id="mobileMenu" aria-hidden="true">
       <div class="drawer-header">
         <h3 style="color:white; font-weight:700;">Menu</h3>
-        <span class="close-btn" onclick="toggleMenu()">&times;</span>
+        <span class="close-btn" onclick="toggleMenu()" aria-label="Close Menu">&times;</span>
       </div>
 
-      <a href="index1.html"><i class="fas fa-home"></i> Home</a>
-      <a href="co_product.html"><i class="fas fa-box"></i> Products</a>
+      <a href="index.html"><i class="fas fa-home"></i> Home</a>
+      <a href="co_product.html" style="color:rgb(255, 0, 0)"><i class="fas fa-box"></i> Products</a>
       <a href="shop.html"><i class="fas fa-store-alt"></i>  Shop</a>
       <a href="contact.html"><i class="fas fa-phone"></i> Contact</a>
       <a href="worker.html"><i class="fas fa-users"></i> Our Team</a>
@@ -808,44 +917,22 @@ footer {
         <div class="container">
             <div class="section-title">
                 <h1>Our Security Products - Cameras section</h1>
-                <p>Browse our extensive collection of fire safety and security equipment</p>
-            </div>
-            
-            <!-- Filter and Sort Options -->
-            <div class="products-controls">
-                <div class="filter-options">
-                    <select>
-                        <option>All Categories</option>
-                        <option>HIK Vision CCTV</option>
-                        <option>Godrej Camera</option>
-                        <option>Bosch CCTV</option>
-                        <option>Dahua CCTV</option>
-                        <option>Commax CCTV</option>
-                    </select>
-                    
-                    <select>
-                        <option>Price: Low to High</option>
-                        <option>Price: High to Low</option>
-                        <option>Best Selling</option>
-                        <option>Newest First</option>
-                    </select>
-                </div>
-                
-                <div class="results-count">
-                    Showing 1-12 of 48 products
-                </div>
+                <p>Explore high-quality CCTV cameras and advanced surveillance systems from Hikvision, Dahua, Bosch and Samsung. Suitable for home, office, commercial and industrial security across India.</p>
             </div>
             
             <!-- Products Grid -->
             <div class="product-grid">
                 <!-- Fire Extinguishers -->
-                <div class="product-card">
+                <div class="product-card" itemscope itemtype="https://schema.org/Product">
                     <div class="product-badge">Best Seller</div>
                     <div class="product-img">
-                        <img src="camera/camera1.png" alt="camera1">
+                  <img src="camera/camera1.png"
+                     alt="Hikvision Turbo HD Bullet CCTV Camera"
+                    title="Hikvision CCTV Camera for Home and Office Security"
+                    loading="lazy">
                     </div>
                     <div class="product-content">
-                        <h3>HIKVISION Turbo HD Camera DS-2CE16C0T-IRP Bullet Camera</h3>
+                        <h3 itemprop="name">HIKVISION Turbo HD Camera DS-2CE16C0T-IRP Bullet Camera</h3>
                         <div class="product-rating">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -854,24 +941,20 @@ footer {
                             <i class="fas fa-star-half-alt"></i>
                             <span>(128)</span>
                         </div>
-                        <p>This Bullet Camera is designed to provide high definition video footage with exceptional clarity.</p>
-                        <div class="product-price">
-                             <span class="price-request">Contact for Price</span>
-                        </div>
+                        <p itemprop="description">This Bullet Camera is designed to provide high definition video footage with exceptional clarity.</p>
                         <div class="product-actions">
-                            <button class="btn btn-primary">Add to Cart</button>
-                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        <span class="price-request"><a href="tel:+919425183400" aria-label="Call REDZONE">Contact for Price</a></span>
                         </div>
                     </div>
                 </div>
                 
-                <div class="product-card">
+                <div class="product-card" itemscope itemtype="https://schema.org/Product">
                     <div class="product-badge">Sale</div>
                     <div class="product-img">
-                        <img src="camera/camera2.png" alt="camera2">
+                        <img src="camera/camera2.png" alt="Commax CCTV Camera 2MP" width="280" height="220" loading="lazy" decoding="async" itemprop="image">
                     </div>
                     <div class="product-content">
-                        <h3>Commax CCTV</h3>
+                        <h3 itemprop="name">Commax CCTV</h3>
                         <div class="product-rating">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -880,23 +963,19 @@ footer {
                             <i class="far fa-star"></i>
                             <span>(92)</span>
                         </div>
-                        <p>Commax CCTV camera: 2 MP AHD/Full-HD resolution, 3.6 mm fixed lens, IR night vision up to ~18–20 m,with weather-resistant housing and motion detection support.</p>
-                        <div class="product-price">
-                             <span class="price-request">Contact for Price</span>
-                        </div>
+                        <p itemprop="description">Commax CCTV camera: 2 MP AHD/Full-HD resolution, 3.6 mm fixed lens, IR night vision up to ~18–20 m,with weather-resistant housing and motion detection support.</p>
                         <div class="product-actions">
-                            <button class="btn btn-primary">Add to Cart</button>
-                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        <span class="price-request"><a href="tel:+919425183400" aria-label="Call REDZONE">Contact for Price</a></span>
                         </div>
                     </div>
                 </div>
                 
-                <div class="product-card">
+                <div class="product-card" itemscope itemtype="https://schema.org/Product">
                     <div class="product-img">
-                        <img src="camera/camera3.png" alt="camera3">
+                        <img src="camera/camera3.png" alt="Samsung CCTV Full HD 1080p" width="280" height="220" loading="lazy" decoding="async" itemprop="image">
                     </div>
                     <div class="product-content">
-                        <h3>Samsung CCTV </h3>
+                        <h3 itemprop="name">Samsung CCTV </h3>
                         <div class="product-rating">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -905,25 +984,21 @@ footer {
                             <i class="fas fa-star"></i>
                             <span>(76)</span>
                         </div>
-                        <p>Samsung CCTV camera: Full-HD 1080p resolution, built-in IR night vision, weather-resistant design and remote viewing via mobile app for clear 24/7 surveillance.</p>
-                        <div class="product-price">
-                           <span class="price-request">Contact for Price</span>
-                        </div>
+                        <p itemprop="description">Samsung CCTV camera: Full-HD 1080p resolution, built-in IR night vision, weather-resistant design and remote viewing via mobile app for clear 24/7 surveillance.</p>
                         <div class="product-actions">
-                            <button class="btn btn-primary">Add to Cart</button>
-                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        <span class="price-request"><a href="tel:+919425183400" aria-label="Call REDZONE">Contact for Price</a></span>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Fire Balls -->
-                <div class="product-card">
+                <div class="product-card" itemscope itemtype="https://schema.org/Product">
                     <div class="product-badge">New</div>
                     <div class="product-img">
-                        <img src="camera/camera4.png" alt="camera4">
+                        <img src="camera/camera4.png" alt="IP Vision High Resolution CCTV" width="280" height="220" loading="lazy" decoding="async" itemprop="image">
                     </div>
                     <div class="product-content">
-                        <h3>IP Vision CCTV</h3>
+                        <h3 itemprop="name">IP Vision CCTV</h3>
                         <div class="product-rating">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -932,23 +1007,19 @@ footer {
                             <i class="fas fa-star"></i>
                             <span>(96)</span>
                         </div>
-                        <p>IP Vision CCTV: high-resolution IP cameras, PoE power, remote viewing, night vision, motion alerts, weatherproof, scalable system.</p>
-                        <div class="product-price">
-                             <span class="price-request">Contact for Price</span>
-                        </div>
+                        <p itemprop="description">IP Vision CCTV: high-resolution IP cameras, PoE power, remote viewing, night vision, motion alerts, weatherproof, scalable system.</p>
                         <div class="product-actions">
-                            <button class="btn btn-primary">Add to Cart</button>
-                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        <span class="price-request"><a href="tel:+919425183400" aria-label="Call REDZONE">Contact for Price</a></span>
                         </div>
                     </div>
                 </div>
                 
-                <div class="product-card">
+                <div class="product-card" itemscope itemtype="https://schema.org/Product">
                     <div class="product-img">
-                        <img src="camera/camera5.png" alt="camera5">
+                        <img src="camera/camera5.png" alt="Tech Vision CCTV Installation Service" width="280" height="220" loading="lazy" decoding="async" itemprop="image">
                     </div>
                     <div class="product-content">
-                        <h3>Tech Vision CCTV Installation Services</h3>
+                        <h3 itemprop="name">Tech Vision CCTV Installation Services</h3>
                         <div class="product-rating">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -957,23 +1028,19 @@ footer {
                             <i class="fas fa-star-half-alt"></i>
                             <span>(64)</span>
                         </div>
-                        <p>Tech Vision CCTV specification (in ~15 words): Professional CCTV system with high-security cameras, remote monitoring, full backup support, and expert installation services.</p>
-                        <div class="product-price">
-                            <span class="price-request">Contact for Price</span>
-                        </div>
+                        <p itemprop="description">Tech Vision CCTV specification (in ~15 words): Professional CCTV system with high-security cameras, remote monitoring, full backup support, and expert installation services.</p>
                         <div class="product-actions">
-                            <button class="btn btn-primary">Add to Cart</button>
-                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        <span class="price-request"><a href="tel:+919425183400" aria-label="Call REDZONE">Contact for Price</a></span>
                         </div>
                     </div>
                 </div>
                 
-                <div class="product-card">
+                <div class="product-card" itemscope itemtype="https://schema.org/Product">
                     <div class="product-img">
-                        <img src="camera/camera6.png" alt="camera6">
+                        <img src="camera/camera6.png" alt="Dahua Wired Full HD 2MP CCTV" width="280" height="220" loading="lazy" decoding="async" itemprop="image">
                     </div>
                     <div class="product-content">
-                        <h3>Dahua CCTV</h3>
+                        <h3 itemprop="name">Dahua CCTV</h3>
                         <div class="product-rating">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -982,25 +1049,21 @@ footer {
                             <i class="far fa-star"></i>
                             <span>(42)</span>
                         </div>
-                        <p>Dahua Wired Full HD 2MP CCTV Cameras Combo KIT specification in ~15 words: high-resolution 2 MP cameras with IR night vision, weatherproof design, PoE support, remote viewing, scalable system.</p>
-                        <div class="product-price">
-                             <span class="price-request">Contact for Price</span>
-                        </div>
+                        <p itemprop="description">Dahua Wired Full HD 2MP CCTV Cameras Combo KIT specification in ~15 words: high-resolution 2 MP cameras with IR night vision, weatherproof design, PoE support, remote viewing, scalable system.</p>
                         <div class="product-actions">
-                            <button class="btn btn-primary">Add to Cart</button>
-                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        <span class="price-request"><a href="tel:+919425183400" aria-label="Call REDZONE">Contact for Price</a></span>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Security Cameras -->
-                <div class="product-card">
+                <div class="product-card" itemscope itemtype="https://schema.org/Product">
                     <div class="product-badge">Popular</div>
                     <div class="product-img">
-                        <img src="camera/camera7.png" alt="Camera7">
+                        <img src="camera/camera7.png" alt="Bosch NBE-6502-AL Outdoor Bullet Camera" width="280" height="220" loading="lazy" decoding="async" itemprop="image">
                     </div>
                     <div class="product-content">
-                        <h3>Bosch CCTV</h3>
+                        <h3 itemprop="name">Bosch CCTV</h3>
                         <div class="product-rating">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -1009,24 +1072,20 @@ footer {
                             <i class="far fa-star"></i>
                             <span>(74)</span>
                         </div>
-                        <p>Bosch NBE‑6502‑AL 2MP Outdoor Network Bullet Camera: 2 MP Full HD IP camera with PoE, built-in IR night vision up to ~60 m, weather/vandal resistance, analytics and remote viewing support.</p>
-                        <div class="product-price">
-                            <span class="price-request">Contact for Price</span>
-                        </div>
+                        <p itemprop="description">Bosch NBE‑6502‑AL 2MP Outdoor Network Bullet Camera: 2 MP Full HD IP camera with PoE, built-in IR night vision up to ~60 m, weather/vandal resistance, analytics and remote viewing support.</p>
                         <div class="product-actions">
-                            <button class="btn btn-primary">Add to Cart</button>
-                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        <span class="price-request"><a href="tel:+919425183400" aria-label="Call REDZONE">Contact for Price</a></span>
                         </div>
                     </div>
                 </div>
                 
-                <div class="product-card">
+                <div class="product-card" itemscope itemtype="https://schema.org/Product">
                      <div class="product-badge">Popular</div>
                     <div class="product-img">
-                        <img src="images/camera.png" alt="PTZ Security Camera 4K">
+                        <img src="images/camera.png" alt="PTZ Security Camera 4K" width="280" height="220" loading="lazy" decoding="async" itemprop="image">
                     </div>
                     <div class="product-content">
-                        <h3>Wireless Security Camera 1080P</h3>
+                        <h3 itemprop="name">Wireless Security Camera 1080P</h3>
                         <div class="product-rating">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -1035,24 +1094,20 @@ footer {
                             <i class="fas fa-star-half-alt"></i>
                             <span>(88)</span>
                         </div>
-                        <p>1080P HD resolution with night vision and smartphone app control</p>
-                        <div class="product-price">
-                            <span class="price-request">Contact for Price</span>
-                        </div>
+                        <p itemprop="description">1080P HD resolution with night vision and smartphone app control</p>
                         <div class="product-actions">
-                            <button class="btn btn-primary">Add to Cart</button>
-                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        <span class="price-request"><a href="tel:+919425183400" aria-label="Call REDZONE">Contact for Price</a></span>
                         </div>
                     </div>
                 </div>
                 
-                <div class="product-card">
+                <div class="product-card" itemscope itemtype="https://schema.org/Product">
                     <div class="product-badge">Sale</div>
                     <div class="product-img">
-                        <img src="images/camera1.png" alt="Bullet Security Camera Night Vision">
+                        <img src="images/camera1.png" alt="Bullet Security Camera Night Vision" width="280" height="220" loading="lazy" decoding="async" itemprop="image">
                     </div>
                     <div class="product-content">
-                        <h3>Bullet Security Camera Night Vision</h3>
+                        <h3 itemprop="name">Bullet Security Camera Night Vision</h3>
                         <div class="product-rating">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -1061,23 +1116,19 @@ footer {
                             <i class="fas fa-star"></i>
                             <span>(102)</span>
                         </div>
-                        <p>Heavy-duty bullet camera with 100ft night vision and weatherproof housing</p>
-                        <div class="product-price">
-                            <span class="price-request">Contact for Price</span>
-                        </div>
+                        <p itemprop="description">Heavy-duty bullet camera with 100ft night vision and weatherproof housing</p>
                         <div class="product-actions">
-                            <button class="btn btn-primary">Add to Cart</button>
-                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        <span class="price-request"><a href="tel:+919425183400" aria-label="Call REDZONE">Contact for Price</a></span>
                         </div>
                     </div>
                 </div>
                 
-                <div class="product-card">
+                <div class="product-card" itemscope itemtype="https://schema.org/Product">
                     <div class="product-img">
-                        <img src="images/camera2.png" alt="Dome Security Camera Infrared">
+                        <img src="images/camera2.png" alt="Dome Security Camera Infrared" width="280" height="220" loading="lazy" decoding="async" itemprop="image">
                     </div>
                     <div class="product-content">
-                        <h3>Dome Security Camera Infrared</h3>
+                        <h3 itemprop="name">Dome Security Camera Infrared</h3>
                         <div class="product-rating">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -1086,23 +1137,19 @@ footer {
                             <i class="far fa-star"></i>
                             <span>(67)</span>
                         </div>
-                        <p>Infrared dome camera with vandal-resistant construction and motion detection</p>
-                        <div class="product-price">
-                             <span class="price-request">Contact for Price</span>
-                        </div>
+                        <p itemprop="description">Infrared dome camera with vandal-resistant construction and motion detection</p>
                         <div class="product-actions">
-                            <button class="btn btn-primary">Add to Cart</button>
-                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        <span class="price-request"><a href="tel:+919425183400" aria-label="Call REDZONE">Contact for Price</a></span>
                         </div>
                     </div>
                 </div>
                 
-                <div class="product-card">
+                <div class="product-card" itemscope itemtype="https://schema.org/Product">
                     <div class="product-img">
-                        <img src="images/channel.png" alt="NVR System 8 Channel">
+                        <img src="images/channel.png" alt="NVR System 8 Channel 2TB" width="280" height="220" loading="lazy" decoding="async" itemprop="image">
                     </div>
                     <div class="product-content">
-                        <h3>NVR System 8 Channel</h3>
+                        <h3 itemprop="name">NVR System 8 Channel</h3>
                         <div class="product-rating">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -1111,24 +1158,20 @@ footer {
                             <i class="fas fa-star-half-alt"></i>
                             <span>(53)</span>
                         </div>
-                        <p>8-channel Network Video Recorder with 2TB hard drive and remote access</p>
-                        <div class="product-price">
-                             <span class="price-request">Contact for Price</span>
-                        </div>
+                        <p itemprop="description">8-channel Network Video Recorder with 2TB hard drive and remote access</p>
                         <div class="product-actions">
-                            <button class="btn btn-primary">Add to Cart</button>
-                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        <span class="price-request"><a href="tel:+919425183400" aria-label="Call REDZONE">Contact for Price</a></span>
                         </div>
                     </div>
                 </div>
                 
-                <div class="product-card">
+                <div class="product-card" itemscope itemtype="https://schema.org/Product">
                     <div class="product-badge">Best Value</div>
                     <div class="product-img">
-                        <img src="images/door.png" alt="Doorbell Camera WiFi">
+                        <img src="images/door.png" alt="Doorbell Camera WiFi" width="280" height="220" loading="lazy" decoding="async" itemprop="image">
                     </div>
                     <div class="product-content">
-                        <h3>Doorbell Camera WiFi</h3>
+                        <h3 itemprop="name">Doorbell Camera WiFi</h3>
                         <div class="product-rating">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -1137,23 +1180,19 @@ footer {
                             <i class="fas fa-star"></i>
                             <span>(142)</span>
                         </div>
-                        <p>WiFi doorbell camera with two-way audio and smartphone notifications</p>
-                        <div class="product-price">
-                         <span class="price-request">Contact for Price</span>
-                        </div>
+                        <p itemprop="description">WiFi doorbell camera with two-way audio and smartphone notifications</p>
                         <div class="product-actions">
-                            <button class="btn btn-primary">Add to Cart</button>
-                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        <span class="price-request"><a href="tel:+919425183400" aria-label="Call REDZONE">Contact for Price</a></span>
                         </div>
                     </div>
                 </div>
             </div>
             
             <!-- Pagination -->
-            <div class="pagination">
+            <div class="pagination" aria-label="Product Pagination">
                 <a href="co_product.html" class="prev">Previous</a>
                 <a href="1.html" class="page">1</a>
-                <a href="2.html" class="page active">2</a>
+                <a href="2.html" class="page active" aria-current="page">2</a>
                 <a href="3.html" class="page">3</a>
                 <a href="4.html" class="page">4</a>
                 <a href="#" class="next">Next</a>
@@ -1168,7 +1207,7 @@ footer {
                 <h2>Stay Updated with Security Tips</h2>
                 <p>Subscribe to our newsletter for latest product updates, security tips, and exclusive offers.</p>
                 <form class="newsletter-form">
-                    <input type="email" placeholder="Enter your email address" required>
+                    <input type="email" placeholder="Enter your email address" required aria-label="Email Address">
                     <button type="submit" class="btn btn-primary">Subscribe</button>
                 </form>
             </div>
@@ -1179,24 +1218,31 @@ footer {
     <footer>
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-col">
+<div class="footer-col">
                     <div class="footer-logo">
                         <h2 style="color: #fff;"><span style="color: red;">RED</span>ZONE</h2>
-                        <p style="margin-top: 10px; font-size: 14px; line-height: 1.6;">Your trusted partner for fire safety and security solutions since 2010.</p>
+                        <p style="margin-top: 10px; font-size: 14px; line-height: 1.6;">Trusted fire safety and surveillance system provider serving clients across India and global markets since 2010.</p>
                     </div>
                     <div class="footer-contact" style="margin-top: 20px;">
-                        <p><i class="fas fa-map-marker-alt"></i> SECURE YOUR ZONE BY REDZONE 📍NEAR CLOCK TOWER JABALPUR</p>
-                        <p><i class="fas fa-phone"></i> 91+ 9425183400</p>
-                        <p><i class="fas fa-envelope"></i> redzonejab@gmail.com</p>
+                    <p class="footer-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <a href="https://maps.app.goo.gl/LcSVH9njFxkV7TMK8" target="_blank" rel="noopener noreferrer" aria-label="View REDZONE Location on Google Maps">
+                            SECURE YOUR ZONE BY REDZONE 📍 NEAR CLOCK TOWER JABALPUR
+                        </a>
+                    </p>
+
+                    <p><i class="fas fa-phone"></i><a href="tel:+919425183400" aria-label="Call REDZONE">+91 9425183400</a></p>
+                    <p><i class="fas fa-envelope"></i><a href="mailto:redzonejbp@gmail.com" aria-label="Email REDZONE">redzonejbp@gmail.com</a></p>
                     </div>
                 </div>
+                    
                 
                 <div class="footer-col">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="index1.html">Home</a></li>
+                        <li><a href="index.html">Home</a></li>
                         <li><a href="shop.html">Shop</a></li>
-                        <li><a href="co_shop.html">Products</a></li>
+                        <li><a href="co_product.html">Products</a></li>
                         <li><a href="service.html">Services</a></li>
                         <li><a href="worker.html">Our Team</a></li>
                         <li><a href="contact.html">Contact</a></li>
@@ -1229,30 +1275,37 @@ footer {
             
             <div class="footer-bottom">
                 <p>&copy; <span id="year"></span> RED ZONE Security Solutions. All rights reserved.</p>
-                <div class="payment-methods">
-                    <i class="fab fa-cc-visa"></i>
-                    <i class="fab fa-cc-mastercard"></i>
-                    <i class="fab fa-cc-amex"></i>
-                    <i class="fab fa-cc-paypal"></i>
+                <div class="payment-methods" aria-label="Payment Methods">
+                    <i class="fab fa-cc-visa" aria-hidden="true"></i>
+                    <i class="fab fa-cc-mastercard" aria-hidden="true"></i>
+                    <i class="fab fa-cc-amex" aria-hidden="true"></i>
+                    <i class="fab fa-cc-paypal" aria-hidden="true"></i>
                 </div>
             </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- DEFERRED SCRIPT LOADING FOR PERFORMANCE -->
+    <script src="script.js" defer></script>
     <script>
       document.getElementById('year').textContent = new Date().getFullYear();
 
       function toggleMenu() {
         const menu = document.getElementById("mobileMenu");
         const overlay = document.getElementById("drawerOverlay");
+        const hamburger = document.querySelector('.hamburger');
+        const isOpen = menu.style.right === "0px";
 
-        if (menu.style.right === "0px") {
+        if (isOpen) {
           menu.style.right = "-100%";
           overlay.classList.remove("active");
+          menu.setAttribute("aria-hidden", "true");
+          hamburger.setAttribute("aria-expanded", "false");
         } else {
           menu.style.right = "0px";
           overlay.classList.add("active");
+          menu.setAttribute("aria-hidden", "false");
+          hamburger.setAttribute("aria-expanded", "true");
         }
       }
     </script>

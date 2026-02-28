@@ -1,13 +1,108 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-IN">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Red Zone - About Us</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+  
+  <!-- SEO META TAGS -->
+  <title>About Us - REDZONE Security Solutions | Fire Safety Experts in Jabalpur</title>
+  <meta name="description" content="Learn about REDZONE Security Solutions, founded in 2010. We are Jabalpur's premier provider of fire extinguishers, CCTV systems, and safety services. Discover our journey and values.">
+  <meta name="keywords" content="About REDZONE, Security Company Jabalpur, Fire Safety History, Our Team, Security Solutions MP">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://redzoneindia.solutions/about.html">
+
+  <!-- OPEN GRAPH (SOCIAL MEDIA) -->
+  <meta property="og:title" content="About Us - REDZONE Security Solutions">
+  <meta property="og:description" content="Discover the journey of REDZONE. From 2010 to becoming Jabalpur's leading fire safety and security provider.">
+  <meta property="og:image" content="https://redzoneindia.solutions/images/logo12.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://redzoneindia.solutions/about.html">
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
   <link rel="icon" href="images/logo1.png" type="image/png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <meta name="geo.region" content="IN-MP">
+  <meta name="geo.placename" content="Jabalpur">
+  <meta name="geo.position" content="23.1815;79.9864">
+  <meta name="ICBM" content="23.1815, 79.9864">
+  <!-- STRUCTURED DATA (SCHEMA) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+
+    {
+      "@type": "Organization",
+      "@id": "https://redzoneindia.solutions/#organization",
+      "name": "REDZONE Security Solutions",
+      "url": "https://redzoneindia.solutions",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://redzoneindia.solutions/images/logo12.png"
+      },
+      "foundingDate": "2010",
+      "description": "Leading fire safety and CCTV installation company in Jabalpur, Madhya Pradesh.",
+      "sameAs": [
+        "https://www.facebook.com/REDZONE",
+        "https://www.instagram.com/rahmanfaruqu/"
+      ]
+    },
+
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://redzoneindia.solutions/#localbusiness",
+      "name": "REDZONE Security Solutions",
+      "image": "https://redzoneindia.solutions/images/logo12.png",
+      "telephone": "+919425183400",
+      "email": "redzonejab@gmail.com",
+      "priceRange": "₹₹",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Near Clock Tower",
+        "addressLocality": "Jabalpur",
+        "addressRegion": "Madhya Pradesh",
+        "postalCode": "482001",
+        "addressCountry": "IN"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Jabalpur"
+      }
+    },
+
+    {
+      "@type": "AboutPage",
+      "@id": "https://redzoneindia.solutions/about.html#about",
+      "name": "About REDZONE Security Solutions",
+      "url": "https://redzoneindia.solutions/about.html",
+      "isPartOf": {
+        "@id": "https://redzoneindia.solutions/#organization"
+      }
+    },
+
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://redzoneindia.solutions/about.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://redzoneindia.solutions"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "About Us",
+          "item": "https://redzoneindia.solutions/about.html"
+        }
+      ]
+    }
+
+  ]
+}
+</script>
 
   <style>
 :root{
@@ -22,6 +117,13 @@
 }
 
 /* RESET */
+/* FIX: Added html selector to remove black space on right */
+
+html {
+  width: 100%;
+  overflow-x: hidden;
+}
+
 *{
   margin:0;
   padding:0;
@@ -33,6 +135,7 @@ body{
   background:var(--black);
   color:var(--dark2);
   overflow-x: hidden;
+  width: 100%;
 }
 
 .container{
@@ -74,7 +177,7 @@ header{
 }
 
 .logo {
-  width: 46px;
+  width: 59px;
   height: auto;
 }
 
@@ -371,7 +474,7 @@ select{
   display: block;
 }
 
-/* ================= FLIP CARDS (Values) ================= */
+/* ================= FLIP CARDS (VALUES) ================= */
 .values-section {
   padding: 80px 0;
   text-align: center;
@@ -563,6 +666,26 @@ footer {
   display: inline-block;
   padding-bottom: 5px;
 }
+    .footer-contact a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.footer-contact a:hover {
+    color: red;
+    text-decoration: underline;
+}
+
+.footer-location a {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.3s ease;
+}
+
+.footer-location a:hover {
+    color: red;
+}
+
 
 .footer-col ul { list-style: none; }
 .footer-col ul li { margin-bottom: 10px; }
@@ -596,7 +719,7 @@ footer {
   .hamburger { display: flex; }
   
   /* LOGO */
-  .logo { width: 38px; }
+  .logo {width: 60px;margin-top: 10px; }
   .brand-line-1 { font-size: 18px; }
 
   /* HERO */
@@ -684,7 +807,9 @@ footer {
     <div class="container navbar">
       <!-- Brand -->
       <div class="brand">
-        <img class="logo" src="logo.png" onerror="this.src='https://picsum.photos/seed/logo/100/100'" alt="Logo">
+       <a href="index.html" aria-label="REDZONE Home">
+        <img class="logo" src="images/logo12.png" alt="REDZONE Security Solutions Logo" width="59" height="59">
+       </a>
         <div class="brand-text">
           <div class="brand-line-1">
             <span class="Red">RED</span>
@@ -697,11 +822,11 @@ footer {
 
       <!-- Right Side -->
       <div class="nav-right">
-        <select>
+        <select aria-label="Select Language">
           <option>English</option>
           <option>हिन्दी</option>
         </select>
-        <div class="hamburger" onclick="toggleMenu()">
+        <div class="hamburger" onclick="toggleMenu()" aria-label="Menu" role="button" tabindex="0" aria-expanded="false">
           <span></span><span></span><span></span>
         </div>
       </div>
@@ -709,9 +834,9 @@ footer {
 
     <!-- Centered Pill Nav -->
     <div class="pill-nav-wrapper">
-      <nav class="pill-nav">
-        <a href="index1.html">Home</a>
-        <a href="product.html">Products</a>
+      <nav class="pill-nav" aria-label="Main Navigation">
+        <a href="index.html">Home</a>
+        <a href="co_product.html">Products</a>
         <a href="service.html">Services</a>
         <a href="contact.html">Contact</a>
         <a href="about.html" class="active">About Us</a>
@@ -723,13 +848,13 @@ footer {
     <div class="drawer-overlay" id="drawerOverlay" onclick="toggleMenu()"></div>
 
     <!-- Mobile Drawer -->
-    <div class="mobile-drawer" id="mobileMenu">
+    <div class="mobile-drawer" id="mobileMenu" aria-hidden="true">
       <div class="drawer-header">
         <h3 style="color:white; font-weight:700;">Menu</h3>
-        <span class="close-btn" onclick="toggleMenu()">&times;</span>
+        <span class="close-btn" onclick="toggleMenu()" aria-label="Close Menu">&times;</span>
       </div>
-      <a href="index1.html"><i class="fas fa-home"></i> Home</a>
-      <a href="product.html"><i class="fas fa-box"></i> Products</a>
+      <a href="index.html"><i class="fas fa-home"></i> Home</a>
+      <a href="co_product.html"><i class="fas fa-box"></i> Products</a>
       <a href="shop.html"><i class="fas fa-store-alt"></i>  Shop</a>
       <a href="contact.html"><i class="fas fa-phone"></i> Contact</a>
       <a href="worker.html"><i class="fas fa-users"></i> Our Team</a>
@@ -784,7 +909,7 @@ footer {
         We believe that safety is not a luxury, but a necessity. Our team comprises certified engineers and security experts who are available 24/7 to ensure your peace of mind.
       </p>
 <a href="contact.html">
-  <button class="btn-primary" style="padding: 12px 30px; font-size: 16px; margin-top: 20px; background: var(--red); color:white; border:none; border-radius:6px; cursor:pointer;">
+  <button class="btn-primary" aria-label="Contact REDZONE Team" style="padding: 12px 30px; font-size: 16px; margin-top: 20px; background: var(--red); color:white; border:none; border-radius:6px; cursor:pointer;">
     <i class="fas fa-phone-alt"></i> Contact Us Today
   </button>
 </a>
@@ -792,7 +917,7 @@ footer {
     </div>
     <div class="story-image reveal reveal-right">
       <div class="tilt-card" id="tiltElement">
-        <img src="https://picsum.photos/seed/security/600/400" alt="Team at work">
+        <img src="https://picsum.photos/seed/security/600/400" alt="REDZONE Security Team working on CCTV Installation" width="600" height="400" loading="lazy">
       </div>
     </div>
   </section>
@@ -810,7 +935,7 @@ footer {
         <div class="flip-card reveal">
           <div class="flip-card-inner">
             <div class="flip-card-front">
-              <i class="fas fa-shield-alt"></i>
+              <i class="fas fa-shield-alt" aria-hidden="true"></i>
               <h3>Safety First</h3>
             </div>
             <div class="flip-card-back">
@@ -824,7 +949,7 @@ footer {
         <div class="flip-card reveal" style="transition-delay: 0.1s">
           <div class="flip-card-inner">
             <div class="flip-card-front">
-              <i class="fas fa-clock"></i>
+              <i class="fas fa-clock" aria-hidden="true"></i>
               <h3>24/7 Support</h3>
             </div>
             <div class="flip-card-back">
@@ -838,7 +963,7 @@ footer {
         <div class="flip-card reveal" style="transition-delay: 0.2s">
           <div class="flip-card-inner">
             <div class="flip-card-front">
-              <i class="fas fa-lightbulb"></i>
+              <i class="fas fa-lightbulb" aria-hidden="true"></i>
               <h3>Innovation</h3>
             </div>
             <div class="flip-card-back">
@@ -852,7 +977,7 @@ footer {
   </section>
 
   <!-- TIMELINE -->
-  <section class="timeline-section">
+  <section class="timeline-section" aria-label="Company History Timeline">
     <div class="container">
       <div class="section-header reveal" style="text-align: center;">
         <h2>Our Journey</h2>
@@ -895,15 +1020,29 @@ footer {
   <footer>
     <div class="container">
       <div class="footer-grid">
-        <div class="footer-col">
-          <h2 style="color: #fff;"><span style="color: red;">RED</span>ZONE</h2>
-          <p style="margin-top: 10px; color: var(--gray); font-size: 14px;">Your trusted partner for fire safety and security solutions.</p>
-        </div>
+     <div class="footer-col">
+                    <div class="footer-logo">
+                        <h2 style="color: #fff;"><span style="color: red;">RED</span>ZONE</h2>
+                        <p style="margin-top: 10px; font-size: 14px; line-height: 1.6;">Your trusted partner for fire safety and security solutions since 2010.</p>
+                    </div>
+                    <div class="footer-contact" style="margin-top: 20px;">
+                    <p class="footer-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <a href="https://maps.app.goo.gl/LcSVH9njFxkV7TMK8" target="_blank" rel="noopener noreferrer" aria-label="View REDZONE Location on Map">
+                            SECURE YOUR ZONE BY REDZONE 📍 NEAR CLOCK TOWER JABALPUR
+                        </a>
+                    </p><br>
+
+                    <p><i class="fas fa-phone"></i><a href="tel:+919425183400" aria-label="Call REDZONE">+91 9425183400</a></p><br>
+                    <p><i class="fas fa-envelope"></i><a href="mailto:redzonejab@gmail.com" aria-label="Email REDZONE">redzonejab@gmail.com</a></p>
+                    </div>
+                </div>
+                
         
         <div class="footer-col">
           <h3>Quick Links</h3>
           <ul>
-          <li><a href="index1.html">Home</a></li>
+          <li><a href="index.html">Home</a></li>
           <li><a href="shop.html">Shop</a></li>
           <li><a href="co_product.html">Product Detail</a></li>
           <li><a href="service.html">Services</a></li>
@@ -915,9 +1054,9 @@ footer {
         <div class="footer-col">
           <h3>Connect</h3>
           <ul>
-            <li><a href="#"><i class="fab fa-facebook-f"></i> Facebook</a></li>
-            <li><a href="https://www.instagram.com/rahmanfaruqu/"><i class="fab fa-instagram"></i> Instagram</a></li>
-            <li><a href="#"><i class="fab fa-linkedin-in"></i> LinkedIn</a></li>
+            <li><a href="#" aria-label="Visit our Facebook Page"><i class="fab fa-facebook-f" aria-hidden="true"></i> Facebook</a></li>
+            <li><a href="https://www.instagram.com/rahmanfaruqu/" rel="noopener noreferrer" aria-label="Visit our Instagram Page"><i class="fab fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+            <li><a href="#" aria-label="Visit our LinkedIn Page"><i class="fab fa-linkedin-in" aria-hidden="true"></i> LinkedIn</a></li>
           </ul>
         </div>
       </div>
@@ -934,12 +1073,19 @@ footer {
     function toggleMenu() {
       const menu = document.getElementById("mobileMenu");
       const overlay = document.getElementById("drawerOverlay");
-      if (menu.style.right === "0px") {
+      const hamburger = document.querySelector('.hamburger');
+      const isOpen = menu.style.right === "0px";
+
+      if (isOpen) {
         menu.style.right = "-100%";
         overlay.classList.remove("active");
+        menu.setAttribute("aria-hidden", "true");
+        hamburger.setAttribute("aria-expanded", "false");
       } else {
         menu.style.right = "0px";
         overlay.classList.add("active");
+        menu.setAttribute("aria-hidden", "false");
+        hamburger.setAttribute("aria-expanded", "true");
       }
     }
 

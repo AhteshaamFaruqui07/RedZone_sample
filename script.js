@@ -422,12 +422,21 @@ document.addEventListener('DOMContentLoaded', function() {
                 chatbotContainer.className = 'chatbot-container';
                 chatbotContainer.innerHTML = `
                      <div class="chatbot-header">
-                <h4>Security Solutions Assistant</h4>
+                <h4>Red Zone Virtual Assistant</h4>
                 <span class="chatbot-close">&times;</span>
             </div>
             <div class="chatbot-messages" id="chatbotMessages">
                 <div class="message bot-message">
-                    <p>Hello! I'm your Security Solutions assistant. How can I help you today? You can ask about our products, prices, or location.</p>
+                    <p>Hello! I'm your Security Solutions assistant. How can I help you today?</p>
+                </div>
+
+                <div class="quick-questions">
+                    <p class="quick-title">Common Questions:</p>
+                    <button class="quick-btn">📍 Where is your store located?</button>
+                    <button class="quick-btn">🕒 What are your working hours?</button>
+                    <button class="quick-btn">🧯 Types of fire extinguishers?</button>
+                    <button class="quick-btn">👤 Who is the owner?</button>
+                    <button class="quick-btn">📷 Do you install CCTV cameras?</button>
                 </div>
             </div>
             <div class="chatbot-input">
@@ -483,6 +492,20 @@ document.addEventListener('DOMContentLoaded', function() {
                     // Scroll to bottom
                     messagesContainer.scrollTop = messagesContainer.scrollHeight;
                 }
+
+                                // Quick question click
+                document.addEventListener('click', function(e) {
+                    if (e.target.classList.contains('quick-btn')) {
+                        const question = e.target.innerText;
+
+                        addMessageToChat(question, 'user');
+
+                        setTimeout(() => {
+                            const response = generateResponse(question);
+                            addMessageToChat(response, 'bot');
+                        }, 500);
+                    }
+                });
                 
                 function generateResponse(userMessage) {
                     const message = userMessage.toLowerCase();
@@ -648,6 +671,62 @@ document.addEventListener('DOMContentLoaded', function() {
                 const style = document.createElement('style');
                 style.id = 'chatbot-styles';
                 style.textContent = `
+                   .chatbot-welcome {
+                    position: fixed;
+                    bottom: 90px;
+                    right: 20px;
+                    background: red;
+                    color: white;
+                    padding: 10px 15px;
+                    border-radius: 20px;
+                    font-size: 14px;
+                    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+                    z-index: 1001;
+                    animation: fadeInUp 0.5s ease;
+                    transition: opacity 0.5s ease;
+                }
+
+                /* Arrow pointing to logo */
+                .chatbot-welcome::after {
+                    content: "";
+                    position: absolute;
+                    bottom: -8px;
+                    right: 30px;   /* adjust this to perfectly align with logo */
+                    width: 0;
+                    height: 0;
+                    border-left: 8px solid transparent;
+                    border-right: 8px solid transparent;
+                    border-top: 8px solid red;
+                }
+                    .quick-questions {
+                        margin-top: 10px;
+                    }
+
+                    .quick-title {
+                        font-size: 13px;
+                        font-weight: 600;
+                        margin-bottom: 8px;
+                        color: #555;
+                    }
+
+                    .quick-btn {
+                        display: block;
+                        width: 100%;
+                        text-align: left;
+                        background: #f1f1f1;
+                        border: none;
+                        padding: 8px 12px;
+                        margin-bottom: 6px;
+                        border-radius: 8px;
+                        cursor: pointer;
+                        font-size: 13px;
+                        transition: 0.2s ease;
+                    }
+
+                    .quick-btn:hover {
+                        background: #e0e0e0;
+                    }
+
                     .chatbot-container {
                         position: fixed;
                         bottom: 20px;
@@ -799,6 +878,65 @@ document.addEventListener('DOMContentLoaded', function() {
                     .chatbot-container.active {
                         display: flex;
                     }
+                    .chatbot-welcome {
+                    position: fixed;
+                    bottom: 90px;
+                    right: 20px;
+                    background: red;
+                    color: white;
+                    padding: 10px 15px;
+                    border-radius: 20px;
+                    font-size: 14px;
+                    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+                    z-index: 1001;
+                    animation: fadeInUp 0.5s ease;
+                    transition: opacity 0.5s ease;
+                }
+
+                @keyframes fadeInUp {
+                    from {
+                        transform: translateY(20px);
+                        opacity: 0;
+                    }
+                    to {
+                        transform: translateY(0);
+                        opacity: 1;
+                    }
+                }
+
+                        /* ================= MOBILE VIEW ================= */
+
+                            @media (max-width: 768px) {
+
+                                .chatbot-container {
+                                    width: 95%;
+                                    height: 50%;
+                                    bottom: 10px;
+                                    right: 50%;
+                                    transform: translateX(50%);
+                                    border-radius: 15px;
+                                }
+
+                                .chatbot-button {
+                                    width: 50px;
+                                    height: 50px;
+                                    bottom: 15px;
+                                    right: 15px;
+                                }
+
+                                .chatbot-header h4 {
+                                    font-size: 14px;
+                                }
+
+                                .message {
+                                    max-width: 90%;
+                                }
+
+                                #chatbotInput {
+                                    font-size: 14px;
+                                }
+                            }
+                            
                 `;
                 document.head.appendChild(style);
                 
@@ -811,5 +949,18 @@ document.addEventListener('DOMContentLoaded', function() {
                     container.style.display = 'flex';
                 };
                 document.body.appendChild(chatButton);
+                const welcomePopup = document.createElement('div');
+                welcomePopup.className = 'chatbot-welcome';
+                welcomePopup.innerText = 'Red Zone Virtual Assistant';
+
+                document.body.appendChild(welcomePopup);
+
+                // Auto hide after 4 seconds
+                setTimeout(() => {
+                    welcomePopup.style.opacity = '0';
+                    setTimeout(() => {
+                        welcomePopup.remove();
+                    }, 500);
+                }, 4000);
             }
         });

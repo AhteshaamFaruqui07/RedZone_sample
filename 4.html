@@ -1,15 +1,53 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-IN">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>REDZONE</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+  <link rel="alternate" hreflang="en-in" href="https://redzoneindia.solutions/4.html">
+<link rel="alternate" hreflang="x-default" href="https://redzoneindia.solutions/4.html">
+  
+  <!-- SEO META TAGS -->
+   <title>Buy Security Accessories Online | Walkie Talkies, Biometrics & Smoke Detectors | REDZONE India</title>
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://redzoneindia.solutions/4.html">
+
+  <!-- OPEN GRAPH -->
+  <meta property="og:title" content="Buy Security Accessories Online | Walkie Talkies & Biometrics | REDZONE India"><meta property="og:description" content="Buy security accessories online including Motorola walkie talkies, biometric attendance machines and smoke detectors across India.">
+  <meta name="description" content="Buy security accessories online including Motorola walkie talkies, biometric attendance machines, smoke detectors and fire stop agents. Professional security solutions available across India.">  
+
+
+ <meta property="og:url" content="https://redzoneindia.solutions/4.html">
+ <meta property="og:image" content="https://redzoneindia.solutions/images/moto.png">
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
   <link rel="stylesheet" href="style.css">
+  
   <!-- FAVICON -->
   <link rel="icon" href="images/logo1.png" type="image/png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- STRUCTURED DATA (SCHEMA) FOR ACCESSORIES -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "ProfessionalService",
+ "name": "REDZONE Security Solutions",
+ "url": "https://redzoneindia.solutions",
+ "logo": "https://redzoneindia.solutions/images/logo12.png",
+ "contactPoint": {
+   "@type": "ContactPoint",
+   "telephone": "+919425183400",
+   "contactType": "sales",
+   "areaServed": "IN",
+   "availableLanguage": ["English","Hindi"]
+ }
+}
+</script>
 
   <style>
 :root{
@@ -23,6 +61,12 @@
 }
 
 /* RESET */
+/* FIX: Added html selector to remove black space on right */
+html {
+  width: 100%;
+  overflow-x: hidden;
+}
+
 *{
   margin:0;
   padding:0;
@@ -34,6 +78,7 @@ body{
   background:var(--black);
   color:var(--dark2);
   overflow-x: hidden;
+  width: 100%;
 }
 
 .container{
@@ -76,7 +121,7 @@ header{
 }
 
 .logo {
-  width: 46px;
+  width: 59px;
   height: auto;
 }
 
@@ -135,6 +180,20 @@ select{
   height:3px;
   background:var(--red);
   border-radius: 2px;
+}
+
+@media (min-width: 769px) {
+  header {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+  .products-page {
+    padding-top: 20px; /* Reset to base if there was a hero, but usually 160px for these product pages */
+    padding-top: 160px !important; /* Force padding for product grid */
+  }
 }
 
 /* PILL NAV POSITION */
@@ -495,6 +554,40 @@ select{
   background:#ff2a2a;
   transform: translateY(-1px);
 }
+.price-request a {
+    display: inline-block;
+    background: #e00000;
+    color: #fff;
+    padding: 8px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.4s ease;
+    animation: smoothPulse 3s ease-in-out infinite;
+}
+
+/* Smooth Premium Pulse */
+@keyframes smoothPulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(224, 0, 0, 0);
+    }
+    50% {
+        transform: scale(1.04);
+        box-shadow: 0 0 20px rgba(224, 0, 0, 0.25);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(224, 0, 0, 0);
+    }
+}
+
+/* Smooth hover */
+.price-request a:hover {
+    background: #c00000;
+    transform: scale(1.06);
+    box-shadow: 0 8px 25px rgba(224, 0, 0, 0.35);
+}
 
 .wishlist-btn{
   background:#222;
@@ -658,6 +751,27 @@ footer {
     margin-top: 3px;
 }
 
+    .footer-contact a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.footer-contact a:hover {
+    color: red;
+    text-decoration: underline;
+}
+
+.footer-location a {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.3s ease;
+}
+
+.footer-location a:hover {
+    color: red;
+}
+
+
 .footer-bottom {
     text-align: center;
     padding-top: 20px;
@@ -692,7 +806,8 @@ footer {
   }
 
   .logo {
-    width: 38px;
+    width: 70px;
+    margin-top: 10px;
   }
 
   .drawer-overlay.active {
@@ -739,7 +854,10 @@ footer {
     <div class="container navbar">
       <!-- Brand -->
       <div class="brand">
-        <img class="logo" src="logo.png" alt="Logo">
+       <a href="index.html" aria-label="REDZONE Home">
+          <img class="logo" src="images/logo12.png" alt="REDZONE Logo" width="59" height="auto">
+       </a>
+
         <div class="brand-text">
           <div class="brand-line-1">
             <span class="Red">RED</span>
@@ -752,12 +870,12 @@ footer {
 
       <!-- Right Side -->
       <div class="nav-right">
-        <select>
+        <select aria-label="Select Language">
           <option>English</option>
           <option>हिन्दी</option>
           <option>ਪੰਜਾਬੀ</option>
         </select>
-        <div class="hamburger" onclick="toggleMenu()">
+        <div class="hamburger" onclick="toggleMenu()" aria-label="Menu" role="button" tabindex="0">
           <span></span><span></span><span></span>
         </div>
       </div>
@@ -765,8 +883,8 @@ footer {
 
     <!-- Centered Pill Nav (Desktop) -->
     <div class="pill-nav-wrapper">
-      <nav class="pill-nav">
-        <a href="index1.html">Home</a>
+      <nav class="pill-nav" aria-label="Main Navigation">
+        <a href="index.html">Home</a>
         <a href="co_product.html" class="active">Products</a>
         <a href="shop.html">Shop</a>
         <a href="service.html">Services</a>
@@ -780,14 +898,14 @@ footer {
     <div class="drawer-overlay" id="drawerOverlay" onclick="toggleMenu()"></div>
 
     <!-- Mobile Drawer -->
-    <div class="mobile-drawer" id="mobileMenu">
+    <div class="mobile-drawer" id="mobileMenu" aria-hidden="true">
       <div class="drawer-header">
         <h3 style="color:white; font-weight:700;">Menu</h3>
-        <span class="close-btn" onclick="toggleMenu()">&times;</span>
+        <span class="close-btn" onclick="toggleMenu()" aria-label="Close Menu">&times;</span>
       </div>
 
-      <a href="index1.html"><i class="fas fa-home"></i> Home</a>
-      <a href="product.html"><i class="fas fa-box"></i> Products</a>
+      <a href="index.html"><i class="fas fa-home"></i> Home</a>
+      <a href="co_product.html"><i class="fas fa-box"></i> Products</a>
       <a href="shop.html"><i class="fas fa-store-alt"></i>  Shop</a>
       <a href="contact.html"><i class="fas fa-phone"></i> Contact</a>
       <a href="worker.html"><i class="fas fa-users"></i> Our Team</a>
@@ -805,45 +923,20 @@ footer {
     <section class="products-page">
         <div class="container">
             <div class="section-title">
-                <h1>Our Security Products - All Accessories</h1>
-                <p>Browse our extensive collection of fire safety and security equipment</p>
-            </div>
-            
-            <!-- Filter and Sort Options -->
-            <div class="products-controls">
-                <div class="filter-options">
-                    <select>
-                        <option>All Categories</option>
-                        <option>Fire Balls</option>
-                        <option>Fire Balls pack of 4</option>
-                        <option>Security Cameras</option>
-                        <option>Access Control</option>
-                        <option>Alarm Systems</option>
-                    </select>
-                    
-                    <select>
-                        <option>Price: Low to High</option>
-                        <option>Price: High to Low</option>
-                        <option>Best Selling</option>
-                        <option>Newest First</option>
-                    </select>
-                </div>
-                
-                <div class="results-count">
-                    Showing 1-12 of 48 products
-                </div>
+               <h1>Buy Security Accessories & Communication Equipment Online</h1>
+              <p>Explore walkie talkies, biometric attendance systems, smoke detectors and fire stop agents trusted across India for professional security solutions.</p>
             </div>
             
             <!-- Products Grid -->
             <div class="product-grid">
                 <!-- Fire Extinguishers -->
-                <div class="product-card">
+                <div class="product-card" itemscope itemtype="https://schema.org/Product">
                     <div class="product-badge">Best Seller</div>
                     <div class="product-img">
-                        <img src="images/fire_stop.png" alt="fire1">
+                        <img src="images/fire_stop.png" alt="Firestop Clean Agent Automatic Extinguisher" width="280" height="220" loading="lazy" itemprop="image">
                     </div>
                     <div class="product-content">
-                        <h3>Firestop Clean Agent</h3>
+                        <h3 itemprop="name">Firestop Clean Agent</h3>
                         <div class="product-rating">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -852,24 +945,20 @@ footer {
                             <i class="fas fa-star-half-alt"></i>
                             <span>(128)</span>
                         </div>
-                        <p>5 kg clean agent modular automatic fire extinguisher for quick, residue-free fire suppression in enclosed areas.</p>
-                        <div class="product-price">
-                             <span class="price-request">Contact for Price</span>
-                        </div>
+                        <p itemprop="description">5 kg clean agent modular automatic fire extinguisher for quick, residue-free fire suppression in enclosed areas.</p>
                         <div class="product-actions">
-                            <button class="btn btn-primary">Add to Cart</button>
-                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        <span class="price-request"><a href="tel:+919425183400" aria-label="Call REDZONE">Contact for Price</a></span>
                         </div>
                     </div>
                 </div>
                 
-                <div class="product-card">
+                <div class="product-card" itemscope itemtype="https://schema.org/Product">
                     <div class="product-badge">Sale</div>
                     <div class="product-img">
-                        <img src="images/moto.png" alt="camera2">
+                        <img src="images/moto.png" alt="Buy Motorola Walkie Talkie V168 for Professional Communication" width="280" height="220" loading="lazy" itemprop="image">
                     </div>
                     <div class="product-content">
-                        <h3>Motorola walkie-talkie v168 commercial civilian</h3>
+                        <h3 itemprop="name">Motorola walkie-talkie v168 commercial civilian</h3>
                         <div class="product-rating">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -878,23 +967,19 @@ footer {
                             <i class="far fa-star"></i>
                             <span>(92)</span>
                         </div>
-                        <p>Motorola/Vertex Standard V168 is a UHF handheld walkie-talkie with up to 16 channels and long battery life for reliable civilian and commercial communication.</p>
-                        <div class="product-price">
-                             <span class="price-request">Contact for Price</span>
-                        </div>
+                        <p itemprop="description">Motorola/Vertex Standard V168 is a UHF handheld walkie-talkie with up to 16 channels and long battery life for reliable civilian and commercial communication.</p>
                         <div class="product-actions">
-                            <button class="btn btn-primary">Add to Cart</button>
-                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        <span class="price-request"><a href="tel:+919425183400" aria-label="Call REDZONE">Contact for Price</a></span>
                         </div>
                     </div>
                 </div>
                 
-                <div class="product-card">
+                <div class="product-card" itemscope itemtype="https://schema.org/Product">
                     <div class="product-img">
-                        <img src="images/moto1.png" alt="camera3">
+                        <img src="images/moto1.png" alt="Motorola XiRP 8668i Walkie Talkie" width="280" height="220" loading="lazy" itemprop="image">
                     </div>
                     <div class="product-content">
-                        <h3>Motorola Walkie Talkie XiRP 8668i</h3>
+                        <h3 itemprop="name">Motorola Walkie Talkie XiRP 8668i</h3>
                         <div class="product-rating">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -902,25 +987,21 @@ footer {
                             <i class="fas fa-star"></i>
                             <span>(76)</span>
                         </div>
-                        <p>Motorola XiRP 8668i walkie-talkie for clear, long-range, reliable professional communication.</p>
-                        <div class="product-price">
-                           <span class="price-request">Contact for Price</span>
-                        </div>
+                        <p itemprop="description">Motorola XiRP 8668i walkie-talkie for clear, long-range, reliable professional communication.</p>
                         <div class="product-actions">
-                            <button class="btn btn-primary">Add to Cart</button>
-                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        <span class="price-request"><a href="tel:+919425183400" aria-label="Call REDZONE">Contact for Price</a></span>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Fire Balls -->
-                <div class="product-card">
+                <div class="product-card" itemscope itemtype="https://schema.org/Product">
                     <div class="product-badge">New</div>
                     <div class="product-img">
-                        <img src="images/motor2.png" alt="fire3">
+                        <img src="images/motor2.png" alt="Kenwood TK-3000 Walkie Talkie" width="280" height="220" loading="lazy" itemprop="image">
                     </div>
                     <div class="product-content">
-                        <h3>Kenwood Walkie Talkie </h3>
+                        <h3 itemprop="name">Kenwood Walkie Talkie </h3>
                         <div class="product-rating">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -929,23 +1010,19 @@ footer {
                             <i class="fas fa-star"></i>
                             <span>(96)</span>
                         </div>
-                        <p>Kenwood TK‑3000 UHF Two Way Radio – Compact UHF handheld with 16 channels and reliable communication for work or event coordination.</p>
-                        <div class="product-price">
-                             <span class="price-request">Contact for Price</span>
-                        </div>
+                        <p itemprop="description">Kenwood TK‑3000 UHF Two Way Radio – Compact UHF handheld with 16 channels and reliable communication for work or event coordination.</p>
                         <div class="product-actions">
-                            <button class="btn btn-primary">Add to Cart</button>
-                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        <span class="price-request"><a href="tel:+919425183400" aria-label="Call REDZONE">Contact for Price</a></span>
                         </div>
                     </div>
                 </div>
                 
-                <div class="product-card">
+                <div class="product-card" itemscope itemtype="https://schema.org/Product">
                     <div class="product-img">
-                        <img src="images/smoke.png" alt="fire4">
+                        <img src="images/smoke.png" alt="ECO FIRE Smoke Detector" width="280" height="220" loading="lazy" itemprop="image">
                     </div>
                     <div class="product-content">
-                        <h3>Smoke Detectors</h3>
+                        <h3 itemprop="name">Smoke Detectors</h3>
                         <div class="product-rating">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -954,24 +1031,20 @@ footer {
                             <i class="fas fa-star"></i>
                             <span>(142)</span>
                         </div>
-                        <p>ECO FIRE Smoke Detector — Reliable household smoke alarm to detect early signs of fire.</p>
-                        <div class="product-price">
-                         <span class="price-request">Contact for Price</span>
-                        </div>
+                        <p itemprop="description">ECO FIRE Smoke Detector — Reliable household smoke alarm to detect early signs of fire.</p>
                         <div class="product-actions">
-                            <button class="btn btn-primary">Add to Cart</button>
-                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        <span class="price-request"><a href="tel:+919425183400" aria-label="Call REDZONE">Contact for Price</a></span>
                         </div>
                     </div>
                 </div>
                 
-                <div class="product-card">
+                <div class="product-card" itemscope itemtype="https://schema.org/Product">
                     <div class="product-badge">Best Value</div>
                     <div class="product-img">
-                        <img src="images/att.png" alt="Doorbell Camera WiFi">
+                        <img src="images/att.png" alt="Biometric Attendance Machine T304f" width="280" height="220" loading="lazy" itemprop="image">
                     </div>
                     <div class="product-content">
-                        <h3>Biometric Attendance Machine </h3>
+                        <h3 itemprop="name">Biometric Attendance Machine </h3>
                         <div class="product-rating">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -980,25 +1053,21 @@ footer {
                             <i class="fas fa-star"></i>
                             <span>(142)</span>
                         </div>
-                        <p>Realtime T304f Wi‑Fi Biometric Attendance System – Multi-mode device (face, fingerprint, card, password) with Wi-Fi support for flexible attendance tracking.</p>
-                        <div class="product-price">
-                         <span class="price-request">Contact for Price</span>
-                        </div>
+                        <p itemprop="description">Realtime T304f Wi‑Fi Biometric Attendance System – Multi-mode device (face, fingerprint, card, password) with Wi-Fi support for flexible attendance tracking.</p>
                         <div class="product-actions">
-                            <button class="btn btn-primary">Add to Cart</button>
-                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        <span class="price-request"><a href="tel:+919425183400" aria-label="Call REDZONE">Contact for Price</a></span>
                         </div>
                     </div>
                 </div>
             </div>
             
             <!-- Pagination -->
-            <div class="pagination">
+            <div class="pagination" aria-label="Product Pagination">
                 <a href="co_product.html" class="prev">Previous</a>
                 <a href="1.html" class="page">1</a>
                 <a href="2.html" class="page">2</a>
                 <a href="3.html" class="page">3</a>
-                <a href="4.html" class="page active">4</a>
+                <a href="4.html" class="page active" aria-current="page">4</a>
                 <a href="#" class="next">Next</a>
             </div>
         </div>
@@ -1011,7 +1080,7 @@ footer {
                 <h2>Stay Updated with Security Tips</h2>
                 <p>Subscribe to our newsletter for latest product updates, security tips, and exclusive offers.</p>
                 <form class="newsletter-form">
-                    <input type="email" placeholder="Enter your email address" required>
+                    <input type="email" placeholder="Enter your email address" required aria-label="Email Address">
                     <button type="submit" class="btn btn-primary">Subscribe</button>
                 </form>
             </div>
@@ -1022,22 +1091,29 @@ footer {
     <footer>
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-col">
+     <div class="footer-col">
                     <div class="footer-logo">
-                        <h2 style="color: #fff;"><span style="color: red;">RED </span>ZONE</h2>
+                        <h2 style="color: #fff;"><span style="color: red;">RED</span>ZONE</h2>
                         <p style="margin-top: 10px; font-size: 14px; line-height: 1.6;">Your trusted partner for fire safety and security solutions since 2010.</p>
                     </div>
                     <div class="footer-contact" style="margin-top: 20px;">
-                        <p><i class="fas fa-map-marker-alt"></i> SECURE YOUR ZONE BY REDZONE 📍NEAR CLOCK TOWER JABALPUR</p>
-                        <p><i class="fas fa-phone"></i> 91+ 9425183400</p>
-                        <p><i class="fas fa-envelope"></i> redzonejab@gmail.com</p>
+                    <p class="footer-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <a href="https://maps.app.goo.gl/LcSVH9njFxkV7TMK8" target="_blank" rel="noopener noreferrer" aria-label="View REDZONE Location">
+                            SECURE YOUR ZONE BY REDZONE 📍 NEAR CLOCK TOWER JABALPUR
+                        </a>
+                    </p>
+
+                    <p><i class="fas fa-phone"></i><a href="tel:+919425183400" aria-label="Call REDZONE">+91 9425183400</a></p>
+                    <p><i class="fas fa-envelope"></i><a href="mailto:redzonejab@gmail.com" aria-label="Email REDZONE">redzonejab@gmail.com</a></p>
                     </div>
                 </div>
+                
                 
                 <div class="footer-col">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="index1.html">Home</a></li>
+                        <li><a href="index.html">Home</a></li>
                         <li><a href="shop.html">Shop</a></li>
                         <li><a href="co_product.html">Products</a></li>
                         <li><a href="service.html">Services</a></li>
@@ -1072,11 +1148,11 @@ footer {
             
             <div class="footer-bottom">
                 <p>&copy; <span id="year"></span> REDZONE Security Solutions. All rights reserved.</p>
-                <div class="payment-methods">
-                    <i class="fab fa-cc-visa"></i>
-                    <i class="fab fa-cc-mastercard"></i>
-                    <i class="fab fa-cc-amex"></i>
-                    <i class="fab fa-cc-paypal"></i>
+                <div class="payment-methods" aria-label="Payment Methods">
+                    <i class="fab fa-cc-visa" aria-hidden="true"></i>
+                    <i class="fab fa-cc-mastercard" aria-hidden="true"></i>
+                    <i class="fab fa-cc-amex" aria-hidden="true"></i>
+                    <i class="fab fa-cc-paypal" aria-hidden="true"></i>
                 </div>
             </div>
         </div>
@@ -1089,13 +1165,19 @@ footer {
       function toggleMenu() {
         const menu = document.getElementById("mobileMenu");
         const overlay = document.getElementById("drawerOverlay");
+        const hamburger = document.querySelector('.hamburger');
+        const isOpen = menu.style.right === "0px";
 
-        if (menu.style.right === "0px") {
+        if (isOpen) {
           menu.style.right = "-100%";
           overlay.classList.remove("active");
+          menu.setAttribute("aria-hidden", "true");
+          hamburger.setAttribute("aria-expanded", "false");
         } else {
           menu.style.right = "0px";
           overlay.classList.add("active");
+          menu.setAttribute("aria-hidden", "false");
+          hamburger.setAttribute("aria-expanded", "true");
         }
       }
     </script>

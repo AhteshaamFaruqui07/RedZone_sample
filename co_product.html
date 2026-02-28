@@ -1,11 +1,93 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-IN">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Red Zone - Products</title>
+  
+  <!-- SEO: OPTIMIZED TITLE -->
+  <title>Buy Fire Safety & Security Equipment in India | REDZONE Security Solutions</title>  
+  <!-- SEO: META DESCRIPTION -->
+<meta name="description" content="Buy fire extinguishers, CCTV cameras, fire balls & advanced security systems across India. REDZONE Security Solutions provides certified fire safety and surveillance equipment for homes and businesses.">  
+  <!-- SEO: KEYWORDS -->  
+  <!-- SEO: CANONICAL LINK (Prevents duplicate content) -->
+   <meta name="geo.region" content="IN">
+   <meta name="geo.country" content="India">
+   <meta name="language" content="English">
+
+  <link rel="canonical" href="https://redzoneindia.solutions/co_product.html">
+  
+  <!-- SEO: ROBOTS -->
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+  <!-- OPEN GRAPH (Facebook/LinkedIn) -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://redzoneindia.solutions/co_product.html">
+  <meta property="og:title" content="Fire Safety & Security Equipment Supplier in India | REDZONE">
+  <meta property="og:description" content="Shop top-rated fire extinguishers, CCTV cameras, and fire balls. Professional security solutions for homes and businesses.">
+  <meta property="og:image" content="https://redzoneindia.solutions/images/logo12.png">
+
+  <!-- TWITTER CARDS -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Fire Safety & Security Equipment Supplier in India | REDZONE">
+  <meta name="twitter:description" content="Shop top-rated fire extinguishers, CCTV cameras, and fire balls. Professional security solutions for homes and businesses.">
+  <meta name="twitter:image" content="https://redzoneindia.solutions/images/logo12.png">
+
+  <!-- SCHEMA.ORG JSON-LD (STRUCTURED DATA FOR RICH SNIPPETS) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ProfessionalService",
+        "name": "REDZONE Security Solutions",
+        "image": "https://redzoneindia.solutions/images/logo12.png",
+        "telephone": "+919425183400",
+        "email": "redzonejab@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Near Clock Tower",
+          "addressLocality": "Jabalpur",
+          "addressRegion": "MP",
+          "postalCode": "482001",
+          "addressCountry": "IN"
+        },
+        "url": "https://redzoneindia.solutions",
+        "priceRange": "₹₹"
+      },
+      {
+        "@type": "ItemList",
+        "name": "Security Products",
+        "itemListElement": [
+          {
+            "@type": "Product",
+            "position": 1,
+            "name": "ABC Fire Extinguisher 5lb",
+            "image": "https://redzoneindia.solutions/images/extinguisher.png",
+            "description": "Multi-purpose fire extinguisher suitable for Class A, B, and C fires"
+          },
+          {
+            "@type": "Product",
+            "position": 2,
+            "name": "CO2 Fire Extinguisher 10lb",
+            "image": "https://redzoneindia.solutions/images/co2.png",
+            "description": "Carbon dioxide extinguisher ideal for electrical fires and sensitive equipment"
+          },
+          {
+            "@type": "Product",
+            "position": 3,
+            "name": "Smart Fire Ball Automatic",
+            "image": "https://redzoneindia.solutions/images/fire_ball.png",
+            "description": "Automatically activates when exposed to heat, suppresses fire in 3 seconds"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
   <link rel="stylesheet" href="style.css">
+  
   <!-- FAVICON -->
   <link rel="icon" href="images/logo1.png" type="image/png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -22,6 +104,12 @@
     }
 
     /* RESET */
+    /* FIX: Added html selector to remove right black space */
+    html {
+      width: 100%;
+      overflow-x: hidden;
+    }
+
     *{
       margin:0;
       padding:0;
@@ -33,6 +121,7 @@
       background:var(--black);
       color:var(--dark2);
       overflow-x: hidden;
+      width: 100%;
     }
 
     .container{
@@ -75,7 +164,7 @@
     }
 
     .logo {
-      width: 46px;
+      width: 59px;
       height: auto;
     }
 
@@ -146,6 +235,20 @@
   justify-content: center;
   width: 100%;
   pointer-events: none;
+}
+
+@media (min-width: 769px) {
+  header {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+  .products-page {
+    padding-top: 20px; /* Reset to base if there was a hero, but usually 160px for these product pages */
+    padding-top: 160px !important; /* Force padding for product grid */
+  }
 }
 
 /* PILL NAV STYLE */
@@ -466,6 +569,41 @@
       transform: translateY(-1px);
     }
 
+.price-request a {
+    display: inline-block;
+    background: #e00000;
+    color: #fff;
+    padding: 8px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.4s ease;
+    animation: smoothPulse 3s ease-in-out infinite;
+}
+
+/* Smooth Premium Pulse */
+@keyframes smoothPulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(224, 0, 0, 0);
+    }
+    50% {
+        transform: scale(1.04);
+        box-shadow: 0 0 20px rgba(224, 0, 0, 0.25);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(224, 0, 0, 0);
+    }
+}
+
+/* Smooth hover */
+.price-request a:hover {
+    background: #c00000;
+    transform: scale(1.06);
+    box-shadow: 0 8px 25px rgba(224, 0, 0, 0.35);
+}
+
     .wishlist-btn{
       background:#222;
       border:1px solid #444;
@@ -629,6 +767,27 @@
         margin-top: 3px;
     }
 
+        .footer-contact a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.footer-contact a:hover {
+    color: red;
+    text-decoration: underline;
+}
+
+.footer-location a {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.3s ease;
+}
+
+.footer-location a:hover {
+    color: red;
+}
+
+
     .footer-bottom {
         text-align: center;
         padding-top: 20px;
@@ -662,9 +821,10 @@
         font-size: 18px;
       }
 
-      .logo {
-        width: 38px;
-      }
+    .logo {
+        width: 70px;
+        margin-top: 10px;
+    }
 
       .drawer-overlay.active {
         display: block;
@@ -710,7 +870,10 @@
     <div class="container navbar">
       <!-- Brand -->
       <div class="brand">
-        <img class="logo" src="logo.png" alt="Logo">
+       <a href="index.html">
+          <!-- Logo not lazy loaded as it is in a sticky header (Always Visible) -->
+          <img class="logo" src="images/logo12.png" alt="REDZONE Security Solutions India Logo">
+       </a>
         <div class="brand-text">
           <div class="brand-line-1">
             <span class="Red">RED</span>
@@ -723,12 +886,12 @@
 
       <!-- Right Side -->
       <div class="nav-right">
-        <select>
+        <select aria-label="Select Language">
           <option>English</option>
           <option>हिन्दी</option>
           <option>ਪੰਜਾਬੀ</option>
         </select>
-        <div class="hamburger" onclick="toggleMenu()">
+        <div class="hamburger" onclick="toggleMenu()" aria-label="Toggle Mobile Menu">
           <span></span><span></span><span></span>
         </div>
       </div>
@@ -736,8 +899,8 @@
 
     <!-- Centered Pill Nav (Desktop) -->
     <div class="pill-nav-wrapper">
-      <nav class="pill-nav">
-        <a href="index1.html">Home</a>
+      <nav class="pill-nav" aria-label="Main Navigation">
+        <a href="index.html">Home</a>
         <a href="co_product.html" class="active">Products</a>
         <a href="shop.html">Shop</a>
         <a href="service.html">Services</a>
@@ -751,13 +914,13 @@
     <div class="drawer-overlay" id="drawerOverlay" onclick="toggleMenu()"></div>
 
     <!-- Mobile Drawer -->
-    <div class="mobile-drawer" id="mobileMenu">
+    <div class="mobile-drawer" id="mobileMenu" aria-hidden="true">
       <div class="drawer-header">
         <h3 style="color:white; font-weight:700;">Menu</h3>
-        <span class="close-btn" onclick="toggleMenu()">&times;</span>
+        <span class="close-btn" onclick="toggleMenu()" aria-label="Close Menu">&times;</span>
       </div>
 
-      <a href="index1.html"><i class="fas fa-home"></i> Home</a>
+      <a href="index.html"><i class="fas fa-home"></i> Home</a>
       <a href="co_product.html" style="color: var(--red);"><i class="fas fa-box"></i> Products</a>
       <a href="shop.html"><i class="fas fa-store-alt"></i>  Shop</a>
       <a href="contact.html"><i class="fas fa-phone"></i> Contact</a>
@@ -773,360 +936,239 @@
   </header>
 
    <!-- Products Section -->
-    <section class="products-page">
+   <!-- Added itemscope itemtype for Product Schema semantic hint -->
+    <section class="products-page" itemscope itemtype="https://schema.org/CollectionPage">
         <div class="container">
             <div class="section-title">
-                <h1>Our Security Products</h1>
-                <p>Browse our extensive collection of fire safety and security equipment</p>
-            </div>
-            
-            <!-- Filter and Sort Options -->
-            <div class="products-controls">
-                <div class="filter-options">
-                    <select>
-                        <option>All Categories</option>
-                        <option>Fire Extinguishers</option>
-                        <option>Fire Balls</option>
-                        <option>Security Cameras</option>
-                        <option>Access Control</option>
-                        <option>Alarm Systems</option>
-                    </select>
-                    
-                    <select>
-                        <option>Sort by: Default</option>
-                        <option>Price: Low to High</option>
-                        <option>Price: High to Low</option>
-                        <option>Best Selling</option>
-                        <option>Newest First</option>
-                    </select>
-                </div>
-                
-                <div class="results-count">
-                    Showing 1-12 of 48 products
-                </div>
+                <h1>Fire Safety & Security Products in India</h1>
+                <p itemprop="description">Browse our extensive collection of fire safety and security equipment</p>
             </div>
             
             <!-- Products Grid -->
             <div class="product-grid">
                 <!-- Fire Extinguishers -->
-                <div class="product-card">
+                <article class="product-card" itemscope itemtype="https://schema.org/Product">
                     <div class="product-badge">Best Seller</div>
                     <div class="product-img">
-                        <img src="images/extinguisher.png" alt="ABC Fire Extinguisher 5lb">
+                        <img src="images/extinguisher.png" alt="ABC 5lb Fire Extinguisher for Home and Office Safety" itemprop="image" loading="lazy">
                     </div>
                     <div class="product-content">
-                        <h3>ABC Fire Extinguisher 5lb</h3>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                            <span>(128)</span>
+                        <h3 itemprop="name">ABC Fire Extinguisher 5lb</h3>
+                        <div class="product-rating" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            <span itemprop="reviewCount">128</span>
                         </div>
-                        <p>Multi-purpose fire extinguisher suitable for Class A, B, and C fires</p>
-                        <div class="product-price">
-                             <span class="price-request">Contact for Price</span>
-                        </div>
+                        <p itemprop="description">Multi-purpose fire extinguisher suitable for Class A, B, and C fires</p>
                         <div class="product-actions">
-                            <button class="btn btn-primary">Add to Cart</button>
-                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        <span class="price-request"><a href="tel:+919425183400" aria-label="Call REDZONE">Contact for Price</a></span>
                         </div>
                     </div>
-                </div>
+                </article>
                 
-                <div class="product-card">
+                <article class="product-card" itemscope itemtype="https://schema.org/Product">
                     <div class="product-badge">Sale</div>
                     <div class="product-img">
-                        <img src="images/co2.png" alt="CO2 Fire Extinguisher 10lb">
+                        <img src="images/co2.png" alt="CO2 Fire Extinguisher 10lb Silver" itemprop="image" loading="lazy">
                     </div>
                     <div class="product-content">
-                        <h3>CO2 Fire Extinguisher 10lb</h3>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <span>(92)</span>
+                        <h3 itemprop="name">CO2 Fire Extinguisher 10lb</h3>
+                        <div class="product-rating" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                            <span itemprop="reviewCount">92</span>
                         </div>
-                        <p>Carbon dioxide extinguisher ideal for electrical fires and sensitive equipment</p>
-                        <div class="product-price">
-                             <span class="price-request">Contact for Price</span>
-                        </div>
+                        <p itemprop="description">Carbon dioxide extinguisher ideal for electrical fires and sensitive equipment</p>
                         <div class="product-actions">
-                            <button class="btn btn-primary">Add to Cart</button>
-                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        <span class="price-request"><a href="tel:+919425183400" aria-label="Call REDZONE">Contact for Price</a></span>
                         </div>
                     </div>
-                </div>
+                </article>
                 
-                <div class="product-card">
+                <article class="product-card" itemscope itemtype="https://schema.org/Product">
                     <div class="product-img">
-                        <img src="images/foam.png" alt="Foam Fire Extinguisher 20lb">
+                        <img src="images/foam.png" alt="Foam Fire Extinguisher 20lb Red" itemprop="image" loading="lazy">
                     </div>
                     <div class="product-content">
-                        <h3>Foam Fire Extinguisher 20lb</h3>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <span>(76)</span>
+                        <h3 itemprop="name">Foam Fire Extinguisher 20lb</h3>
+                        <div class="product-rating" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <span itemprop="reviewCount">76</span>
                         </div>
-                        <p>High-capacity foam extinguisher for large Class A and B fire hazards</p>
-                        <div class="product-price">
-                           <span class="price-request">Contact for Price</span>
-                        </div>
+                        <p itemprop="description">High-capacity foam extinguisher for large Class A and B fire hazards</p>
                         <div class="product-actions">
-                            <button class="btn btn-primary">Add to Cart</button>
-                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        <span class="price-request"><a href="tel:+919425183400" aria-label="Call REDZONE">Contact for Price</a></span>
                         </div>
                     </div>
-                </div>
+                </article>
                 
                 <!-- Fire Balls -->
-                <div class="product-card">
+                <article class="product-card" itemscope itemtype="https://schema.org/Product">
                     <div class="product-badge">New</div>
                     <div class="product-img">
-                        <img src="images/fire_ball.png" alt="Smart Fire Ball">
+                        <img src="images/fire_ball.png" alt="Smart Red Automatic Fire Ball" itemprop="image" loading="lazy">
                     </div>
                     <div class="product-content">
-                        <h3>Smart Fire Ball Automatic</h3>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <span>(96)</span>
+                        <h3 itemprop="name">Smart Fire Ball Automatic</h3>
+                        <div class="product-rating" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <span itemprop="reviewCount">96</span>
                         </div>
-                        <p>Automatically activates when exposed to heat, suppresses fire in 3 seconds</p>
-                        <div class="product-price">
-                             <span class="price-request">Contact for Price</span>
-                        </div>
+                        <p itemprop="description">Automatically activates when exposed to heat, suppresses fire in 3 seconds</p>
                         <div class="product-actions">
-                            <button class="btn btn-primary">Add to Cart</button>
-                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        <span class="price-request"><a href="tel:+919425183400" aria-label="Call REDZONE">Contact for Price</a></span>
                         </div>
                     </div>
-                </div>
+                </article>
                 
-                <div class="product-card">
+                <article class="product-card" itemscope itemtype="https://schema.org/Product">
                     <div class="product-img">
-                        <img src="images/pack.png" alt="Fire Ball Pack of 3">
+                        <img src="images/pack.png" alt="Pack of 4 Fire Balls" itemprop="image" loading="lazy">
                     </div>
                     <div class="product-content">
-                        <h3>Fire Ball Pack of 4</h3>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                            <span>(64)</span>
+                        <h3 itemprop="name">Fire Ball Pack of 4</h3>
+                        <div class="product-rating" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            <span itemprop="reviewCount">64</span>
                         </div>
-                        <p>Three automatic fire suppression spheres for comprehensive protection</p>
-                        <div class="product-price">
-                            <span class="price-request">Contact for Price</span>
-                        </div>
+                        <p itemprop="description">Three automatic fire suppression spheres for comprehensive protection</p>
                         <div class="product-actions">
-                            <button class="btn btn-primary">Add to Cart</button>
-                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        <span class="price-request"><a href="tel:+919425183400" aria-label="Call REDZONE">Contact for Price</a></span>
                         </div>
                     </div>
-                </div>
+                </article>
                 
-                <div class="product-card">
+                <article class="product-card" itemscope itemtype="https://schema.org/Product">
                     <div class="product-img">
-                        <img src="images/fire_ball.png" alt="Rechargeable Fire Ball">
+                        <img src="images/fire_ball.png" alt="Rechargeable Fire Ball" itemprop="image" loading="lazy">
                     </div>
                     <div class="product-content">
-                        <h3>Rechargeable Fire Ball</h3>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <span>(42)</span>
+                        <h3 itemprop="name">Rechargeable Fire Ball</h3>
+                        <div class="product-rating" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                            <span itemprop="reviewCount">42</span>
                         </div>
-                        <p>Reusable fire ball that can be recharged after activation</p>
-                        <div class="product-price">
-                             <span class="price-request">Contact for Price</span>
-                        </div>
+                        <p itemprop="description">Reusable fire ball that can be recharged after activation</p>
                         <div class="product-actions">
-                            <button class="btn btn-primary">Add to Cart</button>
-                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        <span class="price-request"><a href="tel:+919425183400" aria-label="Call REDZONE">Contact for Price</a></span>
                         </div>
                     </div>
-                </div>
+                </article>
                 
                 <!-- Security Cameras -->
-                <div class="product-card">
+                <article class="product-card" itemscope itemtype="https://schema.org/Product">
                     <div class="product-badge">Popular</div>
                     <div class="product-img">
-                        <img src="images/cam.png" alt="Wireless Security Camera 1080P">
+                        <img src="images/cam.png" alt="Wireless Security Camera 1080P" itemprop="image" loading="lazy">
                     </div>
                     <div class="product-content">
-                        <h3>Wireless Security Camera 1080P</h3>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <span>(74)</span>
+                        <h3 itemprop="name">Wireless Security Camera 1080P</h3>
+                        <div class="product-rating" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                            <span itemprop="reviewCount">74</span>
                         </div>
-                        <p>1080P HD resolution with night vision and smartphone app control</p>
-                        <div class="product-price">
-                            <span class="price-request">Contact for Price</span>
-                        </div>
+                        <p itemprop="description">1080P HD resolution with night vision and smartphone app control</p>
                         <div class="product-actions">
-                            <button class="btn btn-primary">Add to Cart</button>
-                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        <span class="price-request"><a href="tel:+919425183400" aria-label="Call REDZONE">Contact for Price</a></span>
                         </div>
                     </div>
-                </div>
+                </article>
                 
-                <div class="product-card">
+                <article class="product-card" itemscope itemtype="https://schema.org/Product">
                     <div class="product-img">
-                        <img src="images/camera.png" alt="PTZ Security Camera 4K">
+                        <img src="images/camera.png" alt="PTZ Security Camera 4K Outdoor" itemprop="image" loading="lazy">
                     </div>
                     <div class="product-content">
-                        <h3>PTZ Security Camera 4K</h3>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                            <span>(88)</span>
+                        <h3 itemprop="name">PTZ Security Camera 4K</h3>
+                        <div class="product-rating" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            <span itemprop="reviewCount">88</span>
                         </div>
-                        <p>4K resolution PTZ camera with 360° rotation and 20x zoom</p>
-                        <div class="product-price">
-                            <span class="price-request">Contact for Price</span>
-                        </div>
+                        <p itemprop="description">4K resolution PTZ camera with 360° rotation and 20x zoom</p>
                         <div class="product-actions">
-                            <button class="btn btn-primary">Add to Cart</button>
-                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        <span class="price-request"><a href="tel:+919425183400" aria-label="Call REDZONE">Contact for Price</a></span>
                         </div>
                     </div>
-                </div>
+                </article>
                 
-                <div class="product-card">
+                <article class="product-card" itemscope itemtype="https://schema.org/Product">
                     <div class="product-badge">Sale</div>
                     <div class="product-img">
-                        <img src="images/camera1.png" alt="Bullet Security Camera Night Vision">
+                        <img src="images/camera1.png" alt="Bullet Security Camera Night Vision" itemprop="image" loading="lazy">
                     </div>
                     <div class="product-content">
-                        <h3>Bullet Security Camera Night Vision</h3>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <span>(102)</span>
+                        <h3 itemprop="name">Bullet Security Camera Night Vision</h3>
+                        <div class="product-rating" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <span itemprop="reviewCount">102</span>
                         </div>
-                        <p>Heavy-duty bullet camera with 100ft night vision and weatherproof housing</p>
-                        <div class="product-price">
-                            <span class="price-request">Contact for Price</span>
-                        </div>
+                        <p itemprop="description">Heavy-duty bullet camera with 100ft night vision and weatherproof housing</p>
                         <div class="product-actions">
-                            <button class="btn btn-primary">Add to Cart</button>
-                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        <span class="price-request"><a href="tel:+919425183400" aria-label="Call REDZONE">Contact for Price</a></span>
                         </div>
                     </div>
-                </div>
+                </article>
                 
-                <div class="product-card">
+                <article class="product-card" itemscope itemtype="https://schema.org/Product">
                     <div class="product-img">
-                        <img src="images/camera2.png" alt="Dome Security Camera Infrared">
+                        <img src="images/camera2.png" alt="Dome Security Camera Infrared" itemprop="image" loading="lazy">
                     </div>
                     <div class="product-content">
-                        <h3>Dome Security Camera Infrared</h3>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <span>(67)</span>
+                        <h3 itemprop="name">Dome Security Camera Infrared</h3>
+                        <div class="product-rating" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                            <span itemprop="reviewCount">67</span>
                         </div>
-                        <p>Infrared dome camera with vandal-resistant construction and motion detection</p>
-                        <div class="product-price">
-                             <span class="price-request">Contact for Price</span>
-                        </div>
+                        <p itemprop="description">Infrared dome camera with vandal-resistant construction and motion detection</p>
                         <div class="product-actions">
-                            <button class="btn btn-primary">Add to Cart</button>
-                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        <span class="price-request"><a href="tel:+919425183400" aria-label="Call REDZONE">Contact for Price</a></span>
                         </div>
                     </div>
-                </div>
+                </article>
                 
-                <div class="product-card">
+                <article class="product-card" itemscope itemtype="https://schema.org/Product">
                     <div class="product-img">
-                        <img src="images/channel.png" alt="NVR System 8 Channel">
+                        <img src="images/channel.png" alt="NVR System 8 Channel Recorder" itemprop="image" loading="lazy">
                     </div>
                     <div class="product-content">
-                        <h3>NVR System 8 Channel</h3>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                            <span>(53)</span>
+                        <h3 itemprop="name">NVR System 8 Channel</h3>
+                        <div class="product-rating" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            <span itemprop="reviewCount">53</span>
                         </div>
-                        <p>8-channel Network Video Recorder with 2TB hard drive and remote access</p>
-                        <div class="product-price">
-                             <span class="price-request">Contact for Price</span>
-                        </div>
+                        <p itemprop="description">8-channel Network Video Recorder with 2TB hard drive and remote access</p>
                         <div class="product-actions">
-                            <button class="btn btn-primary">Add to Cart</button>
-                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        <span class="price-request"><a href="tel:+919425183400" aria-label="Call REDZONE">Contact for Price</a></span>
                         </div>
                     </div>
-                </div>
+                </article>
                 
-                <div class="product-card">
+                <article class="product-card" itemscope itemtype="https://schema.org/Product">
                     <div class="product-badge">Best Value</div>
                     <div class="product-img">
-                        <img src="images/door.png" alt="Doorbell Camera WiFi">
+                        <img src="images/door.png" alt="Doorbell Camera WiFi Smart" itemprop="image" loading="lazy">
                     </div>
                     <div class="product-content">
-                        <h3>Doorbell Camera WiFi</h3>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <span>(142)</span>
+                        <h3 itemprop="name">Doorbell Camera WiFi</h3>
+                        <div class="product-rating" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <span itemprop="reviewCount">142</span>
                         </div>
-                        <p>WiFi doorbell camera with two-way audio and smartphone notifications</p>
-                        <div class="product-price">
-                         <span class="price-request">Contact for Price</span>
-                        </div>
+                        <p itemprop="description">WiFi doorbell camera with two-way audio and smartphone notifications</p>
                         <div class="product-actions">
-                            <button class="btn btn-primary">Add to Cart</button>
-                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        <span class="price-request"><a href="tel:+919425183400" aria-label="Call REDZONE">Contact for Price</a></span>
                         </div>
                     </div>
-                </div>
+                </article>
             </div>
             
             <!-- Pagination -->
-            <div class="pagination">
-                <a href="co_product.html" class="prev active">Previous</a>
-                <a href="1.html" class="page">1</a>
-                <a href="2.html" class="page">2</a>
-                <a href="3.html" class="page">3</a>
-                <a href="4.html" class="page">4</a>
-                <a href="#" class="next">Next</a>
-            </div>
+            <nav class="pagination" aria-label="Product Pagination">
+                <a href="co_product.html" class="prev active" aria-label="Previous Page">Previous</a>
+                <a href="1.html" class="page" aria-label="Page 1">1</a>
+                <a href="2.html" class="page" aria-label="Page 2">2</a>
+                <a href="3.html" class="page" aria-label="Page 3">3</a>
+                <a href="4.html" class="page" aria-label="Page 4">4</a>
+                <a href="#" class="next" aria-label="Next Page">Next</a>
+            </nav>
         </div>
     </section>
 
@@ -1137,7 +1179,7 @@
                 <h2>Stay Updated with Security Tips</h2>
                 <p>Subscribe to our newsletter for latest product updates, security tips, and exclusive offers.</p>
                 <form class="newsletter-form">
-                    <input type="email" placeholder="Enter your email address" required>
+                    <input type="email" placeholder="Enter your email address" required aria-label="Email Address">
                     <button type="submit" class="btn btn-primary">Subscribe</button>
                 </form>
             </div>
@@ -1150,20 +1192,26 @@
             <div class="footer-grid">
                 <div class="footer-col">
                     <div class="footer-logo">
-                        <h2 style="color: #fff;"><span style="color: red;">RED </span>ZONE</h2>
+                        <h2 style="color: #fff;"><span style="color: red;">RED</span>ZONE</h2>
                         <p style="margin-top: 10px; font-size: 14px; line-height: 1.6;">Your trusted partner for fire safety and security solutions since 2010.</p>
                     </div>
                     <div class="footer-contact" style="margin-top: 20px;">
-                        <p><i class="fas fa-map-marker-alt"></i> SECURE YOUR ZONE BY REDZONE 📍NEAR CLOCK TOWER JABALPUR</p>
-                        <p><i class="fas fa-phone"></i> 91+ 9425183400</p>
-                        <p><i class="fas fa-envelope"></i> redzonejab@gmail.com</p>
+                    <p class="footer-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <a href="https://maps.app.goo.gl/LcSVH9njFxkV7TMK8" target="_blank" rel="noopener noreferrer" aria-label="REDZONE Location on Map">
+                            SECURE YOUR ZONE BY REDZONE 📍 NEAR CLOCK TOWER JABALPUR
+                        </a>
+                    </p>
+
+                    <p><i class="fas fa-phone"></i><a href="tel:+919425183400" aria-label="Call REDZONE Support">+91 9425183400</a></p>
+                    <p><i class="fas fa-envelope"></i><a href="mailto:redzonejbp@gmail.com" aria-label="Email REDZONE">redzonejbp@gmail.com</a></p>
                     </div>
                 </div>
                 
                 <div class="footer-col">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="index1.html">Home</a></li>
+                        <li><a href="index.html">Home</a></li>
                         <li><a href="shop.html">Shop</a></li>
                         <li><a href="co_product.html">Products</a></li>
                         <li><a href="service.html">Services</a></li>
@@ -1199,10 +1247,10 @@
             <div class="footer-bottom">
                 <p>&copy; <span id="year"></span> RED ZONE Security Solutions. All rights reserved.</p>
                 <div class="payment-methods">
-                    <i class="fab fa-cc-visa"></i>
-                    <i class="fab fa-cc-mastercard"></i>
-                    <i class="fab fa-cc-amex"></i>
-                    <i class="fab fa-cc-paypal"></i>
+                    <i class="fab fa-cc-visa" aria-label="Visa"></i>
+                    <i class="fab fa-cc-mastercard" aria-label="Mastercard"></i>
+                    <i class="fab fa-cc-amex" aria-label="American Express"></i>
+                    <i class="fab fa-cc-paypal" aria-label="PayPal"></i>
                 </div>
             </div>
         </div>

@@ -1,15 +1,58 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-IN">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Red Zone</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+  
+  <!-- SEO META TAGS -->
+  <title>Buy Automatic Fire Extinguisher Ball Online | Self Activating Fire Ball | REDZONE India</title>
+  <meta name="description" content="Buy automatic fire extinguisher balls online. Self-activating fire balls that suppress fire in 3 seconds. Ideal for home, office, kitchen and industrial safety across India."> 
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://redzoneindia.solutions/3.html">
+  <meta property="og:site_name" content="REDZONE India">
+  <meta property="og:locale" content="en_IN"> 
+
+  <!-- OPEN GRAPH -->
+  <meta property="og:title" content="Fire Ball Extinguishers - Automatic Safety | REDZONE">
+  <meta property="og:description" content="Self-activating fire extinguisher balls. Maintenance-free fire safety solution for homes and businesses.">
+  <meta property="og:image" content="https://redzoneindia.solutions/camera/fire1.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://redzoneindia.solutions/3.html">
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
   <link rel="stylesheet" href="style.css">
+  
   <!-- FAVICON -->
   <link rel="icon" href="images/logo1.png" type="image/png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- STRUCTURED DATA (SCHEMA) FOR FIRE BALLS -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Automatic Fire Extinguisher Balls",
+      "description": "Self activating fire extinguisher balls for home and industrial safety",
+      "url": "https://redzoneindia.solutions/3.html",
+      "hasPart": [
+        {
+          "@type": "Product",
+          "name": "Fireball Automatic Fire Extinguisher Ball",
+          "image": "https://redzoneindia.solutions/camera/fire1.png",
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.5",
+            "reviewCount": "128"
+          }
+        }
+      ]
+    }
+    </script>
 
   <style>
 :root{
@@ -23,6 +66,12 @@
 }
 
 /* RESET */
+/* FIX: Added html selector to remove black space on right */
+html {
+  width: 100%;
+  overflow-x: hidden;
+}
+
 *{
   margin:0;
   padding:0;
@@ -34,6 +83,7 @@ body{
   background:var(--black);
   color:var(--dark2);
   overflow-x: hidden;
+  width: 100%;
 }
 
 .container{
@@ -76,7 +126,7 @@ header{
 }
 
 .logo {
-  width: 46px;
+  width: 59px;
   height: auto;
 }
 
@@ -147,6 +197,20 @@ select{
   justify-content: center;
   width: 100%;
   pointer-events: none;
+}
+
+@media (min-width: 769px) {
+  header {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+  .products-page {
+    padding-top: 20px; /* Reset to base if there was a hero, but usually 160px for these product pages */
+    padding-top: 160px !important; /* Force padding for product grid */
+  }
 }
 
 /* PILL NAV STYLE */
@@ -495,7 +559,40 @@ select{
   background:#ff2a2a;
   transform: translateY(-1px);
 }
+.price-request a {
+    display: inline-block;
+    background: #e00000;
+    color: #fff;
+    padding: 8px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.4s ease;
+    animation: smoothPulse 3s ease-in-out infinite;
+}
 
+/* Smooth Premium Pulse */
+@keyframes smoothPulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(224, 0, 0, 0);
+    }
+    50% {
+        transform: scale(1.04);
+        box-shadow: 0 0 20px rgba(224, 0, 0, 0.25);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(224, 0, 0, 0);
+    }
+}
+
+/* Smooth hover */
+.price-request a:hover {
+    background: #c00000;
+    transform: scale(1.06);
+    box-shadow: 0 8px 25px rgba(224, 0, 0, 0.35);
+}
 .wishlist-btn{
   background:#222;
   border:1px solid #444;
@@ -658,6 +755,27 @@ footer {
     margin-top: 3px;
 }
 
+    .footer-contact a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.footer-contact a:hover {
+    color: red;
+    text-decoration: underline;
+}
+
+.footer-location a {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.3s ease;
+}
+
+.footer-location a:hover {
+    color: red;
+}
+
+
 .footer-bottom {
     text-align: center;
     padding-top: 20px;
@@ -692,7 +810,8 @@ footer {
   }
 
   .logo {
-    width: 38px;
+    width: 120px;
+    margin-top: 10px;
   }
 
   .drawer-overlay.active {
@@ -739,7 +858,10 @@ footer {
     <div class="container navbar">
       <!-- Brand -->
       <div class="brand">
-        <img class="logo" src="logo.png" alt="Logo">
+       <a href="index.html" aria-label="REDZONE Home">
+          <img class="logo" src="images/logo12.png" alt="REDZONE Logo" width="59" height="auto">
+       </a>
+
         <div class="brand-text">
           <div class="brand-line-1">
             <span class="Red">RED</span>
@@ -752,12 +874,12 @@ footer {
 
       <!-- Right Side -->
       <div class="nav-right">
-        <select>
+        <select aria-label="Select Language">
           <option>English</option>
           <option>हिन्दी</option>
           <option>ਪੰਜਾਬੀ</option>
         </select>
-        <div class="hamburger" onclick="toggleMenu()">
+        <div class="hamburger" onclick="toggleMenu()" aria-label="Menu" role="button" tabindex="0">
           <span></span><span></span><span></span>
         </div>
       </div>
@@ -765,8 +887,8 @@ footer {
 
     <!-- Centered Pill Nav (Desktop) -->
     <div class="pill-nav-wrapper">
-      <nav class="pill-nav">
-        <a href="index1.html">Home</a>
+      <nav class="pill-nav" aria-label="Main Navigation">
+        <a href="index.html">Home</a>
         <a href="co_product.html" class="active">Products</a>
         <a href="shop.html">Shop</a>
         <a href="service.html">Services</a>
@@ -780,14 +902,14 @@ footer {
     <div class="drawer-overlay" id="drawerOverlay" onclick="toggleMenu()"></div>
 
     <!-- Mobile Drawer -->
-    <div class="mobile-drawer" id="mobileMenu">
+    <div class="mobile-drawer" id="mobileMenu" aria-hidden="true">
       <div class="drawer-header">
         <h3 style="color:white; font-weight:700;">Menu</h3>
-        <span class="close-btn" onclick="toggleMenu()">&times;</span>
+        <span class="close-btn" onclick="toggleMenu()" aria-label="Close Menu">&times;</span>
       </div>
 
-      <a href="index1.html"><i class="fas fa-home"></i> Home</a>
-      <a href="product.html"><i class="fas fa-box"></i> Products</a>
+      <a href="index.html"><i class="fas fa-home"></i> Home</a>
+      <a href="co_product.html"><i class="fas fa-box"></i> Products</a>
       <a href="shop.html"><i class="fas fa-store-alt"></i>  Shop</a>
       <a href="contact.html"><i class="fas fa-phone"></i> Contact</a>
       <a href="worker.html"><i class="fas fa-users"></i> Our Team</a>
@@ -805,45 +927,22 @@ footer {
     <section class="products-page">
         <div class="container">
             <div class="section-title">
-                <h1>Our Security Products - Fire Ball</h1>
-                <p>Browse our extensive collection of fire safety and security equipment</p>
+            <h1>Buy Automatic Fire Extinguisher Balls Online</h1>
+            <p>Explore self-activating fire extinguisher balls that suppress fire within 3 seconds. Ideal for home, office, kitchen and industrial fire protection across India.</p>
             </div>
             
-            <!-- Filter and Sort Options -->
-            <div class="products-controls">
-                <div class="filter-options">
-                    <select>
-                        <option>All Categories</option>
-                        <option>Fire Balls</option>
-                        <option>Fire Balls pack of 4</option>
-                        <option>Security Cameras</option>
-                        <option>Access Control</option>
-                        <option>Alarm Systems</option>
-                    </select>
-                    
-                    <select>
-                        <option>Price: Low to High</option>
-                        <option>Price: High to Low</option>
-                        <option>Best Selling</option>
-                        <option>Newest First</option>
-                    </select>
-                </div>
-                
-                <div class="results-count">
-                    Showing 1-12 of 48 products
-                </div>
-            </div>
+
             
             <!-- Products Grid -->
             <div class="product-grid">
                 <!-- Fire Extinguishers -->
-                <div class="product-card">
+                <div class="product-card" itemscope itemtype="https://schema.org/Product">
                     <div class="product-badge">Best Seller</div>
                     <div class="product-img">
-                        <img src="camera/fire1.png" alt="fire1">
+                        <img src="camera/fire1.png" alt="Fireball Automatic Fire Extinguisher Ball" width="280" height="220" loading="lazy" itemprop="image">
                     </div>
                     <div class="product-content">
-                        <h3>Fireball Automatic Fire Extinguisher Ball</h3>
+                        <h3 itemprop="name">Fireball Automatic Fire Extinguisher Ball</h3>
                         <div class="product-rating">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -852,24 +951,20 @@ footer {
                             <i class="fas fa-star-half-alt"></i>
                             <span>(128)</span>
                         </div>
-                        <p>Self-activating dry-powder fire extinguisher ball, activates at ~70–100 °C, covers ~1.3 m radius, suitable for Class A, B, C fires, maintenance-free.</p>
-                        <div class="product-price">
-                             <span class="price-request">Contact for Price</span>
-                        </div>
+                        <p itemprop="description">Self-activating dry-powder fire extinguisher ball, activates at ~70–100 °C, covers ~1.3 m radius, suitable for Class A, B, C fires, maintenance-free.</p>
                         <div class="product-actions">
-                            <button class="btn btn-primary">Add to Cart</button>
-                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        <span class="price-request"><a href="tel:+919425183400" aria-label="Call REDZONE">Contact for Price</a></span>
                         </div>
                     </div>
                 </div>
                 
-                <div class="product-card">
+                <div class="product-card" itemscope itemtype="https://schema.org/Product">
                     <div class="product-badge">Sale</div>
                     <div class="product-img">
-                        <img src="images/fire_ball.png" alt="camera2">
+                        <img src="images/fire_ball.png" alt="Buy Smart Automatic Fire Extinguisher Ball for Home Safety" width="280" height="220" loading="lazy" itemprop="image">
                     </div>
                     <div class="product-content">
-                        <h3>Smart Fire Ball Automatic</h3>
+                        <h3 itemprop="name">Smart Fire Ball Automatic</h3>
                         <div class="product-rating">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -878,23 +973,19 @@ footer {
                             <i class="far fa-star"></i>
                             <span>(92)</span>
                         </div>
-                        <p>Automatically activates when exposed to heat, suppresses fire in 3 seconds.</p>
-                        <div class="product-price">
-                             <span class="price-request">Contact for Price</span>
-                        </div>
+                        <p itemprop="description">Automatically activates when exposed to heat, suppresses fire in 3 seconds.</p>
                         <div class="product-actions">
-                            <button class="btn btn-primary">Add to Cart</button>
-                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        <span class="price-request"><a href="tel:+919425183400" aria-label="Call REDZONE">Contact for Price</a></span>
                         </div>
                     </div>
                 </div>
                 
-                <div class="product-card">
+                <div class="product-card" itemscope itemtype="https://schema.org/Product">
                     <div class="product-img">
-                        <img src="images/pack.png" alt="camera3">
+                        <img src="images/pack.png" alt="Fire Ball Pack of 4 Bundle" width="280" height="220" loading="lazy" itemprop="image">
                     </div>
                     <div class="product-content">
-                        <h3>Fire Ball Pack of 4</h3>
+                        <h3 itemprop="name">Fire Ball Pack of 4</h3>
                         <div class="product-rating">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -902,25 +993,21 @@ footer {
                             <i class="fas fa-star"></i>
                             <span>(76)</span>
                         </div>
-                        <p>Three automatic fire suppression spheres for comprehensive protection.</p>
-                        <div class="product-price">
-                           <span class="price-request">Contact for Price</span>
-                        </div>
+                        <p itemprop="description">Three automatic fire suppression spheres for comprehensive protection.</p>
                         <div class="product-actions">
-                            <button class="btn btn-primary">Add to Cart</button>
-                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        <span class="price-request"><a href="tel:+919425183400" aria-label="Call REDZONE">Contact for Price</a></span>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Fire Balls -->
-                <div class="product-card">
+                <div class="product-card" itemscope itemtype="https://schema.org/Product">
                     <div class="product-badge">New</div>
                     <div class="product-img">
-                        <img src="camera/fire3.png" alt="fire3">
+                        <img src="camera/fire3.png" alt="Mobiak Automatic Fire Ball" width="280" height="220" loading="lazy" itemprop="image">
                     </div>
                     <div class="product-content">
-                        <h3>Mobiak Fire</h3>
+                        <h3 itemprop="name">Mobiak Fire</h3>
                         <div class="product-rating">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -929,24 +1016,20 @@ footer {
                             <i class="fas fa-star"></i>
                             <span>(96)</span>
                         </div>
-                        <p>Automatic Fire extinguisher 1.3kg of Dry Powder ABC90% in a ball shape is an innovative product that is used for extinguishing initial stage fires.
+                        <p itemprop="description">Automatic Fire extinguisher 1.3kg of Dry Powder ABC90% in a ball shape is an innovative product that is used for extinguishing initial stage fires.
 It is a lightweight product easy to use even from children and old age people (in case of fire).</p>
-                        <div class="product-price">
-                             <span class="price-request">Contact for Price</span>
-                        </div>
                         <div class="product-actions">
-                            <button class="btn btn-primary">Add to Cart</button>
-                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        <span class="price-request"><a href="tel:+919425183400" aria-label="Call REDZONE">Contact for Price</a></span>
                         </div>
                     </div>
                 </div>
                 
-                <div class="product-card">
+                <div class="product-card" itemscope itemtype="https://schema.org/Product">
                     <div class="product-img">
-                        <img src="camera/fire4.png" alt="fire4">
+                        <img src="camera/fire4.png" alt="Fire Ball Pack of 6 Bulk Pack" width="280" height="220" loading="lazy" itemprop="image">
                     </div>
                     <div class="product-content">
-                        <h3>Fire Ball Pack of 6</h3>
+                        <h3 itemprop="name">Fire Ball Pack of 6</h3>
                         <div class="product-rating">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -955,24 +1038,20 @@ It is a lightweight product easy to use even from children and old age people (i
                             <i class="fas fa-star"></i>
                             <span>(142)</span>
                         </div>
-                        <p>Automatically activates when exposed to heat, suppresses fire in 3 seconds.</p>
-                        <div class="product-price">
-                         <span class="price-request">Contact for Price</span>
-                        </div>
+                        <p itemprop="description">Automatically activates when exposed to heat, suppresses fire in 3 seconds.</p>
                         <div class="product-actions">
-                            <button class="btn btn-primary">Add to Cart</button>
-                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        <span class="price-request"><a href="tel:+919425183400" aria-label="Call REDZONE">Contact for Price</a></span>
                         </div>
                     </div>
                 </div>
                 
-                <div class="product-card">
+                <div class="product-card" itemscope itemtype="https://schema.org/Product">
                     <div class="product-badge">Best Value</div>
                     <div class="product-img">
-                        <img src="images/door.png" alt="Doorbell Camera WiFi">
+                        <img src="images/door.png" alt="Doorbell Camera WiFi" width="280" height="220" loading="lazy" itemprop="image">
                     </div>
                     <div class="product-content">
-                        <h3>Doorbell Camera WiFi</h3>
+                        <h3 itemprop="name">Doorbell Camera WiFi</h3>
                         <div class="product-rating">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -981,24 +1060,20 @@ It is a lightweight product easy to use even from children and old age people (i
                             <i class="fas fa-star"></i>
                             <span>(142)</span>
                         </div>
-                        <p>WiFi doorbell camera with two-way audio and smartphone notifications</p>
-                        <div class="product-price">
-                         <span class="price-request">Contact for Price</span>
-                        </div>
+                        <p itemprop="description">WiFi doorbell camera with two-way audio and smartphone notifications</p>
                         <div class="product-actions">
-                            <button class="btn btn-primary">Add to Cart</button>
-                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        <span class="price-request"><a href="tel:+919425183400" aria-label="Call REDZONE">Contact for Price</a></span>
                         </div>
                     </div>
                 </div>
             </div>
             
             <!-- Pagination -->
-            <div class="pagination">
+            <div class="pagination" aria-label="Product Pagination">
                 <a href="co_product.html" class="prev">Previous</a>
                 <a href="1.html" class="page">1</a>
                 <a href="2.html" class="page">2</a>
-                <a href="3.html" class="page active">3</a>
+                <a href="3.html" class="page active" aria-current="page">3</a>
                 <a href="4.html" class="page">4</a>
                 <a href="#" class="next">Next</a>
             </div>
@@ -1012,7 +1087,7 @@ It is a lightweight product easy to use even from children and old age people (i
                 <h2>Stay Updated with Security Tips</h2>
                 <p>Subscribe to our newsletter for latest product updates, security tips, and exclusive offers.</p>
                 <form class="newsletter-form">
-                    <input type="email" placeholder="Enter your email address" required>
+                    <input type="email" placeholder="Enter your email address" required aria-label="Email Address">
                     <button type="submit" class="btn btn-primary">Subscribe</button>
                 </form>
             </div>
@@ -1023,22 +1098,29 @@ It is a lightweight product easy to use even from children and old age people (i
     <footer>
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-col">
+       <div class="footer-col">
                     <div class="footer-logo">
                         <h2 style="color: #fff;"><span style="color: red;">RED</span>ZONE</h2>
                         <p style="margin-top: 10px; font-size: 14px; line-height: 1.6;">Your trusted partner for fire safety and security solutions since 2010.</p>
                     </div>
                     <div class="footer-contact" style="margin-top: 20px;">
-                        <p><i class="fas fa-map-marker-alt"></i> SECURE YOUR ZONE BY REDZONE 📍NEAR CLOCK TOWER JABALPUR</p>
-                        <p><i class="fas fa-phone"></i> 91+ 9425183400</p>
-                        <p><i class="fas fa-envelope"></i> redzonejab@gmail.com</p>
+                    <p class="footer-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <a href="https://maps.app.goo.gl/LcSVH9njFxkV7TMK8" target="_blank" rel="noopener noreferrer" aria-label="View REDZONE Location">
+                            SECURE YOUR ZONE BY REDZONE 📍 NEAR CLOCK TOWER JABALPUR
+                        </a>
+                    </p>
+
+                    <p><i class="fas fa-phone"></i><a href="tel:+919425183400" aria-label="Call REDZONE">+91 9425183400</a></p>
+                    <p><i class="fas fa-envelope"></i><a href="mailto:redzonejab@gmail.com" aria-label="Email REDZONE">redzonejab@gmail.com</a></p>
                     </div>
                 </div>
+                
                 
                 <div class="footer-col">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="index1.html">Home</a></li>
+                        <li><a href="index.html">Home</a></li>
                         <li><a href="shop.html">Shop</a></li>
                         <li><a href="co_product.html">Products</a></li>
                         <li><a href="service.html">Services</a></li>
@@ -1073,11 +1155,11 @@ It is a lightweight product easy to use even from children and old age people (i
             
             <div class="footer-bottom">
                 <p>&copy; <span id="year"></span> RED ZONE Security Solutions. All rights reserved.</p>
-                <div class="payment-methods">
-                    <i class="fab fa-cc-visa"></i>
-                    <i class="fab fa-cc-mastercard"></i>
-                    <i class="fab fa-cc-amex"></i>
-                    <i class="fab fa-cc-paypal"></i>
+                <div class="payment-methods" aria-label="Payment Methods">
+                    <i class="fab fa-cc-visa" aria-hidden="true"></i>
+                    <i class="fab fa-cc-mastercard" aria-hidden="true"></i>
+                    <i class="fab fa-cc-amex" aria-hidden="true"></i>
+                    <i class="fab fa-cc-paypal" aria-hidden="true"></i>
                 </div>
             </div>
         </div>
@@ -1090,13 +1172,19 @@ It is a lightweight product easy to use even from children and old age people (i
       function toggleMenu() {
         const menu = document.getElementById("mobileMenu");
         const overlay = document.getElementById("drawerOverlay");
+        const hamburger = document.querySelector('.hamburger');
+        const isOpen = menu.style.right === "0px";
 
-        if (menu.style.right === "0px") {
+        if (isOpen) {
           menu.style.right = "-100%";
           overlay.classList.remove("active");
+          menu.setAttribute("aria-hidden", "true");
+          hamburger.setAttribute("aria-expanded", "false");
         } else {
           menu.style.right = "0px";
           overlay.classList.add("active");
+          menu.setAttribute("aria-hidden", "false");
+          hamburger.setAttribute("aria-expanded", "true");
         }
       }
     </script>

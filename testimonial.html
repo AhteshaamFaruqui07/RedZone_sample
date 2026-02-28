@@ -1,9 +1,87 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-IN">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Red Zone - Dark Theme</title>
+  <meta name="theme-color" content="#e10600">
+  <link rel="preload" as="image" href="images/logo12.png">
+  <!-- SEO: OPTIMIZED TITLE -->
+  <title>REDZONE Security Solutions Reviews | CCTV & Fire Safety in Jabalpur</title>
+  
+  <!-- SEO: META DESCRIPTION -->
+  <meta name="description" content="Read 5-star customer reviews of REDZONE Security Solutions in Jabalpur. Trusted provider of CCTV cameras, fire extinguishers, fire balls and industrial safety equipment in Madhya Pradesh.">  
+  <!-- SEO: KEYWORDS -->
+  <meta name="keywords" content="Fire Extinguisher Reviews Jabalpur, CCTV Testimonials, REDZONE Security, Industrial Safety Gear, Fire Safety Equipment Madhya Pradesh">
+  
+  <!-- SEO: AUTHOR -->
+  <meta name="author" content="REDZONE Security Solutions">
+
+  <!-- SEO: CANONICAL LINK (Prevents duplicate content issues) -->
+  <link rel="canonical" href="https://redzoneindia.solutions/testimonial.html">
+
+  <!-- SEO: ROBOTS -->
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+  <!-- OPEN GRAPH (Facebook/LinkedIn/WhatsApp) -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://redzoneindia.solutions/testimonial.html">
+  <meta property="og:title" content="Customer Reviews | REDZONE Security Solutions Jabalpur">
+  <meta property="og:description" content="See why Jabalpur trusts REDZONE for fire safety and security. 5-star rated service for fire extinguishers and CCTV systems.">
+  <meta property="og:image" content="https://redzoneindia.solutions/images/logo12.png">
+
+  <!-- TWITTER CARDS -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://redzoneindia.solutions/testimonial.html">
+  <meta name="twitter:title" content="Customer Reviews | REDZONE Security Solutions Jabalpur">
+  <meta name="twitter:description" content="See why Jabalpur trusts REDZONE for fire safety and security. 5-star rated service.">
+  <meta name="twitter:image" content="https://redzoneindia.solutions/images/logo12.png">
+
+  <!-- SCHEMA.ORG JSON-LD (STRUCTURED DATA - CRITICAL FOR RANKING) -->
+ <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://redzoneindia.solutions/#business",
+  "name": "REDZONE Security Solutions",
+  "url": "https://redzoneindia.solutions",
+  "logo": "https://redzoneindia.solutions/images/logo12.png",
+  "image": "https://redzoneindia.solutions/images/logo12.png",
+  "telephone": "+919425183400",
+  "email": "redzonejab@gmail.com",
+  "priceRange": "₹₹",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Near Clock Tower",
+    "addressLocality": "Jabalpur",
+    "addressRegion": "Madhya Pradesh",
+    "postalCode": "482001",
+    "addressCountry": "IN"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 23.1815,
+    "longitude": 79.9864
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Jabalpur"
+  },
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"
+    ],
+    "opens": "10:00",
+    "closes": "21:00"
+  }],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "128"
+  }
+}
+</script>
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
   <!-- FAVICON -->
   <link rel="icon" href="images/logo1.png" type="image/png">
@@ -90,31 +168,6 @@
     /* =========================
        HEADER
     ========================= */
-    html, body {
-      width: 100%;
-      overflow-x: hidden;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      color: var(--text-white);
-      /* SMOOTH RED TO BLACK GRADIENT */
-      background: linear-gradient(180deg, #540707 0%, #000000 100%);
-      min-height: 100vh;
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    .container {
-      width: 100%;
-      max-width: 1200px;
-      margin: auto;
-      padding: 0 24px;
-    }
-
-    /* =========================
-       HEADER (UPDATED TRANSPARENT THEME)
-    ========================= */
     header {
   position: fixed;          /* 🔥 FIXED, not sticky */
   top: 0;
@@ -139,6 +192,10 @@
       display: flex;
       align-items: center;
       gap: 12px;
+    }
+        .logo {
+      width: 59px;
+      height: auto;
     }
 
     .brand img {
@@ -527,7 +584,7 @@
     }
     
     .footer-logo p {
-      color: #888;
+      color: #ffffff;
       margin-bottom: 20px;
     }
 
@@ -547,7 +604,7 @@
     }
 
     .footer-contact p {
-      color: #888;
+      color: #fefefe;
       margin-bottom: 15px;
       font-size: 14px;
       display: flex;
@@ -559,6 +616,25 @@
       color: var(--primary-red);
       margin-top: 3px;
     }
+        .footer-contact a {
+    color: inherit;
+    text-decoration: none;
+}
+
+  .footer-contact a:hover {
+      color: red;
+      text-decoration: underline;
+  }
+
+  .footer-location a {
+      text-decoration: none;
+      color: inherit;
+      transition: 0.3s ease;
+  }
+
+  .footer-location a:hover {
+      color: red;
+  }
 
     .footer-bottom {
       border-top: 1px solid #111;
@@ -585,6 +661,7 @@
 
     /* RESPONSIVE */
     @media (max-width: 768px) {
+      .logo {width: 70px;margin-top: 10px;}
       .pill-nav-wrapper { display: none !important; }
       .hamburger { display: flex; }
       .newsletter-form { flex-direction: column; padding: 15px; border-radius: 20px; }
@@ -610,7 +687,10 @@
     <div class="container navbar">
       <!-- LEFT BRAND -->
       <div class="brand">
-        <img src="logo.png" alt="Red Zone Logo" onerror="this.style.display='none'">
+               <a href="index.html">
+          <!-- SEO OPTIMIZED ALT TEXT -->
+          <img class="logo" src="images/logo12.png" alt="REDZONE Security Solutions Logo Jabalpur">
+       </a>
         <div class="brand-text">
           <div class="brand-line-1">
             <span class="Red">RED</span>
@@ -623,13 +703,13 @@
 
       <!-- RIGHT -->
       <div class="nav-right">
-        <select>
+        <select aria-label="Select Language">
           <option>English</option>
           <option>हिन्दी</option>
           <option>ਪੰਜਾਬੀ</option>
         </select>
 
-        <div class="hamburger" onclick="toggleMenu()">
+        <div class="hamburger" onclick="toggleMenu()" aria-label="Toggle Navigation Menu">
           <span></span><span></span><span></span>
         </div>
       </div>
@@ -637,8 +717,8 @@
 
     <!-- CENTERED PILL NAV -->
     <div class="pill-nav-wrapper">
-      <nav class="pill-nav">
-        <a href="index1.html">Home</a>
+      <nav class="pill-nav" aria-label="Main Navigation">
+        <a href="index.html">Home</a>
         <a href="product.html">Products</a>
         <a href="shop.html">shop</a>
         <a href="service.html">Services</a>
@@ -652,9 +732,9 @@
     <div class="mobile-drawer" id="mobileMenu">
       <div class="drawer-header">
         <h3 style="color:rgb(255, 255, 255); font-size:18px; font-weight:700;">Menu</h3>
-        <span class="close-btn" onclick="toggleMenu()">&times;</span>
+        <span class="close-btn" onclick="toggleMenu()" aria-label="Close Menu">&times;</span>
       </div>
-      <a href="index1.html"><i class="fas fa-home"></i> Home</a>
+      <a href="index.html"><i class="fas fa-home"></i> Home</a>
       <a href="product.html"><i class="fas fa-box"></i> Products</a>
       <a href="co_product.html"><i class="fas fa-tags"></i> Product Details</a>
       <a href="service.html"><i class="fas fa-tools"></i> Services</a>
@@ -670,68 +750,59 @@
     <canvas id="networkCanvas"></canvas>
 
     <div class="container">
+        <!-- SEO: CHANGED H2 TO H1 FOR PAGE HIERARCHY -->
         <div class="section-title">
-            <h2>Customer Testimonials</h2>
-            <p>What our satisfied customers say about our products</p>
+            <h1>Customer Testimonials</h1>
+            <p>What our satisfied customers say about our products in Jabalpur</p>
         </div>
         
-        <div class="testimonial-grid">
-            <div class="testimonial-card">
+        <!-- Semantic List for Reviews -->
+        <div class="testimonial-grid" itemscope itemtype="http://schema.org/ItemList">
+            <div class="testimonial-card" itemprop="itemListElement" itemscope itemtype="http://schema.org/Review">
                 <div class="testimonial-rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                 </div>
-                <p>"The fire extinguishers we purchased saved our restaurant kitchen during a grease fire. Quick response and easy to use!"</p>
+                <p itemprop="reviewBody">"The fire extinguishers we purchased saved our restaurant kitchen during a grease fire. Quick response and easy to use!"</p>
                 <div class="testimonial-author">
                     <div class="author-img">
-                        <img src="https://picsum.photos/seed/mike/100/100" alt="Michael Johnson">
+                        <!-- SEO: Descriptive Alt Text -->
+                        <img src="https://picsum.photos/seed/mike/100/100" alt="Michael Johnson - Restaurant Owner" itemprop="image">
                     </div>
                     <div class="author-info">
-                        <h4>Michael Johnson</h4>
-                        <p>Restaurant Owner</p>
+                        <h4 itemprop="author">Michael Johnson</h4>
+                        <p itemprop="name">Restaurant Owner</p>
                     </div>
                 </div>
             </div>
             
-            <div class="testimonial-card">
+            <div class="testimonial-card" itemprop="itemListElement" itemscope itemtype="http://schema.org/Review">
                 <div class="testimonial-rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
                 </div>
-                <p>"Installed the security camera system throughout our office. Excellent image quality and easy setup. Highly recommend!"</p>
+                <p itemprop="reviewBody">"Installed the security camera system throughout our office. Excellent image quality and easy setup. Highly recommend!"</p>
                 <div class="testimonial-author">
                     <div class="author-img">
-                        <img src="https://picsum.photos/seed/sarah/100/100" alt="Sarah Roberts">
+                         <img src="https://picsum.photos/seed/sarah/100/100" alt="Sarah Roberts - Office Manager" itemprop="image">
                     </div>
                     <div class="author-info">
-                        <h4>Sarah Roberts</h4>
-                        <p>Office Manager</p>
+                        <h4 itemprop="author">Sarah Roberts</h4>
+                        <p itemprop="name">Office Manager</p>
                     </div>
                 </div>
             </div>
             
-            <div class="testimonial-card">
+            <div class="testimonial-card" itemprop="itemListElement" itemscope itemtype="http://schema.org/Review">
                 <div class="testimonial-rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                 </div>
-                <p>"The fire balls are incredible! Installed them in our warehouse and they give us peace of mind knowing we're protected."</p>
+                <p itemprop="reviewBody">"The fire balls are incredible! Installed them in our warehouse and they give us peace of mind knowing we're protected."</p>
                 <div class="testimonial-author">
                     <div class="author-img">
-                        <img src="https://picsum.photos/seed/david/100/100" alt="David Wilson">
+                         <img src="https://picsum.photos/seed/david/100/100" alt="David Wilson - Warehouse Supervisor" itemprop="image">
                     </div>
                     <div class="author-info">
-                        <h4>David Wilson</h4>
-                        <p>Warehouse Supervisor</p>
+                        <h4 itemprop="author">David Wilson</h4>
+                        <p itemprop="name">Warehouse Supervisor</p>
                     </div>
                 </div>
             </div>
@@ -746,7 +817,7 @@
             <h2>Stay Updated with Security Tips</h2>
             <p>Subscribe to our newsletter for latest product updates, security tips, and exclusive offers.</p>
             <form class="newsletter-form" onsubmit="handleSubscribe(event)">
-                <input type="email" id="emailInput" placeholder="Enter your email address" required>
+                <input type="email" id="emailInput" placeholder="Enter your email address" required aria-label="Email Address">
                 <button type="submit" class="btn btn-primary">Subscribe</button>
             </form>
         </div>
@@ -757,22 +828,30 @@
 <footer>
     <div class="container">
         <div class="footer-grid">
-            <div class="footer-col">
-                <div class="footer-logo">
-                    <h2><span style="color: var(--primary-red);">RED</span>ZONE</h2>
-                    <p style="color: #fff;">Your trusted partner for fire safety and security solutions since 2010.</p>
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <h2 style="color: #fff;"><span style="color: red;">RED</span>ZONE</h2>
+                        <p style="margin-top: 10px; font-size: 14px; line-height: 1.6;">Your trusted partner for fire safety and security solutions since 2010.</p>
+                    </div>
+                    <div class="footer-contact" style="margin-top: 20px;">
+                    <p class="footer-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <!-- Added rel="noopener noreferrer" for security -->
+                        <a href="https://maps.app.goo.gl/LcSVH9njFxkV7TMK8" target="_blank" rel="noopener noreferrer">
+                            SECURE YOUR ZONE BY REDZONE 📍 NEAR CLOCK TOWER JABALPUR
+                        </a>
+                    </p>
+
+                    <p><i class="fas fa-phone"></i><a href="tel:+919425183400" aria-label="Call REDZONE">+91 9425183400</a></p>
+                    <p><i class="fas fa-envelope"></i><a href="mailto:redzonejbp@gmail.com" aria-label="Email REDZONE">redzonejbp@gmail.com</a></p>
+                    </div>
                 </div>
-                <div class="footer-contact">
-                    <p style="color: #fff;"><i class="fas fa-map-marker-alt"></i>SECURE YOUR ZONE BY REDZONE 📍 Near Clock Tower jabalpur</p>
-                    <p style="color: #fff;"><i class="fas fa-phone"></i> +91 9425183400</p>
-                    <p style="color: #fff;"><i class="fas fa-envelope"></i> redzonejbp@gmail.com</p>
-                </div>
-            </div>
+                    
             
             <div class="footer-col">
                 <h3>Quick Links</h3>
                 <ul>
-                    <li><a href="index1.html">Home</a></li>
+                    <li><a href="index.html">Home</a></li>
                     <li><a href="shop.html">Shop</a></li>
                     <li><a href="co_product.html">Products</a></li>
                     <li><a href="service.html">Services</a></li>
@@ -808,10 +887,10 @@
         <div class="footer-bottom">
             <p>&copy; 2026 REDZONE Security Solutions. All rights reserved.</p>
             <div class="payment-methods">
-                <i class="fab fa-cc-visa"></i>
-                <i class="fab fa-cc-mastercard"></i>
-                <i class="fab fa-cc-amex"></i>
-                <i class="fab fa-cc-paypal"></i>
+                <i class="fab fa-cc-visa" aria-label="Visa"></i>
+                <i class="fab fa-cc-mastercard" aria-label="Mastercard"></i>
+                <i class="fab fa-cc-amex" aria-label="American Express"></i>
+                <i class="fab fa-cc-paypal" aria-label="PayPal"></i>
             </div>
         </div>
     </div>
